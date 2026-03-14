@@ -1,377 +1,751 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikunj Garg | Java Developer & Game Programmer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Nikunj Garg | Java & Unity Developer</title>
 
-<style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-:root{
---neon-green:#00ff9d;
---neon-blue:#00e5ff;
---gold:#ffcc00;
---bg-dark:#050505;
---card-glass:rgba(255,255,255,0.03);
---border-glass:rgba(255,255,255,0.1);
-}
+    <style>
+        :root {
+            --neon-green: #00ff9d;
+            --neon-blue: #00e5ff;
+            --gold: #ffcc00;
+            --nss-red: #ff4b2b;
+            --bg-dark: #050505;
+            --card-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            font-family: monospace;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            padding-bottom: 4px;
+        }
 
-body{
-background:var(--bg-dark);
-color:#e0e0e0;
-font-family:Segoe UI,sans-serif;
-overflow-x:hidden;
-}
+        .nav-menu a:hover {
+            color: var(--neon-green);
+        }
 
-/* HEADER */
+        .nav-menu a.active {
+            color: var(--neon-green);
+            border-bottom: 2px solid var(--neon-green);
+        }
 
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(5,5,5,0.9);
-border-bottom:1px solid var(--border-glass);
-z-index:1000;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-.logo{
-color:var(--neon-green);
-font-family:monospace;
-font-weight:bold;
-letter-spacing:2px;
-}
+        body {
+            background-color: var(--bg-dark);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-family:monospace;
-font-size:0.9rem;
-transition:0.3s;
-}
+            background-image:
+                radial-gradient(circle at 2px 2px, rgba(0, 255, 157, 0.05) 1px, transparent 0);
 
-nav a:hover{
-color:var(--neon-green);
-}
+            background-size: 40px 40px;
+        }
 
-/* HERO */
+        /* CURSOR */
 
-.hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:120px 10% 60px;
-}
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
 
-.hero h1{
-font-size:4rem;
-font-weight:900;
-text-transform:uppercase;
-text-shadow:3px 3px var(--neon-blue);
-}
+            background: radial-gradient(circle,
+                    rgba(0, 255, 157, 0.08) 0%,
+                    transparent 70%);
 
-.subtitle{
-letter-spacing:4px;
-color:var(--neon-green);
-margin-top:15px;
-font-family:monospace;
-}
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: 0.05s;
+        }
 
-.cta{
-margin-top:30px;
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-}
+        /* HEADER */
 
-.btn{
-padding:14px 35px;
-border:2px solid var(--neon-green);
-color:var(--neon-green);
-text-decoration:none;
-font-family:monospace;
-transition:0.3s;
-}
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 5%;
 
-.btn:hover{
-background:var(--neon-green);
-color:black;
-}
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
 
-/* SECTION TITLE */
+            border-bottom: 1px solid var(--border-glass);
 
-.section-title{
-text-align:center;
-margin:80px 0 40px;
-color:var(--neon-green);
-font-family:monospace;
-}
+            z-index: 1000;
 
-/* GRID */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-padding:0 10%;
-max-width:1200px;
-margin:auto;
-}
+        .logo {
+            color: var(--neon-green);
+            font-family: monospace;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
 
-/* CARD */
+        /* HERO */
 
-.card{
-background:var(--card-glass);
-border:1px solid var(--border-glass);
-padding:30px;
-border-radius:12px;
-transition:0.3s;
-}
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 10% 50px;
+        }
 
-.card:hover{
-transform:translateY(-6px);
-}
+        .glitch-name {
+            font-size: clamp(3rem, 12vw, 6.5rem);
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
 
-.badge{
-display:inline-block;
-padding:5px 10px;
-border:1px solid var(--neon-green);
-color:var(--neon-green);
-font-family:monospace;
-font-size:0.7rem;
-margin-bottom:12px;
-}
+            text-shadow: 3px 3px var(--neon-blue);
+        }
 
-/* VIDEO */
+        .subtitle {
+            letter-spacing: 5px;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
 
-iframe{
-width:100%;
-border-radius:6px;
-margin-top:10px;
-}
+        /* TERMINAL */
 
-/* CONTACT */
+        .terminal {
+            background: #000;
+            border: 1px solid var(--neon-blue);
+            padding: 20px;
+            border-radius: 8px;
 
-footer{
-text-align:center;
-padding:70px 10%;
-margin-top:100px;
-border-top:1px solid var(--border-glass);
-}
+            width: 100%;
+            max-width: 550px;
 
-.contact{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-top:20px;
-}
+            text-align: left;
+            margin: 20px 0;
 
-.contact a{
-color:white;
-text-decoration:none;
-font-family:monospace;
-}
+            font-family: monospace;
 
-.contact a:hover{
-color:var(--neon-green);
-}
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+        }
 
-</style>
+        /* BUTTONS */
+
+        .cta-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-hire {
+            padding: 18px 45px;
+            background: var(--gold);
+            border: none;
+
+            color: black;
+            font-weight: 900;
+            cursor: pointer;
+
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-hire:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
+        }
+
+        .btn-cv {
+            color: var(--neon-green);
+            padding: 18px 40px;
+
+            text-decoration: none;
+            border: 2px solid var(--neon-green);
+
+            transition: 0.3s ease;
+
+            font-family: monospace;
+            font-weight: bold;
+            background: transparent;
+        }
+
+        .btn-cv:hover {
+            background: var(--neon-green);
+            color: black;
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        /* SECTION */
+
+        .section-title {
+            color: var(--neon-green);
+            text-align: center;
+            margin: 80px 0 40px;
+            font-family: monospace;
+            font-size: 2rem;
+        }
+
+        /* GRID */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+            padding: 0 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* CARD */
+
+        .glass-card {
+            background: var(--card-glass);
+
+            border: 1px solid var(--border-glass);
+
+            padding: 35px;
+            border-radius: 15px;
+
+            transition: all 0.4s cubic-bezier(.175, .885, .32, 1.275);
+
+            position: relative;
+            overflow: hidden;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .java-card:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.15);
+        }
+
+        .unity-card:hover {
+            border-color: white;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .nss-card:hover {
+            border-color: var(--nss-red);
+            box-shadow: 0 15px 30px rgba(255, 75, 43, 0.15);
+        }
+
+        .codm-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.15);
+        }
+
+        /* BADGE */
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 0.7rem;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+
+            font-family: monospace;
+        }
+
+        .badge-java {
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+        }
+
+        .badge-unity {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .badge-nss {
+            background: rgba(255, 75, 43, 0.1);
+            color: var(--nss-red);
+            border: 1px solid var(--nss-red);
+        }
+
+        .badge-codm {
+            background: rgba(255, 204, 0, 0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        /* VIDEO */
+
+        iframe {
+            width: 100%;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 80px 10% 40px;
+            text-align: center;
+
+            background:
+                linear-gradient(to top,
+                    rgba(0, 255, 157, 0.05),
+                    transparent);
+
+            border-top: 1px solid var(--border-glass);
+            margin-top: 100px;
+        }
+
+        .contact-group {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+
+            transition: 0.3s;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-link:hover {
+            color: var(--neon-blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-link i {
+            color: var(--neon-green);
+            font-size: 1.4rem;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<header>
+    <div class="cursor-glow"></div>
 
-<div class="logo">NIKUNJ_OS</div>
+    <header>
 
-<nav>
-<a href="#home">HOME</a>
-<a href="#stack">STACK</a>
-<a href="#projects">PROJECTS</a>
-<a href="#contact">CONTACT</a>
-</nav>
+        <div class="logo">
+            NIKUNJ_OS
+        </div>
 
-</header>
+        <nav class="nav-menu">
+            <a href="#home" class="nav-link">HOME</a>
+            <a href="#about" class="nav-link">ABOUT ME</a>
+            <a href="#stack" class="nav-link">STACK</a>
+            <a href="#projects" class="nav-link">PROJECTS</a>
+            <a href="#contact" class="nav-link">CONTACT</a>
+        </nav>
 
-<!-- HERO -->
+    </header>
 
-<section class="hero" id="home">
+    <section class="hero" id="home">
 
-<h1>Nikunj Garg</h1>
+        <h1 class="glitch-name">Nikunj Garg</h1>
 
-<p class="subtitle">JAVA DEVELOPER // GAME PROGRAMMER</p>
+        <p class="subtitle">
+            JAVA DEVELOPER // UNITY CREATOR
+        </p>
 
-<div class="cta">
-<a href="Resume.pdf" download class="btn">DOWNLOAD CV</a>
-<a href="mailto:gargnikunj991@gmail.com" class="btn">CONTACT</a>
-</div>
+        <div class="terminal">
 
-</section>
+            <p style="color:#666;">
+                // Algorithmic optimization active
+            </p>
 
-<!-- TECH STACK -->
+            <p style="color:var(--neon-blue);">
+                public int binarySearch(int[] arr,int target){
+            </p>
 
-<h2 class="section-title" id="stack">// TECH_STACK</h2>
+            <p style="color:white;padding-left:20px;">
+                Efficiency: O(log n);
+            </p>
 
-<div class="grid">
+            <p style="color:white;padding-left:20px;">
+                Process: <span id="typing"></span>
+            </p>
 
-<div class="card">
+            <p style="color:var(--neon-blue);">
+                }
+            </p>
 
-<div class="badge">JAVA</div>
+        </div>
 
-<h3>Java Development</h3>
+        <div class="cta-container">
 
-<p>
-Core Java development using Object Oriented Programming,
-data structures and algorithmic problem solving.
-</p>
+            <button class="btn-hire" onclick="window.location.href='mailto:gargnikunj991@gmail.com'">
 
-</div>
+                HIRE_ME
 
-<div class="card">
+            </button>
 
-<div class="badge">UNITY</div>
+            <a href="Resume.pdf" download="Nikunj_Garg_Resume" class="btn-cv">
 
-<h3>Unity Game Development</h3>
+                DOWNLOAD_CV
 
-<p>
-2D game development with Unity and C#. Implementing
-game mechanics, UI systems and gameplay logic.
-</p>
+            </a>
 
-</div>
+        </div>
+        <h2 class="section-title" id="about">// ABOUT_ME</h2>
 
-</div>
+        <div class="grid">
 
-<!-- PROJECTS -->
+            <div class="glass-card">
 
-<h2 class="section-title" id="projects">// PROJECT_ARCHIVE</h2>
+                <h3 style="font-size:1.6rem;">Nikunj Garg</h3>
 
-<div class="grid">
+                <p style="color:#aaa; font-size:0.95rem; margin-top:10px; line-height:1.6;">
 
-<div class="card">
+                    I am a BCA student at <b>Shri Guru Ram Rai University (SGRRU)</b>.
+                    I completed my schooling from <b>SGRR Laxman Inter College</b>.
 
-<div class="badge">JAVA_PROJECT</div>
+                    My hometown is <b>Dehradun</b> and I currently live in Dehradun, Uttarakhand.
 
-<h3>Student Management System</h3>
+                    I am focused on learning <b>Java programming</b> and <b>Unity game development</b>.
+                    I enjoy building projects that help me improve my programming logic,
+                    problem solving skills, and game mechanics development.
 
-<p>
-Console based Java application built using OOP,
-ArrayList and file handling to store and manage
-student records.
-</p>
+                </p>
 
-<a href="https://github.com/gargnikunj991-ux/Studentmanagement"
-target="_blank"
-class="btn"
-style="margin-top:15px;display:inline-block;">
-VIEW CODE </a>
+            </div>
 
-</div>
+        </div>
 
-<div class="card">
+    </section>
 
-<div class="badge">UNITY_GAME</div>
+    <h2 class="section-title" id="stack">// TECHNICAL_STACK</h2>
 
-<h3>College Clash</h3>
+    <div class="grid">
 
-<p>
-2D Unity game prototype featuring player movement,
-score system, timer and win/lose mechanics.
-</p>
+        <div class="glass-card java-card">
 
-<iframe height="200"
-src="https://www.youtube.com/embed/UjIvSQhzUrE"
-allowfullscreen>
-</iframe>
+            <div class="badge badge-java">BACKEND</div>
 
-<a href="https://youtu.be/UjIvSQhzUrE"
-target="_blank"
-class="btn"
-style="margin-top:10px;display:inline-block;">
-WATCH ON YOUTUBE </a>
+            <i class="fab fa-java fa-4x" style="color:var(--neon-green);margin-bottom:15px;"> </i>
 
-</div>
+            <h3 style="font-size:1.8rem;">
+                Java Developer
+            </h3>
 
-</div>
+            <p style="color:#aaa;font-size:0.9rem;margin-top:10px;">
+                Focused on high performance data structures
+                and search algorithms.
+            </p>
 
-<!-- RECOGNITION -->
+        </div>
 
-<h2 class="section-title">// RECOGNITION</h2>
+        <div class="glass-card unity-card">
 
-<div class="grid">
+            <div class="badge badge-unity">2D_DEVELOPMENT</div>
 
-<div class="card">
+            <i class="fab fa-unity fa-4x" style="color:#fff;margin-bottom:15px;"> </i>
 
-<div class="badge">CODM</div>
+            <h3 style="font-size:1.8rem;">
+                Unity 2D
+            </h3>
 
-<h3>CODM World Championship</h3>
+            <p style="color:#aaa;font-size:0.9rem;margin-top:10px;">
+                Built a functional game loop featuring
+                player movement, win/lose logic
+                and timer UI.
+            </p>
 
-<p>
-Top 800 ranked player in Uttarakhand during the
-CODM Championship open stage.
-</p>
+        </div>
 
-</div>
+    </div>
 
-<div class="card">
+    <h2 class="section-title" id="projects">// PROJECT_ARCHIVE</h2>
 
-<div class="badge">NSS</div>
+    <div class="grid">
 
-<h3>NSS State Camp</h3>
+        <div class="glass-card java-card">
 
-<p>
-Recognized for disciplined service and leadership
-during NSS activities.
-</p>
+            <div class="badge badge-java">JAVA_PROJECT</div>
 
-</div>
+            <h3>Student Management System</h3>
 
-</div>
+            <p>
+                Console based Java application built using
+                OOP, ArrayList and file handling to manage
+                student records.
+            </p>
 
-<!-- CONTACT -->
+            <a href="https://github.com/gargnikunj991-ux/Studentmanagement" target="_blank"
+                style="display:inline-block;margin-top:15px;color:var(--neon-green);text-decoration:none;font-family:monospace;">
 
-<footer id="contact">
+                VIEW_CODE →
 
-<h2>CONTACT</h2>
+            </a>
 
-<div class="contact">
+        </div>
 
-<a href="mailto:gargnikunj991@gmail.com">
-<i class="fas fa-envelope"></i> Email
-</a>
+        <div class="glass-card unity-card">
 
-<a href="https://github.com/gargnikunj991-ux" target="_blank">
-<i class="fab fa-github"></i> GitHub
-</a>
+            <div class="badge badge-unity">UNITY_GAME</div>
 
-</div>
+            <i class="fab fa-unity fa-3x" style="color:white; margin-bottom:15px;"></i>
 
-<p style="margin-top:30px;color:#555;font-family:monospace;">
-© Nikunj Garg
-</p>
+            <h3 style="font-size:1.4rem;">College Clash</h3>
 
-</footer>
+            <p style="color:#aaa; font-size:0.9rem; margin-top:10px; line-height:1.6;">
+
+                2D Unity game prototype developed using <b>Unity Engine</b> and <b>C# scripting</b>.
+                The project focuses on implementing core gameplay systems and UI mechanics.
+
+                Main features include:
+
+            </p>
+
+            <ul style="color:var(--neon-blue); font-size:0.85rem; margin-top:10px; padding-left:18px;">
+
+                <li>Velocity based player movement</li>
+                <li>Score tracking system</li>
+                <li>Countdown timer UI</li>
+                <li>Win and lose state logic</li>
+                <li>Game restart system</li>
+
+            </ul>
+
+            <div style="margin-top:15px;">
+
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/UjIvSQhzUrE"
+                    title="College Clash Unity Game Demo" frameborder="0" allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <a href="https://youtu.be/UjIvSQhzUrE" target="_blank"
+                style="display:inline-block;margin-top:12px;color:white;text-decoration:none;font-family:monospace;">
+
+                WATCH_FULL_VIDEO →
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <h2 class="section-title">// RECOGNITION_LOG</h2>
+
+    <div class="grid">
+
+        <div class="glass-card codm-card">
+
+            <div class="badge badge-codm">
+                ELITE_COMPETITOR
+            </div>
+
+            <i class="fas fa-trophy fa-2x" style="margin-bottom:15px;color:var(--gold);"> </i>
+
+            <h3 style="font-size:1.3rem;">
+                CODM World Championship
+            </h3>
+
+            <p style="color:#aaa;margin-top:10px;line-height:1.5;">
+                Ranked Top 800 in Uttarakhand
+                during the Open Tournament phase.
+            </p>
+
+        </div>
+
+        <div class="glass-card nss-card">
+
+            <div class="badge badge-nss">
+                LEADERSHIP
+            </div>
+
+            <i class="fas fa-medal fa-2x" style="margin-bottom:15px;color:var(--nss-red);"> </i>
+
+            <h3 style="font-size:1.3rem;">
+                NSS State Camp
+            </h3>
+
+            <p style="color:#aaa;margin-top:10px;line-height:1.5;">
+                Recognized for disciplined service
+                during state level NSS program.
+            </p>
+
+        </div>
+
+    </div>
+
+    <footer id="contact">
+
+        <h2 style="margin-bottom:30px;color:white;letter-spacing:2px;">
+            SECURE_COMMUNICATION
+        </h2>
+
+        <div class="contact-group">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargnikunj991@gmail.com" target="_blank"
+                class="contact-link">
+                <i class="fas fa-envelope"></i>
+                gargnikunj991@gmail.com
+            </a>
+
+            <a href="https://github.com/gargnikunj991-ux" target="_blank" class="contact-link">
+
+                <i class="fab fa-github"></i>
+
+                github.com/gargnikunj991-ux
+
+            </a>
+
+        </div>
+
+        <p style="color:#555;font-family:monospace;font-size:0.8rem;margin-top:40px;">
+            © NIKUNJ GARG // UTTARAKHAND, INDIA
+        </p>
+
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll("section, footer");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute("id");
+                }
+
+            });
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+
+            });
+
+        });
+        const roles = [
+            "HALVING_SEARCH_SPACE...",
+            "TARGET_FOUND",
+            "OPTIMIZING...",
+            "READY_TO_DEPLOY"
+        ]
+
+        let rIdx = 0
+        let cIdx = 0
+
+        function type() {
+
+            let t = document.getElementById("typing")
+
+            if (cIdx < roles[rIdx].length) {
+
+                t.textContent += roles[rIdx].charAt(cIdx)
+
+                cIdx++
+
+                setTimeout(type, 100)
+
+            }
+
+            else {
+
+                setTimeout(erase, 2000)
+
+            }
+
+        }
+
+        function erase() {
+
+            let t = document.getElementById("typing")
+
+            if (cIdx > 0) {
+
+                t.textContent =
+                    roles[rIdx].substring(0, cIdx - 1)
+
+                cIdx--
+
+                setTimeout(erase, 50)
+
+            }
+
+            else {
+
+                rIdx = (rIdx + 1) % roles.length
+
+                setTimeout(type, 500)
+
+            }
+
+        }
+
+        const glow = document.querySelector('.cursor-glow')
+
+        document.addEventListener('mousemove', e => {
+
+            glow.style.left = e.pageX + 'px'
+            glow.style.top = e.pageY + 'px'
+
+        })
+
+        window.onload = type
+
+    </script>
 
 </body>
+
 </html>
