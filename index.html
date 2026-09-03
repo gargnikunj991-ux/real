@@ -13,7 +13,7 @@
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nikunjgarg.netlify.app/">
+    <meta property="og:url" content="https://nikunjgarg.xyz/">
     <meta property="og:title" content="Nikunj Garg | Java Backend Developer">
     <meta property="og:description" content="Portfolio of Nikunj Garg — Java Backend Developer specializing in Spring Boot, PostgreSQL, and scalable RESTful architectures.">
     <meta property="og:site_name" content="Nikunj Garg Portfolio">
@@ -830,6 +830,7 @@
         .method-post { background: rgba(0, 229, 255, 0.15); color: var(--neon-blue); }
         .method-put { background: rgba(255, 204, 0, 0.15); color: var(--gold); }
         .method-delete { background: rgba(255, 75, 43, 0.15); color: var(--nss-red); }
+        .method-ws { background: rgba(210, 168, 255, 0.15); color: #d2a8ff; }
 
         .arch-diagram-box {
             background: #090c10;
@@ -981,7 +982,6 @@
             <a href="#projects" class="nav-link">PROJECTS</a>
             <a href="#certifications" class="nav-link">CERTS</a>
             <a href="#recognition" class="nav-link">LOG</a>
-            <a href="#contact" class="nav-link">CONTACT</a>
         </nav>
     </header>
 
@@ -1003,6 +1003,9 @@
                         <div class="terminal-tabs">
                             <button class="term-tab-btn active" id="tabCodeBtn" onclick="switchTermTab('code')">
                                 <i class="fas fa-file-code"></i> StatusController.java
+                            </button>
+                            <button class="term-tab-btn" id="tabAgriBtn" onclick="switchTermTab('agrisathi')">
+                                <i class="fas fa-seedling"></i> AgriSathiController.java
                             </button>
                             <button class="term-tab-btn" id="tabCliBtn" onclick="switchTermTab('cli')">
                                 <i class="fas fa-terminal"></i> Interactive_CLI $
@@ -1026,7 +1029,25 @@
                         <p>}</p>
                     </div>
 
-                    <!-- TAB 2: INTERACTIVE CLI -->
+                    <!-- TAB 2: AGRISATHI API CODE VIEW -->
+                    <div class="terminal-code" id="termAgriView" style="display:none;">
+                        <p><span class="syn-ann">@RestController</span></p>
+                        <p><span class="syn-ann">@RequestMapping</span>(<span class="syn-str">"/api/v1/disease"</span>)</p>
+                        <p><span class="syn-key">public class</span> <span class="syn-type">CropDiseaseController</span> {</p>
+                        <p class="indent-1"><span class="syn-ann">@Autowired</span></p>
+                        <p class="indent-1"><span class="syn-key">private</span> <span class="syn-type">DiseaseDetectionService</span> <span class="syn-meth">diseaseService</span>;</p>
+                        <br>
+                        <p class="indent-1"><span class="syn-ann">@PostMapping</span>(value = <span class="syn-str">"/scan"</span>, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)</p>
+                        <p class="indent-1"><span class="syn-key">public</span> ResponseEntity&lt;<span class="syn-type">ApiResponse</span>&lt;<span class="syn-type">DiagnosisDTO</span>&gt;&gt; <span class="syn-meth">scanCropDisease</span>(</p>
+                        <p class="indent-2"><span class="syn-ann">@RequestParam</span>(<span class="syn-str">"image"</span>) MultipartFile imageFile) {</p>
+                        <p class="indent-2 syn-comm">// AI Computer Vision: Diagnosis &amp; targeted treatment advisory</p>
+                        <p class="indent-2"><span class="syn-type">DiagnosisDTO</span> diagnosis = diseaseService.analyzeCrop(imageFile);</p>
+                        <p class="indent-2"><span class="syn-key">return</span> ResponseEntity.ok(ApiResponse.success(<span class="syn-str">"Scan complete"</span>, diagnosis));</p>
+                        <p class="indent-1">}</p>
+                        <p>}</p>
+                    </div>
+
+                    <!-- TAB 3: INTERACTIVE CLI -->
                     <div class="terminal-cli" id="termCliView">
                         <div class="cli-history" id="cliHistory">
                             <div class="cli-entry">
@@ -1039,11 +1060,13 @@
 
                         <form class="cli-input-form" onsubmit="handleCliSubmit(event)">
                             <span class="cli-input-prompt">nikunj@backend:~$</span>
-                            <input type="text" id="cliInput" class="cli-input-field" placeholder="type 'help', 'curl /api/health', 'projects'..." autocomplete="off" />
+                            <input type="text" id="cliInput" class="cli-input-field" placeholder="type 'help', 'curl /api/v1/agrisathi', 'projects'..." autocomplete="off" />
                         </form>
 
                         <div class="cli-chips">
                             <span class="cli-chip" onclick="runCliCommand('help')">help</span>
+                            <span class="cli-chip" onclick="runCliCommand('curl /api/v1/agrisathi')">curl /api/v1/agrisathi</span>
+                            <span class="cli-chip" onclick="runCliCommand('curl /api/v1/disease/scan')">curl /api/v1/disease/scan</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/health')">curl /api/health</span>
                             <span class="cli-chip" onclick="runCliCommand('projects')">projects</span>
                             <span class="cli-chip" onclick="runCliCommand('cat resume')">cat resume</span>
@@ -1073,19 +1096,32 @@
                 <h3 style="font-size:1.6rem; color:#fff;">Nikunj Garg</h3>
                 <p class="card-body-text" style="margin-top:14px;">
                     BCA student at <b>Shri Guru Ram Rai University (SGRRU)</b>, Dehradun, specializing in
-                    <b>Java Backend Development</b> with hands-on experience building production-grade backend systems.
+                    <b>Java Backend Development</b> with <b>Spring Boot 3</b>, <b>PostgreSQL</b>, and <b>Spring Security</b>.
+                    Experienced in architecting secure <b>RESTful APIs</b>, real-time <b>WebSocket (STOMP)</b> communication,
+                    relational database schemas, and deploying cloud backends across competitive hackathons and production-grade projects.
                     <br><br>
-                    Architected and deployed applications using <b>Spring Boot</b> and <b>PostgreSQL</b>,
-                    implementing <b>REST APIs</b>, authentication systems, DAO patterns, and relational
-                    database schemas. Experienced with the full backend workflow — from database design
-                    to API deployment on cloud platforms like Railway.
+                    Proficient with the end-to-end backend engineering workflow — from relational schema design with <b>PostgreSQL</b> to stateless <b>JWT Authentication &amp; Refresh Token Rotation</b>, containerization with <b>Docker</b>, automated unit testing with <b>JUnit 5</b>, and cloud deployment on <b>Railway</b>.
                     <br><br>
-                    Proficient in <b>Git</b> for version control and collaborative development.
-                    Strong foundation in <b>OOP</b>, <b>Data Structures</b>, and
-                    <b>Backend Architecture</b>, with a focus on writing clean, maintainable,
-                    and scalable code. Driven by <b>Problem Solving</b> and passionate about
-                    engineering backend systems that are reliable, secure, and efficient.
+                    Strong foundation in <b>OOP Principles</b>, <b>Data Structures &amp; Algorithms</b>, and <b>Clean Architecture</b>, with a persistent focus on writing secure, maintainable, and scalable backend services.
                 </p>
+            </div>
+
+            <!-- DEDICATED EDUCATION MILESTONE CARD -->
+            <div style="margin-top: 20px;">
+                <div class="glass-card" style="border-left: 3px solid var(--neon-green);">
+                    <div class="badge badge-java">🎓 FORMAL EDUCATION</div>
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                        <h3 class="card-title" style="margin: 0; color: #fff; font-size: 1.25rem;">Bachelor of Computer Applications (BCA)</h3>
+                        <span style="color: var(--neon-blue); font-family: ui-monospace, monospace; font-size: 0.95rem; font-weight: 700;">2025 – 2028</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">
+                        <i class="fas fa-university" style="color: var(--neon-green); margin-right: 6px;"></i>
+                        <b style="color: #ddd;">Shri Guru Ram Rai University (SGRRU)</b> — Dehradun, Uttarakhand
+                    </p>
+                    <p class="card-body-text" style="margin-top: 10px; font-size: 0.88rem; line-height: 1.6;">
+                        Core Curriculum &amp; Specialization: Object-Oriented Programming (Java), Data Structures &amp; Algorithms, Relational Database Management Systems (SQL/PostgreSQL), Operating Systems, Software Engineering &amp; Clean Architecture.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -1096,75 +1132,118 @@
 
             <div class="filter-container">
                 <button class="filter-btn active" onclick="filterStack('all', this)">All Technologies</button>
-                <button class="filter-btn" onclick="filterStack('languages', this)">Languages</button>
-                <button class="filter-btn" onclick="filterStack('backend', this)">Backend &amp; Frameworks</button>
+                <button class="filter-btn" onclick="filterStack('backend', this)">Backend &amp; Security</button>
                 <button class="filter-btn" onclick="filterStack('database', this)">Databases</button>
-                <button class="filter-btn" onclick="filterStack('tools', this)">Dev Tools</button>
+                <button class="filter-btn" onclick="filterStack('devops', this)">DevOps &amp; Cloud</button>
+                <button class="filter-btn" onclick="filterStack('testing', this)">Testing &amp; Core</button>
             </div>
 
             <div class="grid" id="stackGrid">
-                <div class="glass-card java-card" data-category="languages">
-                    <div class="badge badge-java">LANGUAGES</div>
+                <!-- 1. Languages & Core -->
+                <div class="glass-card java-card" data-category="languages core testing">
+                    <div class="badge badge-java">LANGUAGES &amp; CORE</div>
                     <i class="fab fa-java card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Java &amp; SQL</h3>
+                    <h3 class="card-title">Java 21 &amp; OOP Architecture</h3>
                     <p class="card-body-text">
-                        Core backend programming in Java with strong SQL skills for database querying, schema design, and data manipulation.
+                        Core backend engineering in Java 21 LTS with strong object-oriented principles, Data Structures &amp; Algorithms, Clean Architecture, and relational schema modeling.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">Java 17/21</span>
+                        <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">SQL</span>
                         <span class="skill-pill">OOP Principles</span>
                         <span class="skill-pill">Data Structures</span>
                         <span class="skill-pill">Algorithms</span>
+                        <span class="skill-pill">Clean Architecture</span>
                     </div>
                 </div>
 
+                <!-- 2. Backend Frameworks -->
                 <div class="glass-card java-card" data-category="backend">
-                    <div class="badge badge-java">BACKEND</div>
+                    <div class="badge badge-java">BACKEND FRAMEWORKS</div>
                     <i class="fas fa-server card-header-icon" style="color:var(--neon-blue);"></i>
-                    <h3 class="card-title">Spring Boot</h3>
+                    <h3 class="card-title">Spring Boot 3 &amp; WebSockets</h3>
                     <p class="card-body-text">
-                        Building production-ready REST APIs and backend systems using Spring Boot, with Spring Data JPA/Hibernate and DAO patterns for clean data layer architecture.
+                        Architecting scalable, modular backends using Spring Boot 3.x, Spring Data JPA, Hibernate ORM, DAO patterns, and real-time bidirectional WebSockets (STOMP).
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">Spring Boot</span>
-                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">Spring Boot 3</span>
                         <span class="skill-pill">Spring Data JPA</span>
                         <span class="skill-pill">Hibernate</span>
+                        <span class="skill-pill">WebSockets (STOMP)</span>
+                        <span class="skill-pill">RESTful APIs</span>
                         <span class="skill-pill">DAO Pattern</span>
-                        <span class="skill-pill">JDBC</span>
                     </div>
                 </div>
 
-                <div class="glass-card java-card" data-category="database">
-                    <div class="badge badge-java">DATABASE</div>
-                    <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">PostgreSQL</h3>
+                <!-- 3. Security & API Standards -->
+                <div class="glass-card java-card" data-category="backend security">
+                    <div class="badge badge-java">SECURITY &amp; STANDARDS</div>
+                    <i class="fas fa-shield-halved card-header-icon" style="color:var(--nss-red);"></i>
+                    <h3 class="card-title">Spring Security &amp; JWT</h3>
                     <p class="card-body-text">
-                        Designing and managing relational databases with PostgreSQL for robust backend data persistence, including relational schema design, indexing, and CRUD operations.
+                        Stateless JWT authentication featuring database-persisted Refresh Token Rotation, BCrypt hashing, Bean Validation, and interactive OpenAPI / Swagger 3.0 documentation.
+                    </p>
+                    <div class="skill-list">
+                        <span class="skill-pill">Spring Security</span>
+                        <span class="skill-pill">JWT Auth</span>
+                        <span class="skill-pill">Refresh Token Rotation</span>
+                        <span class="skill-pill">BCrypt Hashing</span>
+                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
+                        <span class="skill-pill">Bean Validation</span>
+                    </div>
+                </div>
+
+                <!-- 4. Databases & Storage -->
+                <div class="glass-card java-card" data-category="database">
+                    <div class="badge badge-java">DATABASE &amp; STORAGE</div>
+                    <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
+                    <h3 class="card-title">PostgreSQL &amp; Cloudinary</h3>
+                    <p class="card-body-text">
+                        Relational database design with PostgreSQL 15+, schema normalization, complex joins, ACID transactional integrity, and Cloudinary media CDN integration.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">PostgreSQL</span>
                         <span class="skill-pill">Schema Design</span>
-                        <span class="skill-pill">CRUD</span>
                         <span class="skill-pill">Relational Joins</span>
+                        <span class="skill-pill">ACID Transactions</span>
+                        <span class="skill-pill">Cloudinary CDN</span>
                         <span class="skill-pill">Data Integrity</span>
                     </div>
                 </div>
 
-                <div class="glass-card java-card" data-category="tools">
-                    <div class="badge badge-java">TOOLS &amp; DEVOPS</div>
-                    <i class="fas fa-code-branch card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Dev Tools</h3>
+                <!-- 5. DevOps & Tools -->
+                <div class="glass-card java-card" data-category="tools devops">
+                    <div class="badge badge-java">DEVOPS &amp; CLOUD</div>
+                    <i class="fab fa-docker card-header-icon" style="color:var(--neon-blue);"></i>
+                    <h3 class="card-title">Docker &amp; Railway Cloud</h3>
                     <p class="card-body-text">
-                        Professional development workflow using industry-standard tools for version control, collaborative development, and cloud backend deployment.
+                        Containerization using Docker and Docker Compose, production cloud backend deployments on Railway, environment variable isolation, and health check monitoring.
                     </p>
                     <div class="skill-list">
+                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">Docker Compose</span>
+                        <span class="skill-pill">Railway Deployment</span>
                         <span class="skill-pill">Git &amp; GitHub</span>
-                        <span class="skill-pill">Railway</span>
-                        <span class="skill-pill">Postman</span>
-                        <span class="skill-pill">VS Code</span>
                         <span class="skill-pill">Maven</span>
+                        <span class="skill-pill">Postman</span>
+                        <span class="skill-pill">Thunder Client</span>
+                    </div>
+                </div>
+
+                <!-- 6. Testing & QA -->
+                <div class="glass-card java-card" data-category="testing core">
+                    <div class="badge badge-java">TESTING &amp; QA</div>
+                    <i class="fas fa-vial-circle-check card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">JUnit 5 Automated Testing</h3>
+                    <p class="card-body-text">
+                        Writing robust unit and integration test suites with JUnit 5, validating DTO constraints, service layer mockings, and achieving 100% pass across automated test suites.
+                    </p>
+                    <div class="skill-list">
+                        <span class="skill-pill">JUnit 5</span>
+                        <span class="skill-pill">Automated Testing</span>
+                        <span class="skill-pill">Integration Tests</span>
+                        <span class="skill-pill">DTO Validation</span>
+                        <span class="skill-pill">Global Exception Handling</span>
                     </div>
                 </div>
             </div>
@@ -1180,22 +1259,52 @@
                 <button class="filter-btn" onclick="filterProjects('hackathon', this)">Hackathons</button>
                 <button class="filter-btn" onclick="filterProjects('jpa', this)">JPA &amp; Databases</button>
                 <button class="filter-btn" onclick="filterProjects('springboot', this)">Spring Boot</button>
+                <button class="filter-btn" onclick="filterProjects('ai', this)">AI &amp; Enterprise</button>
             </div>
 
             <div class="grid" id="projectGrid">
-                <!-- DevTinder — Featured Hackathon Project -->
-                <div class="glass-card java-card" data-category="hackathon springboot">
-                    <div class="badge badge-java">⭐ FEATURED · HACKATHON</div>
-                    <h3 class="card-title">DevTinder</h3>
+                <!-- AgriSathi AI — Smart Agricultural Intelligence & Decision Support System -->
+                <div class="glass-card java-card" data-category="springboot jpa ai">
+                    <div class="badge badge-java">🌱 FEATURED · 30-DAY HACKATHON · AI</div>
+                    <h3 class="card-title">AgriSathi AI</h3>
                     <p class="card-body-text">
-                        Developed during an online hackathon, DevTinder is a Spring Boot backend application that helps programmers discover and connect with teammates for projects. Implemented Authentication System, Profile Management, Matching Algorithm, Group Chat System, and REST APIs with full Backend Deployment on Railway. Integrated PostgreSQL with 4+ database tables and Git version control throughout.
+                        Architected a modular Java 21 &amp; Spring Boot 3 backend for an AI-powered agricultural advisory platform during a 30-day hackathon. Built 25+ RESTful API endpoints implementing AI crop disease detection with confidence scoring &amp; treatment advisory (POST /api/v1/disease/scan) with Cloudinary media storage and computer vision integration. Integrated hyper-local 7-day predictive weather forecasting, a peer-to-peer producer-to-buyer marketplace with order and equipment borrow workflows, government scheme recommendations, and interactive OpenAPI/Swagger 3.0 documentation.
                     </p>
                     <div class="skill-list">
+                        <span class="skill-pill">Java 21</span>
+                        <span class="skill-pill">Spring Boot 3</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">Spring Data JPA</span>
+                        <span class="skill-pill">JWT &amp; RBAC</span>
+                        <span class="skill-pill">AI Computer Vision</span>
+                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
+                        <span class="skill-pill">Cloudinary</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-preview" onclick="openProjectModal('agrisathi')">
+                            <i class="fas fa-layer-group"></i> Architecture &amp; APIs
+                        </button>
+                        <a href="https://github.com/gargnikunj991-ux/AgriSathi_AI" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i> VIEW_CODE →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DevTinder — Featured Hackathon Project -->
+                <div class="glass-card java-card" data-category="hackathon springboot">
+                    <div class="badge badge-java">⭐ FEATURED · HACKATHON FINALIST</div>
+                    <h3 class="card-title">DevTinder</h3>
+                    <p class="card-body-text">
+                        Engineered and deployed the backend for a developer teammate matchmaking platform in 72 hours during Devlynix Buildathon 2.0. Designed a PostgreSQL-backed relational API layer for developer profiles, tech stack tags, and mutual collaboration matching requests. Implemented real-time bidirectional group &amp; direct messaging using WebSockets (STOMP protocol) with persistent chat history. Deployed to production on Railway with containerized environment variables and health check monitors.
+                    </p>
+                    <div class="skill-list">
+                        <span class="skill-pill">Java</span>
                         <span class="skill-pill">Spring Boot</span>
                         <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">WebSockets (STOMP)</span>
+                        <span class="skill-pill">Spring Security</span>
                         <span class="skill-pill">REST APIs</span>
-                        <span class="skill-pill">Authentication</span>
-                        <span class="skill-pill">Chat System</span>
                         <span class="skill-pill">Railway</span>
                     </div>
 
@@ -1211,17 +1320,18 @@
 
                 <!-- Library Management System -->
                 <div class="glass-card java-card" data-category="jpa springboot">
-                    <div class="badge badge-java">BACKEND · JPA · POSTGRESQL</div>
+                    <div class="badge badge-java">BACKEND · JPA · JUNIT 5 · POSTGRESQL</div>
                     <h3 class="card-title">Library Management System</h3>
                     <p class="card-body-text">
-                        Developed a RESTful Library Management System backend using Java, Spring Boot, Spring Data JPA, Hibernate, and PostgreSQL. Built a scalable backend with 14 REST API endpoints for managing books, members, borrowing, and returning books. Implemented layered architecture (Controller → Service → Repository), DTO-based request/response handling, input validation, global exception handling, and custom exceptions. Designed a relational database with 4 interconnected tables and automated availability tracking.
+                        Developed a production-grade layered RESTful architecture (Controller → Service → Repository) using Java 21, Spring Boot, Spring Data JPA, and PostgreSQL with 14+ REST API endpoints across 4 interconnected tables. Implemented stateless JWT authentication featuring database-persisted Refresh Token Rotation (/auth/refresh) and secure revocation. Engineered transactional (@Transactional) book checkout and return workflows with automatic 14-day due date tracking and fine calculation. Implemented DTO validation, global exception handling (@ControllerAdvice), and achieved 100% pass on 28 automated JUnit 5 unit and integration tests.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot</span>
                         <span class="skill-pill">Spring Data JPA</span>
-                        <span class="skill-pill">Hibernate</span>
                         <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">JWT &amp; Refresh Tokens</span>
+                        <span class="skill-pill">JUnit 5 (28 Tests)</span>
                         <span class="skill-pill">REST APIs</span>
                     </div>
 
@@ -1338,6 +1448,11 @@
                 gargnikunj991@gmail.com
             </a>
 
+            <a href="https://nikunjgarg.xyz" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <i class="fas fa-globe"></i>
+                nikunjgarg.xyz
+            </a>
+
             <a href="https://github.com/gargnikunj991-ux" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <i class="fab fa-github"></i>
                 github.com/gargnikunj991-ux
@@ -1359,15 +1474,53 @@
         // PROJECT PREVIEW MODAL DATA & HANDLERS
         // -------------------------------------------------------------
         const projectDetails = {
+            agrisathi: {
+                title: "AgriSathi AI — Agricultural Intelligence & Decision Support",
+                subtitle: "Java 21 · Spring Boot 3.x · Spring Data JPA · PostgreSQL · JWT Auth · Computer Vision AI",
+                github: "https://github.com/gargnikunj991-ux/AgriSathi_AI",
+                architecture: [
+                    "Client Tier (Web / Mobile App / Swagger UI) ➔ Spring Boot 3 REST Controllers (/api/v1)",
+                    "Stateless Security Filter Chain: Spring Security 6, JWT Bearer validation, BCrypt hashing & RBAC (FARMER, BUYER, ADMIN)",
+                    "Service & Business Logic: Transactional workflows (@Transactional), DTO input validation (@Valid), and Global Exception Handling",
+                    "AI Computer Vision & Media: Multipart file upload to Cloudinary CDN & Deep Learning crop disease detection model",
+                    "Hyper-Local Weather Engine: Real-time multi-day forecast, spraying condition evaluation, and irrigation scheduling",
+                    "Peer-to-Peer Agritech Marketplace: Direct buy orders and equipment rental/borrow requests with state-machine order flow",
+                    "Government Schemes Recommendation Engine: Multi-factor algorithm matching farmer profile (state, crop, farm size)",
+                    "Data Layer: Spring Data JPA Repositories ➔ Relational PostgreSQL 15+ Schema (7+ tables, normalized & indexed)"
+                ],
+                database: "Users, FarmerProfiles, Crops, DiseaseScans, MarketplaceListings, PurchaseOrders, GovernmentSchemes (PostgreSQL 15+)",
+                endpoints: [
+                    { method: "POST", route: "/api/v1/auth/register", desc: "Registers user profile with role (FARMER / BUYER) & BCrypt hashing" },
+                    { method: "POST", route: "/api/v1/auth/login", desc: "Authenticates credentials and returns JWT bearer access token" },
+                    { method: "GET", route: "/api/v1/auth/me", desc: "Retrieves currently authenticated user profile and roles" },
+                    { method: "PUT", route: "/api/v1/farmer/profile", desc: "Updates farm acreage, soil classification, district, and main crop" },
+                    { method: "POST", route: "/api/v1/crops", desc: "Registers active crop lifecycle with sowing and projected harvest dates" },
+                    { method: "GET", route: "/api/v1/crops", desc: "Retrieves active farmer crop records with growth tracking" },
+                    { method: "POST", route: "/api/v1/disease/scan", desc: "Multipart scan upload for AI crop disease diagnosis & treatment advice" },
+                    { method: "GET", route: "/api/v1/disease/history", desc: "Fetches historical crop scan records with confidence scores" },
+                    { method: "GET", route: "/api/v1/weather/farming-summary", desc: "Hyper-local weather summary with spraying, irrigation & risk alerts" },
+                    { method: "GET", route: "/api/v1/weather/forecast", desc: "Multi-day agronomic weather forecast with precipitation probability" },
+                    { method: "POST", route: "/api/v1/recommendations/fertilizer", desc: "Generates optimal fertilizer recommendations based on crop and disease" },
+                    { method: "POST", route: "/api/v1/chat", desc: "Multilingual conversational AI advisory assistant for agricultural queries" },
+                    { method: "POST", route: "/api/v1/marketplace/listings", desc: "Creates produce listing with quantity, pricing, and Cloudinary media" },
+                    { method: "GET", route: "/api/v1/marketplace/listings", desc: "Filters produce listings by cropName, location, minPrice & maxPrice" },
+                    { method: "POST", route: "/api/v1/marketplace/listings/{id}/buy", desc: "Submits direct purchase order between buyer and producer" },
+                    { method: "POST", route: "/api/v1/marketplace/listings/{id}/borrow", desc: "Equipment rental and borrow request submission with timeline" },
+                    { method: "GET", route: "/api/v1/government-schemes/recommendations", desc: "Intelligent subsidy recommendation engine matching state, crop & farm size" },
+                    { method: "GET", route: "/api/v1/government-schemes", desc: "Lists and filters government welfare schemes by state and target crop" },
+                    { method: "POST", route: "/api/v1/files/upload", desc: "Multipart file upload handler interfacing with Cloudinary media CDN" }
+                ]
+            },
             devtinder: {
                 title: "DevTinder — Developer Teammate Matching Platform",
-                subtitle: "Spring Boot · PostgreSQL · REST APIs · Railway Deployment",
+                subtitle: "Spring Boot · PostgreSQL · WebSockets (STOMP) · Railway Cloud Deployment",
                 github: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git",
                 architecture: [
-                    "Client (Frontend / Postman) ➔ Spring Boot REST Controllers",
+                    "Client (Frontend / Postman) ➔ Spring Boot REST Controllers & WebSocket Handlers",
                     "Spring Security & JWT Authentication Filter ➔ Service Layer Validation",
-                    "DAO Data Access Layer ➔ PostgreSQL Relational Schema (4+ Tables)",
-                    "Deployed on Railway Cloud Platform with environment config"
+                    "Real-Time Messaging Layer: Bidirectional group & direct chat via WebSockets (STOMP protocol)",
+                    "Data Access Layer: DAO Pattern ➔ PostgreSQL Relational Schema (4+ Tables) with persistent history",
+                    "Cloud Infrastructure: Deployed on Railway Cloud Platform with containerized environment variables"
                 ],
                 database: "Users, Profiles, MatchRequests, ChatRooms, Messages",
                 endpoints: [
@@ -1375,27 +1528,32 @@
                     { method: "POST", route: "/api/auth/login", desc: "Authenticates credentials & returns session token" },
                     { method: "GET", route: "/api/developers/feed", desc: "Fetches matching developers based on stack" },
                     { method: "POST", route: "/api/connections/request", desc: "Sends team collaboration match request" },
-                    { method: "GET", route: "/api/chat/{roomId}", desc: "Retrieves group messaging conversation history" }
+                    { method: "GET", route: "/api/chat/{roomId}", desc: "Retrieves group messaging conversation history" },
+                    { method: "WS", route: "/ws/chat (STOMP)", desc: "Real-time bidirectional WebSocket connection for live messaging" }
                 ]
             },
             library: {
                 title: "Library Management System Backend",
-                subtitle: "Spring Boot · Spring Data JPA · Hibernate · PostgreSQL",
+                subtitle: "Java 21 · Spring Boot · Spring Data JPA · PostgreSQL · JUnit 5 (28 Tests)",
                 github: "https://github.com/gargnikunj991-ux/library_spring.git",
                 architecture: [
                     "Layered Architecture: Controller ➔ Service ➔ Repository ➔ PostgreSQL",
-                    "DTO Request / Response transformation with @Valid input constraints",
-                    "Transactional Business Logic (@Transactional) for borrowing & return flows",
-                    "Global Exception Handling via @ControllerAdvice & custom error models"
+                    "Stateless Security: JWT Authentication with database-persisted Refresh Token Rotation (/auth/refresh)",
+                    "DTO Request / Response transformation with @Valid input constraints & custom validation",
+                    "Transactional Logic (@Transactional): Book checkout & return with 14-day automatic due tracking & fines",
+                    "Global Exception Handling via @ControllerAdvice & custom error response models",
+                    "Automated Test Suite: 28 JUnit 5 unit and integration tests passing with 100% test coverage"
                 ],
                 database: "Books, Members, BorrowRecords, Fines (4 Interconnected Tables)",
                 endpoints: [
+                    { method: "POST", route: "/api/auth/login", desc: "Authenticates user and returns Access Token & Refresh Token" },
+                    { method: "POST", route: "/api/auth/refresh", desc: "Rotates refresh token and issues fresh JWT access token" },
                     { method: "GET", route: "/api/books", desc: "Lists all cataloged books with pagination & availability filter" },
                     { method: "GET", route: "/api/books/{id}", desc: "Retrieves specific book details and current stock count" },
                     { method: "POST", route: "/api/books", desc: "Registers a new book entity (Admin only, DTO validated)" },
                     { method: "PUT", route: "/api/books/{id}", desc: "Updates book metadata, copies available, and category" },
                     { method: "DELETE", route: "/api/books/{id}", desc: "Soft-deletes/archives a book record from catalog" },
-                    { method: "POST", route: "/api/borrow", desc: "Executes transactional borrow workflow with due date tracking" },
+                    { method: "POST", route: "/api/borrow", desc: "Executes transactional borrow workflow with 14-day due date tracking" },
                     { method: "PUT", route: "/api/return/{recordId}", desc: "Processes book return, updates availability & calculates fines" },
                     { method: "GET", route: "/api/members/{id}/history", desc: "Fetches complete borrowing history for a member" }
                 ]
@@ -1499,8 +1657,8 @@
 
             const cards = document.querySelectorAll("#stackGrid .glass-card");
             cards.forEach(card => {
-                const cat = card.getAttribute("data-category");
-                if (category === "all" || cat === category) {
+                const cat = card.getAttribute("data-category") || "";
+                if (category === "all" || cat.includes(category)) {
                     card.classList.remove("filtered-out");
                 } else {
                     card.classList.add("filtered-out");
@@ -1513,20 +1671,29 @@
         // -------------------------------------------------------------
         function switchTermTab(tab) {
             const codeView = document.getElementById("termCodeView");
+            const agriView = document.getElementById("termAgriView");
             const cliView = document.getElementById("termCliView");
             const tabCodeBtn = document.getElementById("tabCodeBtn");
+            const tabAgriBtn = document.getElementById("tabAgriBtn");
             const tabCliBtn = document.getElementById("tabCliBtn");
+
+            codeView.style.display = "none";
+            if (agriView) agriView.style.display = "none";
+            cliView.style.display = "none";
+
+            tabCodeBtn.classList.remove("active");
+            if (tabAgriBtn) tabAgriBtn.classList.remove("active");
+            tabCliBtn.classList.remove("active");
 
             if (tab === "code") {
                 codeView.style.display = "block";
-                cliView.style.display = "none";
                 tabCodeBtn.classList.add("active");
-                tabCliBtn.classList.remove("active");
+            } else if (tab === "agrisathi") {
+                if (agriView) agriView.style.display = "block";
+                if (tabAgriBtn) tabAgriBtn.classList.add("active");
             } else {
-                codeView.style.display = "none";
                 cliView.style.display = "block";
                 tabCliBtn.classList.add("active");
-                tabCodeBtn.classList.remove("active");
                 document.getElementById("cliInput").focus();
             }
         }
@@ -1559,12 +1726,17 @@
 
             if (normalized === "help") {
                 out.innerHTML = `Available Commands:
-  - <span style="color:#00ff9d;">curl /api/health</span> : Query Spring Boot backend health status
-  - <span style="color:#00ff9d;">projects</span>         : List backend project specifications
-  - <span style="color:#00ff9d;">cat resume</span>       : View summary qualifications & CV download
-  - <span style="color:#00ff9d;">stack</span>            : View Java backend technology stack
-  - <span style="color:#00ff9d;">contact</span>          : Display developer contact endpoints
-  - <span style="color:#00ff9d;">clear</span>            : Clear terminal screen`;
+  - <span style="color:#00ff9d;">curl /api/health</span>                     : Query Spring Boot backend health status
+  - <span style="color:#00ff9d;">curl /api/v1/agrisathi</span>               : Query AgriSathi AI system architecture & stats
+  - <span style="color:#00ff9d;">curl /api/v1/disease/scan</span>            : Test AI crop disease diagnosis endpoint
+  - <span style="color:#00ff9d;">curl /api/v1/weather/farming-summary</span> : Query farming weather advisory endpoint
+  - <span style="color:#00ff9d;">curl /api/v1/government-schemes</span>     : Fetch government subsidy schemes
+  - <span style="color:#00ff9d;">curl /api/v1/marketplace/listings</span>   : Browse marketplace produce listings
+  - <span style="color:#00ff9d;">projects</span>                             : List backend project specifications
+  - <span style="color:#00ff9d;">cat resume</span>                           : View summary qualifications & CV download
+  - <span style="color:#00ff9d;">stack</span>                                : View Java backend technology stack
+  - <span style="color:#00ff9d;">contact</span>                              : Display developer contact endpoints
+  - <span style="color:#00ff9d;">clear</span>                                : Clear terminal screen`;
             } else if (normalized.includes("curl") && (normalized.includes("health") || normalized.includes("status"))) {
                 out.className += " json";
                 out.textContent = JSON.stringify({
@@ -1575,17 +1747,159 @@
                     uptime: "99.98%",
                     engineer: "Nikunj Garg"
                 }, null, 2);
+            } else if (normalized.includes("curl") && (normalized.includes("agrisathi") || normalized === "curl /api/v1")) {
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    project: "AgriSathi AI",
+                    tagline: "Smart Agricultural Intelligence & Decision Support System",
+                    version: "1.0",
+                    framework: "Spring Boot 3.x",
+                    runtime: "Java 21 LTS",
+                    database: "PostgreSQL 15+ (7 Relational Tables)",
+                    security: "JWT Bearer Token + BCrypt (RBAC: FARMER, BUYER, ADMIN)",
+                    total_endpoints: 29,
+                    integrations: [
+                        "AI Computer Vision (Crop Disease Diagnosis)",
+                        "Hyper-Local Weather Forecast API",
+                        "Cloudinary Multipart Media Storage",
+                        "OpenAPI 3.0 / Swagger UI"
+                    ],
+                    active_modules: [
+                        "Authentication (/api/v1/auth)",
+                        "Farmer Profile (/api/v1/farmer/profile)",
+                        "Crop Lifecycle Management (/api/v1/crops)",
+                        "Disease Detection (/api/v1/disease/scan)",
+                        "Weather Intelligence (/api/v1/weather/farming-summary)",
+                        "Fertilizer Recommendation (/api/v1/recommendations/fertilizer)",
+                        "Marketplace (/api/v1/marketplace/listings)",
+                        "Government Schemes (/api/v1/government-schemes)",
+                        "Conversational AI Chat (/api/v1/chat)"
+                    ]
+                }, null, 2);
+            } else if (normalized.includes("curl") && (normalized.includes("disease") || normalized.includes("scan"))) {
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    success: true,
+                    message: "Crop disease diagnosis completed successfully",
+                    data: {
+                        crop: "Rice (Basmati)",
+                        disease: "Leaf Rust",
+                        confidence: 98.2,
+                        treatment: "Copper Fungicide (Apply 2.5g/L foliar spray)",
+                        prevention: "Maintain field aeration, avoid excessive nitrogen, rotate crops",
+                        scanTimestamp: "2026-09-03T20:11:06"
+                    }
+                }, null, 2);
+            } else if (normalized.includes("curl") && normalized.includes("weather")) {
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    success: true,
+                    message: "Farming weather summary retrieved successfully",
+                    data: {
+                        location: "Dehradun, Uttarakhand (Lat: 30.3165, Lon: 78.0322)",
+                        temperature: 31.0,
+                        humidity: 64,
+                        windSpeed: "11.0 km/h",
+                        weatherCondition: "Clear sky",
+                        overallAdvisory: "Current conditions favorable for standing crops. 7-day expected precipitation: 0.0 mm.",
+                        sprayingCondition: "Favorable: Moderate winds and dry atmosphere provide safe spraying conditions.",
+                        irrigationAdvice: "Standard schedule: Maintain normal watering routine.",
+                        frostRisk: "Low Risk",
+                        heatStressRisk: "Low Risk"
+                    }
+                }, null, 2);
+            } else if (normalized.includes("curl") && (normalized.includes("scheme") || normalized.includes("government"))) {
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    success: true,
+                    message: "Government schemes retrieved successfully",
+                    data: [
+                        {
+                            id: 1,
+                            title: "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+                            state: "All India",
+                            targetCrop: "All Crops",
+                            benefitAmount: "₹6,000 / year",
+                            category: "Income Support / Subsidy",
+                            applyLink: "https://pmkisan.gov.in/",
+                            isActive: true
+                        },
+                        {
+                            id: 2,
+                            title: "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+                            state: "All India",
+                            targetCrop: "Rice, Wheat, Pulses",
+                            benefitAmount: "Up to 100% Sum Insured",
+                            category: "Crop Insurance",
+                            applyLink: "https://pmfby.gov.in/",
+                            isActive: true
+                        },
+                        {
+                            id: 5,
+                            title: "Uttarakhand State Hill Horticulture & Polyhouse Subsidy Scheme",
+                            state: "Uttarakhand",
+                            targetCrop: "Fruits, Vegetables, Rice",
+                            benefitAmount: "Up to 80% Polyhouse Construction Subsidy",
+                            category: "Infrastructure Subsidy",
+                            applyLink: "https://agridept.uk.gov.in/",
+                            isActive: true
+                        }
+                    ]
+                }, null, 2);
+            } else if (normalized.includes("curl") && (normalized.includes("marketplace") || normalized.includes("listing"))) {
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    success: true,
+                    message: "Marketplace listings retrieved successfully",
+                    data: [
+                        {
+                            id: 1,
+                            cropName: "Organic Basmati Rice",
+                            description: "Premium organic Basmati rice harvested in Dehradun valley.",
+                            quantity: 250.0,
+                            unit: "kg",
+                            price: 35.0,
+                            location: "Dehradun",
+                            sellerName: "Ramesh Kumar",
+                            status: "AVAILABLE"
+                        },
+                        {
+                            id: 2,
+                            cropName: "Tractor Equipment (Rotavator)",
+                            description: "Heavy duty rotavator available for seasonal field preparation rental.",
+                            quantity: 1.0,
+                            unit: "day",
+                            price: 500.0,
+                            location: "Dehradun",
+                            sellerName: "Ramesh Kumar",
+                            status: "AVAILABLE_FOR_RENT"
+                        }
+                    ]
+                }, null, 2);
+            } else if (normalized.includes("curl") && normalized.includes("/api/v1/")) {
+                const endpoint = cmd.replace(/^curl\s+/i, "");
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    success: true,
+                    message: "AgriSathi AI endpoint response",
+                    endpoint: endpoint,
+                    authenticated: true,
+                    timestamp: new Date().toISOString()
+                }, null, 2);
             } else if (normalized === "projects") {
-                out.innerHTML = `[PROJECT 1] <span style="color:#00ff9d;">DevTinder</span>: Teammate Matching Platform (Spring Boot + PostgreSQL + Railway)
-[PROJECT 2] <span style="color:#00ff9d;">Library Management System</span>: 14 REST APIs, JPA/Hibernate, DTO Validation`;
+                out.innerHTML = `[PROJECT 1] <span style="color:#00ff9d;">AgriSathi AI</span>: 30-Day Hackathon AI Agricultural System (Spring Boot 3 + Java 21 + PostgreSQL + Computer Vision + Swagger 3.0)
+[PROJECT 2] <span style="color:#00ff9d;">DevTinder</span>: Matchmaking Platform in 72h (Spring Boot + WebSockets STOMP + PostgreSQL + Railway)
+[PROJECT 3] <span style="color:#00ff9d;">Library Management System</span>: 14+ REST APIs, JWT Refresh Token Rotation, 28 JUnit 5 Tests`;
             } else if (normalized === "cat resume" || normalized === "resume") {
-                out.innerHTML = `Nikunj Garg | BCA @ SGRRU Dehradun | Java Backend Developer
-Specialization: Spring Boot, REST APIs, JPA/Hibernate, PostgreSQL, Git
+                out.innerHTML = `Nikunj Garg | BCA @ SGRRU Dehradun (2025–2028) | Java Backend Developer
+Portfolio: <a href="https://nikunjgarg.xyz" target="_blank" style="color:#00e5ff; text-decoration:underline;">nikunjgarg.xyz</a> | Location: Dehradun, Uttarakhand
+Specialization: Spring Boot 3, PostgreSQL, Spring Security, WebSockets (STOMP), Docker, JUnit 5
 Download CV: <a href="resume.pdf" download="Nikunj_Garg_Resume" style="color:#00e5ff; text-decoration:underline;">Click to download resume.pdf</a>`;
             } else if (normalized === "stack" || normalized === "skills") {
-                out.textContent = "Languages: Java, SQL | Frameworks: Spring Boot, JPA, Hibernate | DB: PostgreSQL | Tools: Git, Railway, Postman";
+                out.textContent = "Languages: Java 21, SQL | Backend: Spring Boot 3, Spring Security, Spring Data JPA, Hibernate, WebSockets (STOMP), REST APIs | Database: PostgreSQL | Security: JWT (Refresh Token Rotation), BCrypt, Swagger 3.0 | DevOps & Tools: Docker, Docker Compose, Git, Railway, Postman, Thunder Client, Maven | Testing: JUnit 5 (28 Tests Passed)";
             } else if (normalized === "contact") {
                 out.innerHTML = `Email: gargnikunj991@gmail.com
+Portfolio: https://nikunjgarg.xyz
 GitHub: https://github.com/gargnikunj991-ux
 LinkedIn: https://linkedin.com/in/nikunj-garg-36045b37a`;
             } else if (normalized === "clear") {
@@ -1604,7 +1918,7 @@ LinkedIn: https://linkedin.com/in/nikunj-garg-36045b37a`;
         // ACTIVE NAVIGATION SCROLL SPY
         // -------------------------------------------------------------
         const navLinks = document.querySelectorAll(".nav-link");
-        const sections = document.querySelectorAll("section, footer");
+        const sections = document.querySelectorAll("section");
 
         function updateActiveNav() {
             const scrollPosition = window.scrollY + 200;
