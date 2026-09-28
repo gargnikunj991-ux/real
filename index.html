@@ -34,7 +34,7 @@
             --neon-green: #00ff9d;
             --neon-blue: #00e5ff;
             --gold: #ffcc00;
-            --nss-red: #ff4b2b;
+            --accent-red: #ff4b2b;
             --bg-dark: #07090e;
             --bg-card: rgba(16, 20, 28, 0.75);
             --border-glass: rgba(255, 255, 255, 0.09);
@@ -567,12 +567,12 @@
             box-shadow: 0 12px 30px rgba(0, 255, 157, 0.12);
         }
 
-        .nss-card:hover {
-            border-color: var(--nss-red);
-            box-shadow: 0 12px 30px rgba(255, 75, 43, 0.12);
+        .blue-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 12px 30px rgba(0, 229, 255, 0.12);
         }
 
-        .codm-card:hover {
+        .gold-card:hover {
             border-color: var(--gold);
             box-shadow: 0 12px 30px rgba(255, 204, 0, 0.12);
         }
@@ -616,13 +616,13 @@
             border: 1px solid rgba(0, 255, 157, 0.3);
         }
 
-        .badge-nss {
-            background: rgba(255, 75, 43, 0.1);
-            color: var(--nss-red);
-            border: 1px solid rgba(255, 75, 43, 0.3);
+        .badge-blue {
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--neon-blue);
+            border: 1px solid rgba(0, 229, 255, 0.3);
         }
 
-        .badge-codm {
+        .badge-gold {
             background: rgba(255, 204, 0, 0.1);
             color: var(--gold);
             border: 1px solid rgba(255, 204, 0, 0.3);
@@ -829,7 +829,7 @@
         .method-get { background: rgba(0, 255, 157, 0.15); color: var(--neon-green); }
         .method-post { background: rgba(0, 229, 255, 0.15); color: var(--neon-blue); }
         .method-put { background: rgba(255, 204, 0, 0.15); color: var(--gold); }
-        .method-delete { background: rgba(255, 75, 43, 0.15); color: var(--nss-red); }
+        .method-delete { background: rgba(255, 75, 43, 0.15); color: var(--accent-red); }
         .method-ws { background: rgba(210, 168, 255, 0.15); color: #d2a8ff; }
 
         .arch-diagram-box {
@@ -1065,6 +1065,7 @@
 
                         <div class="cli-chips">
                             <span class="cli-chip" onclick="runCliCommand('help')">help</span>
+                            <span class="cli-chip" onclick="runCliCommand('leetcode')">leetcode</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/v1/agrisathi')">curl /api/v1/agrisathi</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/v1/disease/scan')">curl /api/v1/disease/scan</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/health')">curl /api/health</span>
@@ -1080,6 +1081,9 @@
                 <button class="btn-hire" onclick="window.location.href='mailto:gargnikunj991@gmail.com'">
                     HIRE_ME
                 </button>
+                <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" class="btn-cv">
+                    <i class="fas fa-code"></i> LEETCODE
+                </a>
                 <a href="resume.pdf" download="Nikunj_Garg_Resume" class="btn-cv">
                     <i class="fas fa-download"></i> DOWNLOAD_CV
                 </a>
@@ -1117,6 +1121,9 @@
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">
                         <i class="fas fa-university" style="color: var(--neon-green); margin-right: 6px;"></i>
                         <b style="color: #ddd;">Shri Guru Ram Rai University (SGRRU)</b> — Dehradun, Uttarakhand
+                    </p>
+                    <p style="margin-top: 8px; font-family: ui-monospace, monospace; font-size: 0.88rem; color: var(--neon-green);">
+                        <i class="fas fa-chart-line" style="margin-right: 6px;"></i> <b>Cumulative CGPA: 7.48 / 10.0</b> <span style="color: var(--text-muted);">(Semester 2: 7.96 / 10.0 · Upward Trajectory)</span>
                     </p>
                     <p class="card-body-text" style="margin-top: 10px; font-size: 0.88rem; line-height: 1.6;">
                         Core Curriculum &amp; Specialization: Object-Oriented Programming (Java), Data Structures &amp; Algorithms, Relational Database Management Systems (SQL/PostgreSQL), Operating Systems, Software Engineering &amp; Clean Architecture.
@@ -1178,7 +1185,7 @@
                 <!-- 3. Security & API Standards -->
                 <div class="glass-card java-card" data-category="backend security">
                     <div class="badge badge-java">SECURITY &amp; STANDARDS</div>
-                    <i class="fas fa-shield-halved card-header-icon" style="color:var(--nss-red);"></i>
+                    <i class="fas fa-shield-halved card-header-icon" style="color:var(--accent-red);"></i>
                     <h3 class="card-title">Spring Security &amp; JWT</h3>
                     <p class="card-body-text">
                         Stateless JWT authentication featuring database-persisted Refresh Token Rotation, BCrypt hashing, Bean Validation, and interactive OpenAPI / Swagger 3.0 documentation.
@@ -1261,7 +1268,6 @@
                 <button class="filter-btn" onclick="filterProjects('springboot', this)">Spring Boot</button>
                 <button class="filter-btn" onclick="filterProjects('ai', this)">AI &amp; Enterprise</button>
             </div>
-        </section>
 
             <div class="grid" id="projectGrid">
                 <!-- AgriSathi AI — Smart Agricultural Intelligence & Decision Support System -->
@@ -1294,7 +1300,7 @@
 
                 <!-- DevTinder — Featured Hackathon Project -->
                 <div class="glass-card java-card" data-category="hackathon springboot">
-                    <div class="badge badge-java">⭐ FEATURED · HACKATHON FINALIST</div>
+                    <div class="badge badge-java">⭐ REAL-TIME · WEBSOCKETS · DEVLYNIX BUILDATHON 2.0</div>
                     <h3 class="card-title">DevTinder</h3>
                     <p class="card-body-text">
                         Engineered and deployed the backend for a developer teammate matchmaking platform in 72 hours during Devlynix Buildathon 2.0. Designed a PostgreSQL-backed relational API layer for developer profiles, tech stack tags, and mutual collaboration matching requests. Implemented real-time bidirectional group &amp; direct messaging using WebSockets (STOMP protocol) with persistent chat history. Deployed to production on Railway with containerized environment variables and health check monitors.
@@ -1353,29 +1359,29 @@
             <h2 class="section-title">// CERTIFICATIONS</h2>
             <div class="grid">
                 <div class="glass-card java-card">
-                    <div class="badge badge-java">TECHNICAL</div>
-                    <i class="fas fa-certificate card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Java Training</h3>
+                    <div class="badge badge-java">CORE JAVA</div>
+                    <i class="fab fa-java card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">Java Programming Certification</h3>
                     <p class="card-body-text">
-                        Completed Java Programming certification through the <b style="color:#ddd;">IIT Bombay Spoken Tutorial</b> project, covering core Java fundamentals, OOP principles, and programming best practices.
+                        Completed Java Programming certification through the <b style="color:#ddd;">IIT Bombay Spoken Tutorial</b> project, validating core OOP principles, multi-threading, collections framework, and clean coding best practices.
                     </p>
                 </div>
 
-                <div class="glass-card nss-card">
-                    <div class="badge badge-nss">NSS · SDRF</div>
-                    <i class="fas fa-shield-halved card-header-icon" style="color:var(--nss-red);"></i>
-                    <h3 class="card-title">Youth Disaster Friend</h3>
+                <div class="glass-card blue-card">
+                    <div class="badge badge-blue">ENTERPRISE FRAMEWORK</div>
+                    <i class="fas fa-server card-header-icon" style="color:var(--neon-blue);"></i>
+                    <h3 class="card-title">Spring Boot &amp; Security Architecture</h3>
                     <p class="card-body-text">
-                        Certified as a <b style="color:#ddd;">Youth Disaster Friend</b> by NSS SDRF upon completing intensive 7-day structured disaster preparedness and community safety training, recognized for active participation and field readiness.
+                        Specialized competency in designing layered REST architectures (Controller &rarr; Service &rarr; Repository), stateless <b style="color:#ddd;">JWT Authentication with Refresh Token Rotation</b>, and automated unit testing with <b style="color:#ddd;">JUnit 5</b>.
                     </p>
                 </div>
 
-                <div class="glass-card codm-card">
-                    <div class="badge badge-codm">LEGAL AWARENESS</div>
-                    <i class="fas fa-scale-balanced card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">Vidhipathshala 3.0</h3>
+                <div class="glass-card gold-card">
+                    <div class="badge badge-gold">RELATIONAL SYSTEMS</div>
+                    <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
+                    <h3 class="card-title">PostgreSQL &amp; Database Design</h3>
                     <p class="card-body-text">
-                        Participated in <b style="color:#ddd;">Vidhipathshala 3.0</b>, a legal awareness program promoting understanding of fundamental rights, constitutional literacy, and civic responsibilities.
+                        Deep focus on relational schema design, 3NF normalization, foreign key constraints, <b style="color:#ddd;">ACID transactional integrity</b> (<code style="color:var(--neon-green);">@Transactional</code>), and optimized relational querying across multi-table backends.
                     </p>
                 </div>
             </div>
@@ -1385,31 +1391,36 @@
         <section class="section-container" id="recognition">
             <h2 class="section-title">// RECOGNITION_LOG</h2>
             <div class="grid">
-                <div class="glass-card codm-card">
-                    <div class="badge badge-codm">INNOVATION</div>
+                <div class="glass-card gold-card">
+                    <div class="badge badge-gold">STARTUP INNOVATION</div>
                     <i class="fas fa-lightbulb card-header-icon" style="color:var(--gold);"></i>
                     <h3 class="card-title">Startup Innovation Recognition</h3>
                     <p class="card-body-text">
-                        Received <b style="color:#ddd;">Certificate of Recognition</b> for presenting an innovative startup idea at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with UCOST.
+                        Received <b style="color:#ddd;">Certificate of Recognition</b> for presenting an innovative agritech startup idea at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b>.
                     </p>
                 </div>
 
                 <div class="glass-card java-card">
-                    <div class="badge badge-java">HACKATHON</div>
-                    <i class="fas fa-trophy card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Devlynix Buildathon 2.0</h3>
+                    <div class="badge badge-java">LEADERSHIP &amp; COMMUNITY</div>
+                    <i class="fas fa-users-gear card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">Secretary — TechMantra Coding Club</h3>
                     <p class="card-body-text">
-                        Successfully engineered and deployed <b style="color:#ddd;">DevTinder</b> backend during an intensive competitive hackathon, implementing relational database persistence and cloud deployment under tight time constraints.
+                        Serving as <b style="color:#ddd;">Secretary of TechMantra Coding Club</b> at SGRRU, spearheading technical workshops, coding bootcamps, and actively co-leading the organization of the college-wide internal evaluation rounds for the <b style="color:#ddd;">Smart India Hackathon (SIH)</b>.
                     </p>
                 </div>
 
-                <div class="glass-card codm-card">
-                    <div class="badge badge-codm">STRATEGY &amp; TEAMWORK</div>
-                    <i class="fas fa-medal card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">CODM Regional Championship</h3>
+                <div class="glass-card blue-card">
+                    <div class="badge badge-blue">ALGORITHMIC PROBLEM SOLVING</div>
+                    <i class="fas fa-code card-header-icon" style="color:var(--neon-blue);"></i>
+                    <h3 class="card-title">LeetCode Problem Solving</h3>
                     <p class="card-body-text">
-                        Ranked <b style="color:#ddd;">Top 800 in Uttarakhand</b> during the CODM World Championship Open Tournament phase, demonstrating strategic thinking, fast decision-making, and high-pressure team coordination.
+                        Actively practicing core Data Structures &amp; Algorithms in <b style="color:#ddd;">Java</b> on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" style="color:var(--neon-blue); text-decoration:underline;">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointers, and linked list traversal algorithms.
                     </p>
+                    <div style="margin-top: 14px;">
+                        <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" class="btn-preview" style="text-decoration:none;">
+                            <i class="fas fa-external-link-alt"></i> View LeetCode Profile →
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1444,6 +1455,11 @@
         </h2>
 
         <div class="contact-group">
+            <a href="tel:+919456500319" class="contact-link">
+                <i class="fas fa-phone"></i>
+                +91 94565 00319
+            </a>
+
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargnikunj991@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <i class="fas fa-envelope"></i>
                 gargnikunj991@gmail.com
@@ -1452,6 +1468,11 @@
             <a href="https://nikunjgarg.xyz" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <i class="fas fa-globe"></i>
                 nikunjgarg.xyz
+            </a>
+
+            <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <i class="fas fa-code"></i>
+                leetcode.com/u/Nikunjgarg12
             </a>
 
             <a href="https://github.com/gargnikunj991-ux" target="_blank" rel="noopener noreferrer" class="contact-link">
@@ -1727,6 +1748,7 @@
 
             if (normalized === "help") {
                 out.innerHTML = `Available Commands:
+  - <span style="color:#00ff9d;">leetcode</span>                             : View LeetCode problem solving profile & stats
   - <span style="color:#00ff9d;">curl /api/health</span>                     : Query Spring Boot backend health status
   - <span style="color:#00ff9d;">curl /api/v1/agrisathi</span>               : Query AgriSathi AI system architecture & stats
   - <span style="color:#00ff9d;">curl /api/v1/disease/scan</span>            : Test AI crop disease diagnosis endpoint
@@ -1891,16 +1913,35 @@
                 out.innerHTML = `[PROJECT 1] <span style="color:#00ff9d;">AgriSathi AI</span>: 30-Day Hackathon AI Agricultural System (Spring Boot 3 + Java 21 + PostgreSQL + Computer Vision + Swagger 3.0)
 [PROJECT 2] <span style="color:#00ff9d;">DevTinder</span>: Matchmaking Platform in 72h (Spring Boot + WebSockets STOMP + PostgreSQL + Railway)
 [PROJECT 3] <span style="color:#00ff9d;">Library Management System</span>: 14+ REST APIs, JWT Refresh Token Rotation, 28 JUnit 5 Tests`;
+            } else if (normalized === "leetcode" || normalized === "dsa") {
+                out.className += " json";
+                out.textContent = JSON.stringify({
+                    platform: "LeetCode",
+                    handle: "Nikunjgarg12",
+                    profileUrl: "https://leetcode.com/u/Nikunjgarg12/",
+                    language: "Java",
+                    focus_topics: [
+                        "Data Structures & Algorithms",
+                        "Arrays & Strings",
+                        "Two Pointers & Sliding Window",
+                        "Linked Lists",
+                        "Hash Maps"
+                    ],
+                    status: "Active Problem Solver"
+                }, null, 2);
             } else if (normalized === "cat resume" || normalized === "resume") {
-                out.innerHTML = `Nikunj Garg | BCA @ SGRRU Dehradun (2025–2028) | Java Backend Developer
-Portfolio: <a href="https://nikunjgarg.xyz" target="_blank" style="color:#00e5ff; text-decoration:underline;">nikunjgarg.xyz</a> | Location: Dehradun, Uttarakhand
+                out.innerHTML = `Nikunj Garg | BCA @ SGRRU Dehradun (2025–2028) | CGPA: 7.48 / 10.0 | Java Backend Developer
+Portfolio: <a href="https://nikunjgarg.xyz" target="_blank" style="color:#00e5ff; text-decoration:underline;">nikunjgarg.xyz</a> | LeetCode: <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" style="color:#00e5ff; text-decoration:underline;">@Nikunjgarg12</a>
+Leadership: Secretary @ TechMantra Coding Club (Organized SIH Internal Rounds) | Location: Dehradun, Uttarakhand
 Specialization: Spring Boot 3, PostgreSQL, Spring Security, WebSockets (STOMP), Docker, JUnit 5
 Download CV: <a href="resume.pdf" download="Nikunj_Garg_Resume" style="color:#00e5ff; text-decoration:underline;">Click to download resume.pdf</a>`;
             } else if (normalized === "stack" || normalized === "skills") {
                 out.textContent = "Languages: Java 21, SQL | Backend: Spring Boot 3, Spring Security, Spring Data JPA, Hibernate, WebSockets (STOMP), REST APIs | Database: PostgreSQL | Security: JWT (Refresh Token Rotation), BCrypt, Swagger 3.0 | DevOps & Tools: Docker, Docker Compose, Git, Railway, Postman, Thunder Client, Maven | Testing: JUnit 5 (28 Tests Passed)";
             } else if (normalized === "contact") {
-                out.innerHTML = `Email: gargnikunj991@gmail.com
+                out.innerHTML = `Phone: +91 94565 00319
+Email: gargnikunj991@gmail.com
 Portfolio: https://nikunjgarg.xyz
+LeetCode: https://leetcode.com/u/Nikunjgarg12/
 GitHub: https://github.com/gargnikunj991-ux
 LinkedIn: https://linkedin.com/in/nikunj-garg-36045b37a`;
             } else if (normalized === "clear") {
