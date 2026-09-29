@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nikunj Garg - Resume</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.40in 0.45in 0.36in 0.45in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #111827;
+            background-color: #ffffff;
+            font-size: 9.1pt;
+            line-height: 1.34;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 7px;
+        }
+
+        .header h1 {
+            font-size: 20.5pt;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #030712;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 9.8pt;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 3px;
+        }
+
+        .header .contact-line {
+            font-size: 8.45pt;
+            color: #374151;
+            text-align: center;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+
+        .section {
+            margin-bottom: 6.5px;
+        }
+
+        .section-title {
+            font-size: 9.4pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #030712;
+            border-bottom: 1.2px solid #111827;
+            padding-bottom: 1px;
+            margin-bottom: 4px;
+        }
+
+        .summary-text {
+            text-align: justify;
+            color: #1f2937;
+            font-size: 8.8pt;
+            line-height: 1.34;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 13px;
+            margin-bottom: 2px;
+            font-size: 8.8pt;
+            color: #1f2937;
+            line-height: 1.31;
+        }
+
+        .skills-list li::before {
+            content: "\2022";
+            position: absolute;
+            left: 2px;
+            color: #111827;
+            font-weight: bold;
+        }
+
+        .skills-label {
+            font-weight: 700;
+            color: #030712;
+        }
+
+        .project-item {
+            margin-bottom: 4.5px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .project-title-tech {
+            font-size: 9.0pt;
+            color: #111827;
+        }
+
+        .project-title {
+            font-weight: 800;
+            color: #030712;
+        }
+
+        .project-tech {
+            color: #374151;
+            font-size: 8.5pt;
+        }
+
+        .project-links {
+            font-size: 8.5pt;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullets li {
+            position: relative;
+            padding-left: 13px;
+            margin-bottom: 1.8px;
+            font-size: 8.65pt;
+            color: #1f2937;
+            line-height: 1.30;
+            text-align: justify;
+        }
+
+        .bullets li::before {
+            content: "\2022";
+            position: absolute;
+            left: 2px;
+            color: #111827;
+            font-weight: bold;
+        }
+
+        .code-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background: #f1f5f9;
+            padding: 0 3px;
+            border-radius: 3px;
+            font-size: 8.0pt;
+            color: #0f172a;
+        }
+
+        .education-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 8.9pt;
+        }
+
+        .education-title {
+            font-weight: 700;
+            color: #030712;
+        }
+
+        .education-dates {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .education-cgpa {
+            font-size: 8.65pt;
+            color: #1f2937;
+            margin-top: 1px;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements-list li {
+            position: relative;
+            padding-left: 13px;
+            margin-bottom: 2.2px;
+            font-size: 8.7pt;
+            color: #1f2937;
+            line-height: 1.30;
+        }
+
+        .achievements-list li::before {
+            content: "\2022";
+            position: absolute;
+            left: 2px;
+            color: #111827;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>Nikunj Garg</h1>
+        <div class="subtitle">Java Backend Developer | BCA Student</div>
+        <div class="contact-line">
+            Dehradun, Uttarakhand &bull; <a href="tel:+919456500319">+91 94565 00319</a> &bull; <a href="mailto:gargnikunj991@gmail.com">gargnikunj991@gmail.com</a> &bull; Portfolio: <a href="https://nikunjgarg.xyz/">nikunjgarg.xyz</a> &bull; LeetCode: <a href="https://leetcode.com/u/Nikunjgarg12/">@Nikunjgarg12</a> &bull; <a href="https://github.com/gargnikunj991-ux">GitHub</a> &bull; <a href="https://www.linkedin.com/in/nikunj-garg-36045b37a/">LinkedIn</a>
+        </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="section">
+        <h2 class="section-title">Summary</h2>
+        <p class="summary-text">
+            BCA student specializing in Java backend development with Spring Boot 3, PostgreSQL, and Spring Security. Experienced in architecting secure RESTful APIs, real-time WebSocket communication, relational database schemas, and deploying cloud backends across competitive hackathons and production-style projects.
+        </p>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <ul class="skills-list">
+            <li><span class="skills-label">Languages &amp; Database:</span> Java 21, SQL, PostgreSQL</li>
+            <li><span class="skills-label">Backend Frameworks:</span> Spring Boot 3, Spring Security, Spring Data JPA, Hibernate, RESTful APIs, WebSockets (STOMP)</li>
+            <li><span class="skills-label">Security &amp; API Standards:</span> JWT (Access &amp; Refresh Token Rotation), BCrypt, Bean Validation, OpenAPI/Swagger 3.0</li>
+            <li><span class="skills-label">DevOps &amp; Tools:</span> Docker, Docker Compose, Git, GitHub, Maven, Postman, Thunder Client, Cloudinary, Railway</li>
+            <li><span class="skills-label">Core Engineering:</span> OOP, Data Structures &amp; Algorithms, Relational Schema Design, Clean Architecture, Unit Testing (JUnit 5)</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <!-- Project 1: AgriSathi AI -->
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title-tech">
+                    <span class="project-title">AgriSathi AI</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Cloudinary, Swagger</span>
+                </div>
+                <div class="project-links">
+                    [<a href="https://github.com/gargnikunj991-ux/AgriSathi_AI.git">GitHub Repo</a>] &bull; [<a href="https://agri-sathi-ai-three.vercel.app/">Live Demo</a>]
+                </div>
+            </div>
+            <ul class="bullets">
+                <li>Architected a modular Java/Spring Boot backend for an AI-powered agricultural advisory platform during a 30-day hackathon.</li>
+                <li>Implemented secure <b>JWT authentication</b> with <b>Role-Based Access Control (RBAC)</b> supporting <span class="code-pill">FARMER</span> and <span class="code-pill">BUYER</span> roles.</li>
+                <li>Built REST endpoints for Farmer Profiles, Crop Lifecycle Tracking, and AI Disease Diagnosis (<span class="code-pill">POST /api/v1/disease/scan</span>) with Cloudinary media storage and computer vision integration.</li>
+                <li>Integrated hyper-local 7-day predictive weather forecasting APIs and documented all endpoints with interactive <b>OpenAPI/Swagger 3.0</b>.</li>
+            </ul>
+        </div>
+
+        <!-- Project 2: DevTinder -->
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title-tech">
+                    <span class="project-title">DevTinder</span> | <span class="project-tech">Java, Spring Boot, PostgreSQL, WebSockets, Railway</span>
+                </div>
+                <div class="project-links">
+                    [<a href="https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git">GitHub Repo</a>] &bull; [<a href="https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/">Live Demo</a>]
+                </div>
+            </div>
+            <ul class="bullets">
+                <li>Engineered and deployed the backend for a developer teammate matchmaking platform in 72 hours during Devlynix Buildathon 2.0.</li>
+                <li>Designed a PostgreSQL-backed relational API layer for developer profiles, tech stack tags, and mutual connection matching requests.</li>
+                <li>Implemented real-time bidirectional group &amp; direct messaging using <b>WebSockets (STOMP protocol)</b> with persistent chat history.</li>
+                <li>Configured production backend deployment on <b>Railway</b> with containerized environment variables and health check monitors.</li>
+            </ul>
+        </div>
+
+        <!-- Project 3: LibroSphere -->
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title-tech">
+                    <span class="project-title">LibroSphere</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Security, JUnit 5</span>
+                </div>
+                <div class="project-links">
+                    [<a href="https://github.com/gargnikunj991-ux/library_spring.git">GitHub Repo</a>]
+                </div>
+            </div>
+            <ul class="bullets">
+                <li>Eliminated double-checkout TOCTOU race conditions on multi-copy inventory using pessimistic database row locking (<span class="code-pill">SELECT ... FOR UPDATE</span>) and atomic decrements under high concurrency.</li>
+                <li>Engineered an automated FIFO waitlist queue intercepting returned assets to reserve 48-hour pickup windows for next-in-line patrons before releasing copies to public availability.</li>
+                <li>Architected stateless JWT authentication with database-backed <b>Refresh Token Rotation</b> (<span class="code-pill">/auth/refresh</span>), role-based authorization, and centralized RFC-compliant error handling.</li>
+                <li>Built a <b>48-test automated test suite</b> (100% pass) including multi-threaded concurrency suites (<span class="code-pill">CountDownLatch</span>, <span class="code-pill">ExecutorService</span>) proving zero inventory underflow under contention.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-row">
+            <div>
+                <span class="education-title">Bachelor of Computer Applications (BCA)</span> &mdash; Shri Guru Ram Rai University, Dehradun
+            </div>
+            <div class="education-dates">
+                2025 &ndash; 2028
+            </div>
+        </div>
+        <div class="education-cgpa">
+            <b>Cumulative CGPA:</b> 7.48 / 10.0 &nbsp;&bull;&nbsp; <b>Semester 2:</b> 7.96 / 10.0 <span style="color:#4b5563;">(Upward Trajectory)</span>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & LEADERSHIP -->
+    <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Achievements &amp; Leadership</h2>
+        <ul class="achievements-list">
+            <li><b>Secretary &mdash; TechMantra Coding Club:</b> Promoted from Member (10 mos) to Secretary; coordinate student workshops and supported internal rounds for Smart India Hackathon (SIH).</li>
+            <li><b>Startup Innovation Recognition:</b> Awarded Certificate of Recognition for presenting an innovative startup idea at the Innovation &amp; Incubation Centre (IIC), SGRR University &amp; UCOST.</li>
+            <li><b>Java Programming Certification:</b> Completed Java Programming certification through the IIT Bombay Spoken Tutorial Project.</li>
+        </ul>
+    </section>
+
+</body>
+</html>
