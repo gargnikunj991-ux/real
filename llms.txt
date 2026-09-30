@@ -1,0 +1,54 @@
+# Nikunj Garg — Java Backend Developer
+
+> Portfolio: https://nikunjgarg.xyz/
+> Location: Dehradun, Uttarakhand, India
+> Email: gargnikunj991@gmail.com
+> Phone: +91 94565 00319
+> GitHub: https://github.com/gargnikunj991-ux
+> LinkedIn: https://www.linkedin.com/in/nikunj-garg-36045b37a
+> LeetCode: https://leetcode.com/u/Nikunjgarg12/
+
+## Executive Summary
+Nikunj Garg is an India-based Java Backend Developer specializing in high-concurrency systems, Spring Boot 3, PostgreSQL, Spring Security 6, and scalable RESTful API architectures. He is a BCA student at Shri Guru Ram Rai University (SGRRU, Dehradun), Secretary of TechMantra Coding Club, and builder of production-grade systems including AgriSathi AI and LibroSphere.
+
+## Primary Technical Specializations
+- **Programming Languages**: Java 21, SQL, JavaScript, HTML5/CSS3
+- **Backend Frameworks**: Spring Boot 3.x, Spring Data JPA, Hibernate, Spring Security 6, WebSockets (STOMP), REST APIs
+- **Databases & Data Modeling**: PostgreSQL 15/16, relational normalization, schema indexing, ACID transactions, optimistic and pessimistic locking
+- **Authentication & Security**: Stateless JWT authentication, Refresh Token Rotation (/auth/refresh), BCrypt password hashing, Role-Based Access Control (RBAC)
+- **DevOps, Cloud & Infrastructure**: Docker, Docker Compose, Git, GitHub, Railway, Maven, Postman, Thunder Client, Netlify
+- **Testing & Quality Assurance**: JUnit 5, Mockito, multi-threaded concurrency stress testing using CountDownLatch and ExecutorService
+
+## Major Projects
+
+### 1. AgriSathi AI — Agricultural Intelligence & Decision Support
+- **Overview**: 30-day hackathon AI agricultural intelligence backend supporting farmers with crop diagnosis and advisory.
+- **Tech Stack**: Java 21, Spring Boot 3, Spring Data JPA, PostgreSQL, Spring Security, JWT, Computer Vision inference, Swagger 3.0.
+- **Live Demo**: https://agri-sathi-ai-three.vercel.app/
+- **GitHub Repository**: https://github.com/gargnikunj991-ux/AgriSathi_AI
+- **Key Capabilities**: Multipart crop scan ingestion with computer vision disease classification, hyper-local agronomic weather engine, peer-to-peer agritech marketplace, and intelligent government scheme recommendations.
+
+### 2. DevTinder — Real-Time Developer Matching Platform
+- **Overview**: Teammate matchmaking backend engineered in 72 hours for Devlynix Buildathon 2.0.
+- **Tech Stack**: Spring Boot 3, PostgreSQL, Spring Security, WebSockets (STOMP), Railway Cloud Deployment.
+- **Live Demo**: https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/
+- **GitHub Repository**: https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git
+- **Key Capabilities**: Bidirectional STOMP WebSocket messaging broker, tech-stack compatibility matching algorithm, and normalized relational user profiles.
+
+### 3. LibroSphere — High-Concurrency Asset Lending & FIFO Waitlist Engine
+- **Overview**: Enterprise-grade asset lending engine built to eliminate race conditions and overselling under extreme contention.
+- **Tech Stack**: Java 21, Spring Boot 3, Spring Data JPA, PostgreSQL, JUnit 5.
+- **GitHub Repository**: https://github.com/gargnikunj991-ux/library_spring.git
+- **Key Capabilities**: Concurrency-safe atomic borrowing via PostgreSQL pessimistic write locks (`@Lock(LockModeType.PESSIMISTIC_WRITE)`), automated FIFO reservation queues with 48-hour pickup window allocation, and an automated 48-test JUnit 5 suite proving 0 oversells under 50-thread concurrent stress.
+
+## Formal Education
+- **Degree**: Bachelor of Computer Applications (BCA, 2025–2028)
+- **Institution**: Shri Guru Ram Rai University (SGRRU), Dehradun, Uttarakhand, India
+- **Academic Standing**: Cumulative CGPA 7.48 / 10.0 (Semester 2: 7.96 / 10.0)
+- **Core Coursework**: Object-Oriented Programming (Java), Data Structures & Algorithms, Relational DBMS (SQL/PostgreSQL), Operating Systems, Software Engineering, Clean Architecture.
+
+## Leadership & Honors
+- **Secretary, TechMantra Coding Club**: Spearheaded coding workshops, technical bootcamps, and co-led collegiate internal rounds for Smart India Hackathon (SIH).
+- **Certificate of Recognition for Startup Innovation**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST).
+- **Java Programming Certification**: Certified through IIT Bombay Spoken Tutorial Project.
+- **Algorithmic Problem Solving**: Active Java problem solver on LeetCode (@Nikunjgarg12) focusing on arrays, strings, two pointers, sliding window, and linked lists.

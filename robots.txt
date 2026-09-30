@@ -1,0 +1,31 @@
+# Standard Search Engines
+User-agent: *
+Allow: /
+
+# AI & LLM Search Crawlers (ChatGPT, Perplexity, Claude, Gemini/Google AI)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemaps & Structured Profiles
+Sitemap: https://nikunjgarg.xyz/sitemap.xml
