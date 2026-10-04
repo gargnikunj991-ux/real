@@ -16,6 +16,7 @@ desktop.ini
 
 # Build & Deploy
 .netlify/
+.vercel/
 dist/
 build/
 
