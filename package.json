@@ -2,9 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Nikunj Garg - Java Backend Developer Portfolio",
-  "main": "server.js",
   "scripts": {
-    "build": "echo 'Static portfolio ready'",
     "start": "node server.js",
     "dev": "node --watch server.js",
     "check": "node --check js/app.js && node --check server.js"
