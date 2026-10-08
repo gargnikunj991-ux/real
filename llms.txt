@@ -9,37 +9,36 @@
 > LeetCode: https://leetcode.com/u/Nikunjgarg12/
 
 ## Executive Summary
-Nikunj Garg is an India-based Java Backend Developer specializing in high-concurrency systems, Spring Boot 3, PostgreSQL, Spring Security 6, and scalable RESTful API architectures. He is a BCA student at Shri Guru Ram Rai University (SGRRU, Dehradun), Secretary of TechMantra Coding Club, and builder of production-grade systems including AgriSathi AI and LibroSphere.
+Nikunj Garg is a results-driven Java Backend Developer engineering scalable backend architectures, high-concurrency systems, and real-time distributed services with Java 21, Spring Boot 3, and PostgreSQL. He specializes in eliminating data race conditions and inventory overselling via JPA/Hibernate pessimistic row locking and ACID transactions, architecting low-latency REST APIs, and deploying bidirectional WebSockets (STOMP) with stateless JWT authentication pipelines. BCA student at Shri Guru Ram Rai University (SGRRU, Dehradun), and builder of production-grade systems including DevTinder, LibroSphere, and AgriSathi AI.
 
 ## Primary Technical Specializations
-- **Programming Languages**: Java 21, SQL, JavaScript, HTML5/CSS3
-- **Backend Frameworks**: Spring Boot 3.x, Spring Data JPA, Hibernate, Spring Security 6, WebSockets (STOMP), REST APIs
-- **Databases & Data Modeling**: PostgreSQL 15/16, relational normalization, schema indexing, ACID transactions, optimistic and pessimistic locking
-- **Authentication & Security**: Stateless JWT authentication, Refresh Token Rotation (/auth/refresh), BCrypt password hashing, Role-Based Access Control (RBAC)
-- **DevOps, Cloud & Infrastructure**: Docker, Docker Compose, Git, GitHub, Railway, Maven, Postman, Thunder Client, Netlify
-- **Testing & Quality Assurance**: JUnit 5, Mockito, multi-threaded concurrency stress testing using CountDownLatch and ExecutorService
+- **Languages & Backend**: Java 21 (OOP, Multithreading), Spring Boot 3.x, Spring Data JPA, Hibernate ORM, REST APIs, WebSockets (STOMP)
+- **Databases & Concurrency Control**: PostgreSQL 16, ACID Transactions, Pessimistic / Optimistic Locking, Composite B-Tree Indexing, Schema Design (3NF)
+- **Security & System Architecture**: Spring Security 6, Stateless JWT (Refresh Token Rotation), BCrypt Hashing, Role-Based Access Control (RBAC), Clean Architecture
+- **Testing & Performance QA**: JUnit 5 (64-test automated suites), Multithreaded Concurrency Testing (CountDownLatch, ExecutorService), Mockito, Integration Testing
+- **DevOps, Cloud & Infrastructure**: Docker, Docker Compose, Render Cloud, Git, GitHub, Maven, Postman, OpenAPI / Swagger 3.0
 
 ## Major Projects
 
-### 1. AgriSathi AI — Agricultural Intelligence & Decision Support
-- **Overview**: 30-day hackathon AI agricultural intelligence backend supporting farmers with crop diagnosis and advisory.
-- **Tech Stack**: Java 21, Spring Boot 3, Spring Data JPA, PostgreSQL, Spring Security, JWT, Computer Vision inference, Swagger 3.0.
-- **Live Demo**: https://agri-sathi-ai-three.vercel.app/
-- **GitHub Repository**: https://github.com/gargnikunj991-ux/AgriSathi_AI
-- **Key Capabilities**: Multipart crop scan ingestion with computer vision disease classification, hyper-local agronomic weather engine, peer-to-peer agritech marketplace, and intelligent government scheme recommendations.
-
-### 2. DevTinder — Real-Time Developer Matching Platform
-- **Overview**: Teammate matchmaking backend engineered in 72 hours for Devlynix Buildathon 2.0.
-- **Tech Stack**: Spring Boot 3, PostgreSQL, Spring Security, WebSockets (STOMP), Railway Cloud Deployment.
+### 1. DevTinder — Developer Teammate Matching Platform (Backend Flagship)
+- **Overview**: Teammate matchmaking platform originally prototyped during Devlynix Buildathon 2.0 with frontend teammates, then independently evolved and elevated into a production-grade backend service powering a Next.js client.
+- **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL 16, WebSockets (STOMP), Spring Security 6 (JWT & Refresh Token Rotation), Docker, Render Cloud.
 - **Live Demo**: https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git
-- **Key Capabilities**: Bidirectional STOMP WebSocket messaging broker, tech-stack compatibility matching algorithm, and normalized relational user profiles.
+- **Key Capabilities**: Bidirectional STOMP WebSocket broker with delta query synchronization (`?after={id}`) and unread tracking driving message delivery latency under 50ms; Algorithmic Skill Synergy Scoring engine (50–99% compatibility weighting shared stacks, complementary engineering disciplines, and project pitches); stateless Spring Security filters with Refresh Token Rotation, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radar, and queue rewind; Docker containerization with Render Cloud deployment sustaining 99.9% uptime and sub-80ms API response latency.
 
-### 3. LibroSphere — High-Concurrency Asset Lending & FIFO Waitlist Engine
-- **Overview**: Enterprise-grade asset lending engine built to eliminate race conditions and overselling under extreme contention.
-- **Tech Stack**: Java 21, Spring Boot 3, Spring Data JPA, PostgreSQL, JUnit 5.
+### 2. LibroSphere — High-Concurrency Asset Lending & Reservation Engine
+- **Overview**: High-concurrency asset lending and reservation backend engineered to eliminate race conditions, duplicate allocations, and inventory underflow under peak multi-threaded contention.
+- **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL 16, Spring Data JPA, Hibernate ORM, JUnit 5.
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/library_spring.git
-- **Key Capabilities**: Concurrency-safe atomic borrowing via PostgreSQL pessimistic write locks (`@Lock(LockModeType.PESSIMISTIC_WRITE)`), automated FIFO reservation queues with 48-hour pickup window allocation, and an automated 48-test JUnit 5 suite proving 0 oversells under 50-thread concurrent stress.
+- **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) inside atomic `@Transactional` boundaries completely preventing double-checkout TOCTOU anomalies; automated FIFO reservation waitlist queue (`WAITING` -> `NOTIFIED_READY`) with 48-hour pickup reservations; nightly overdue fine reconciliation cron worker (`@Scheduled`) with composite B-Tree indexes slashing query latency from 120ms to under 15ms; comprehensive 64-test automated JUnit 5 suite simulating 50 concurrent checkout worker threads (`CountDownLatch`) validating 100% thread safety and zero oversells.
+
+### 3. AgriSathi AI — Agricultural Intelligence & Decision Platform
+- **Overview**: 30-day hackathon agritech backend providing crop health diagnostics, agronomic advisory, and peer-to-peer producer trade.
+- **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security, JWT & RBAC, Cloudinary CDN, OpenAPI / Swagger 3.0.
+- **Live Demo**: https://agri-sathi-ai-three.vercel.app/
+- **GitHub Repository**: https://github.com/gargnikunj991-ux/AgriSathi_AI
+- **Key Capabilities**: 25+ modular REST APIs; multipart crop scan ingestion pipeline streaming to Cloudinary CDN and computer vision classification models for real-time disease diagnosis with statistical confidence scores; hyper-local agronomic weather engine, peer-to-peer marketplace, and interactive Swagger 3.0 documentation.
 
 ## Formal Education
 - **Degree**: Bachelor of Computer Applications (BCA, 2025–2028)
@@ -47,8 +46,8 @@ Nikunj Garg is an India-based Java Backend Developer specializing in high-concur
 - **Academic Standing**: Cumulative CGPA 7.48 / 10.0 (Semester 2: 7.96 / 10.0)
 - **Core Coursework**: Object-Oriented Programming (Java), Data Structures & Algorithms, Relational DBMS (SQL/PostgreSQL), Operating Systems, Software Engineering, Clean Architecture.
 
-## Leadership & Honors
-- **Secretary, TechMantra Coding Club**: Spearheaded coding workshops, technical bootcamps, and co-led collegiate internal rounds for Smart India Hackathon (SIH).
-- **Certificate of Recognition for Startup Innovation**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST).
-- **Java Programming Certification**: Certified through IIT Bombay Spoken Tutorial Project.
+## Certifications & Achievements
+- **Java Programming Certification**: Completed with distinction through IIT Bombay Spoken Tutorial Project, validating OOP design, multithreaded concurrency, and standard collection frameworks.
+- **Startup Innovation Recognition**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST) for pitching an agritech startup architecture.
+- **Smart India Hackathon (SIH 2024) Collegiate Co-Lead**: Co-organized and evaluated the collegiate internal qualification round for Smart India Hackathon (SIH 2024), facilitating technical reviews and project scoring for all 7 competing software teams.
 - **Algorithmic Problem Solving**: Active Java problem solver on LeetCode (@Nikunjgarg12) focusing on arrays, strings, two pointers, sliding window, and linked lists.

@@ -129,8 +129,8 @@
             <a href="#about" class="nav-link">ABOUT</a>
             <a href="#stack" class="nav-link">STACK</a>
             <a href="#projects" class="nav-link">PROJECTS</a>
-            <a href="#competencies" class="nav-link">CREDENTIALS</a>
-            <a href="#recognition" class="nav-link">LOG</a>
+            <a href="#credentials" class="nav-link">CREDENTIALS</a>
+            <a href="#contact" class="nav-link">CONTACT</a>
         </nav>
     </header>
 
@@ -172,15 +172,15 @@
 
                         <form class="cli-input-form" onsubmit="handleCliSubmit(event)">
                             <span class="cli-input-prompt">nikunj@backend:~$</span>
-                            <input type="text" id="cliInput" class="cli-input-field" placeholder="type 'help', 'simulate concurrency', 'curl /api/v1/agrisathi'..." autocomplete="off" />
+                            <input type="text" id="cliInput" class="cli-input-field" placeholder="type 'help', 'simulate concurrency', 'curl /api/books'..." autocomplete="off" />
                         </form>
 
                         <div class="cli-chips">
                             <span class="cli-chip" onclick="runCliCommand('simulate concurrency')">simulate concurrency</span>
                             <span class="cli-chip" onclick="runCliCommand('help')">help</span>
                             <span class="cli-chip" onclick="runCliCommand('leetcode')">leetcode</span>
-                            <span class="cli-chip" onclick="runCliCommand('curl /api/v1/agrisathi')">curl /api/v1/agrisathi</span>
-                            <span class="cli-chip" onclick="runCliCommand('curl /api/v1/disease/scan')">curl /api/v1/disease/scan</span>
+                            <span class="cli-chip" onclick="runCliCommand('curl /api/books')">curl /api/books</span>
+                            <span class="cli-chip" onclick="runCliCommand('curl /api/developers/feed')">curl /api/developers/feed</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/health')">curl /api/health</span>
                             <span class="cli-chip" onclick="runCliCommand('projects')">projects</span>
                             <span class="cli-chip" onclick="runCliCommand('cat resume')">cat resume</span>
@@ -278,14 +278,11 @@
             <div class="glass-card">
                 <h3 style="font-size:1.6rem; color:#fff;">Nikunj Garg</h3>
                 <p class="card-body-text" style="margin-top:14px;">
-                    BCA student at <b>Shri Guru Ram Rai University (SGRRU)</b>, Dehradun, specializing in
-                    <b>Java Backend Development</b> with <b>Spring Boot 3</b>, <b>PostgreSQL</b>, and <b>Spring Security</b>.
-                    Experienced in architecting secure <b>RESTful APIs</b>, real-time <b>WebSocket (STOMP)</b> communication,
-                    relational database schemas, and deploying cloud backends across competitive hackathons and production-grade projects.
+                    Results-driven <b>Java Backend Developer</b> engineering scalable backend architectures, high-concurrency systems, and real-time distributed services with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>.
                     <br><br>
-                    Proficient with the end-to-end backend engineering workflow — from relational schema design with <b>PostgreSQL</b> to stateless <b>JWT Authentication &amp; Refresh Token Rotation</b>, containerization with <b>Docker</b>, automated concurrency testing with <b>JUnit 5</b>, and cloud deployment on <b>Railway</b>.
+                    Specializes in eliminating data race conditions and inventory overselling via <b>JPA/Hibernate</b> pessimistic row locking and <b>ACID transactions</b>, architecting low-latency <b>REST APIs</b>, and deploying bidirectional <b>WebSockets (STOMP)</b> with stateless <b>JWT Authentication &amp; Refresh Token Rotation</b> across competitive hackathons and production environments.
                     <br><br>
-                    Strong foundation in <b>OOP Principles</b>, <b>Data Structures &amp; Algorithms</b>, and <b>Clean Architecture</b>, with a persistent focus on writing secure, maintainable, and scalable backend services.
+                    Proficient in the end-to-end backend lifecycle — from 3NF relational schema modeling and B-Tree indexing to <b>Docker</b> containerization, automated multithreaded stress <b>testing (JUnit 5)</b>, and zero-downtime cloud deployments on <b>Render Cloud</b>.
                 </p>
             </div>
 
@@ -325,111 +322,109 @@
             </div>
 
             <div class="grid" id="stackGrid">
-                <!-- 1. Languages & Core -->
-                <div class="glass-card java-card" data-category="languages core testing">
-                    <div class="badge badge-java">LANGUAGES &amp; CORE</div>
+                <!-- 1. Languages & Core Backend -->
+                <div class="glass-card java-card" data-category="backend languages core">
+                    <div class="badge badge-java">LANGUAGES &amp; BACKEND</div>
                     <i class="fab fa-java card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Java 21 &amp; OOP Architecture</h3>
+                    <h3 class="card-title">Java 21 &amp; Spring Boot 3</h3>
                     <p class="card-body-text">
-                        Core backend engineering in Java 21 LTS with strong object-oriented principles, Data Structures &amp; Algorithms, Clean Architecture, and relational schema modeling.
+                        Core backend engineering in Java 21 LTS with strong OOP architecture, RESTful API design, Spring Boot 3.x microservices, Spring Data JPA, and Hibernate ORM.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
-                        <span class="skill-pill">SQL</span>
-                        <span class="skill-pill">OOP Principles</span>
-                        <span class="skill-pill">Data Structures</span>
-                        <span class="skill-pill">Algorithms</span>
+                        <span class="skill-pill">Spring Boot 3</span>
+                        <span class="skill-pill">Spring Data JPA</span>
+                        <span class="skill-pill">Hibernate ORM</span>
+                        <span class="skill-pill">REST APIs</span>
                         <span class="skill-pill">Clean Architecture</span>
                     </div>
                 </div>
 
-                <!-- 2. Backend Frameworks -->
-                <div class="glass-card java-card" data-category="backend">
-                    <div class="badge badge-java">BACKEND FRAMEWORKS</div>
-                    <i class="fas fa-server card-header-icon" style="color:var(--neon-blue);"></i>
-                    <h3 class="card-title">Spring Boot 3 &amp; WebSockets</h3>
+                <!-- 2. Databases & Concurrency -->
+                <div class="glass-card java-card" data-category="database core">
+                    <div class="badge badge-java">DATABASES &amp; CONCURRENCY</div>
+                    <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
+                    <h3 class="card-title">PostgreSQL &amp; Concurrency Control</h3>
                     <p class="card-body-text">
-                        Architecting scalable, modular backends using Spring Boot 3.x, Spring Data JPA, Hibernate ORM, and real-time bidirectional WebSockets (STOMP).
+                        Relational schema design (3NF), ACID transaction guarantees, pessimistic row locking (SELECT ... FOR UPDATE), and composite B-Tree query index optimization.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">Spring Boot 3</span>
-                        <span class="skill-pill">Spring Data JPA</span>
-                        <span class="skill-pill">Hibernate</span>
-                        <span class="skill-pill">WebSockets (STOMP)</span>
-                        <span class="skill-pill">RESTful APIs</span>
-                        <span class="skill-pill">Layered Architecture</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">ACID Transactions</span>
+                        <span class="skill-pill">Pessimistic Locking</span>
+                        <span class="skill-pill">B-Tree Indexing</span>
+                        <span class="skill-pill">Schema Design (3NF)</span>
+                        <span class="skill-pill">Data Integrity</span>
                     </div>
                 </div>
 
-                <!-- 3. Security & API Standards -->
+                <!-- 3. Security & Architecture -->
                 <div class="glass-card java-card" data-category="backend security">
-                    <div class="badge badge-java">SECURITY &amp; STANDARDS</div>
+                    <div class="badge badge-java">SECURITY &amp; ARCHITECTURE</div>
                     <i class="fas fa-shield-halved card-header-icon" style="color:var(--accent-red);"></i>
                     <h3 class="card-title">Spring Security &amp; JWT</h3>
                     <p class="card-body-text">
-                        Stateless JWT authentication featuring database-persisted Refresh Token Rotation, BCrypt hashing, Bean Validation, and interactive OpenAPI / Swagger 3.0 documentation.
+                        Stateless authentication filters, database-persisted Refresh Token Rotation, BCrypt hashing, Role-Based Access Control (RBAC), and Bean Validation.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Spring Security</span>
                         <span class="skill-pill">JWT Auth</span>
                         <span class="skill-pill">Refresh Token Rotation</span>
                         <span class="skill-pill">BCrypt Hashing</span>
-                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
+                        <span class="skill-pill">RBAC</span>
                         <span class="skill-pill">Bean Validation</span>
                     </div>
                 </div>
 
-                <!-- 4. Databases & Storage -->
-                <div class="glass-card java-card" data-category="database">
-                    <div class="badge badge-java">DATABASE &amp; STORAGE</div>
-                    <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">PostgreSQL &amp; Cloudinary</h3>
+                <!-- 4. Testing & Quality Assurance -->
+                <div class="glass-card java-card" data-category="testing core">
+                    <div class="badge badge-java">TESTING &amp; QA</div>
+                    <i class="fas fa-vial-circle-check card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">JUnit 5 &amp; Concurrency Testing</h3>
                     <p class="card-body-text">
-                        Relational database design with PostgreSQL 15+, schema normalization, complex joins, ACID transactional integrity, and Cloudinary media CDN integration.
+                        Comprehensive unit and integration test suites with JUnit 5, multithreaded concurrency stress testing (CountDownLatch, ExecutorService), and Mockito isolation.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">PostgreSQL</span>
-                        <span class="skill-pill">Schema Design</span>
-                        <span class="skill-pill">Relational Joins</span>
-                        <span class="skill-pill">ACID Transactions</span>
-                        <span class="skill-pill">Cloudinary CDN</span>
-                        <span class="skill-pill">Data Integrity</span>
+                        <span class="skill-pill">JUnit 5</span>
+                        <span class="skill-pill">Concurrency Stress Tests</span>
+                        <span class="skill-pill">Mockito</span>
+                        <span class="skill-pill">Integration Testing</span>
+                        <span class="skill-pill">Thread Safety QA</span>
                     </div>
                 </div>
 
-                <!-- 5. DevOps & Tools -->
-                <div class="glass-card java-card" data-category="tools devops">
+                <!-- 5. DevOps & Cloud Infrastructure -->
+                <div class="glass-card java-card" data-category="devops tools">
                     <div class="badge badge-java">DEVOPS &amp; CLOUD</div>
                     <i class="fab fa-docker card-header-icon" style="color:var(--neon-blue);"></i>
-                    <h3 class="card-title">Docker &amp; Railway Cloud</h3>
+                    <h3 class="card-title">Docker &amp; Render Cloud</h3>
                     <p class="card-body-text">
-                        Containerization using Docker and Docker Compose, production cloud backend deployments on Railway, environment variable isolation, and health check monitoring.
+                        Containerization with Docker and Docker Compose, zero-downtime cloud deployments on Render, automated health-check monitoring, Git version control, and Maven builds.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Docker</span>
                         <span class="skill-pill">Docker Compose</span>
-                        <span class="skill-pill">Railway Deployment</span>
+                        <span class="skill-pill">Render Cloud</span>
                         <span class="skill-pill">Git &amp; GitHub</span>
                         <span class="skill-pill">Maven</span>
                         <span class="skill-pill">Postman</span>
-                        <span class="skill-pill">Thunder Client</span>
                     </div>
                 </div>
 
-                <!-- 6. Testing & QA -->
-                <div class="glass-card java-card" data-category="testing core">
-                    <div class="badge badge-java">TESTING &amp; QA</div>
-                    <i class="fas fa-vial-circle-check card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">JUnit 5 Automated Testing</h3>
+                <!-- 6. Real-Time Systems & API Standards -->
+                <div class="glass-card java-card" data-category="backend">
+                    <div class="badge badge-java">REAL-TIME &amp; API STANDARDS</div>
+                    <i class="fas fa-network-wired card-header-icon" style="color:var(--neon-blue);"></i>
+                    <h3 class="card-title">WebSockets (STOMP) &amp; OpenAPI</h3>
                     <p class="card-body-text">
-                        Writing robust unit and integration test suites with JUnit 5, validating DTO constraints, service layer mockings, and multithreaded concurrency suites.
+                        Bidirectional full-duplex communication over STOMP WebSockets, delta synchronization, interactive OpenAPI / Swagger 3.0 documentation, and Cloudinary media pipelines.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">JUnit 5</span>
-                        <span class="skill-pill">Automated Testing</span>
-                        <span class="skill-pill">Concurrency Stress Tests</span>
-                        <span class="skill-pill">DTO Validation</span>
-                        <span class="skill-pill">Global Exception Handling</span>
+                        <span class="skill-pill">WebSockets (STOMP)</span>
+                        <span class="skill-pill">RESTful APIs</span>
+                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
+                        <span class="skill-pill">Cloudinary CDN</span>
+                        <span class="skill-pill">Delta Sync</span>
                     </div>
                 </div>
             </div>
@@ -449,52 +444,26 @@
             </div>
 
             <div class="grid" id="projectGrid">
-                <!-- Project 1: AgriSathi AI -->
-                <div class="glass-card java-card" data-category="springboot jpa ai">
-                    <div class="badge badge-java">🌱 FEATURED · 30-DAY HACKATHON · AI PIPELINE</div>
-                    <h3 class="card-title">AgriSathi AI</h3>
+                <!-- Project 1: DevTinder (Flagship Lead Project) -->
+                <div class="glass-card java-card" data-category="hackathon springboot">
+                    <div class="badge badge-java">⭐ FLAGSHIP BACKEND · REAL-TIME WEBSOCKETS (STOMP) · AI SYNERGY MATCHING · SPRING BOOT 3</div>
+                    <h3 class="card-title">DevTinder</h3>
                     <p class="card-body-text">
-                        Architected a modular Java 21 &amp; Spring Boot 3 backend for an agricultural intelligence platform during a 30-day hackathon. Built 25+ RESTful API endpoints implementing a multipart media ingestion pipeline with Cloudinary CDN and computer vision inference for crop disease diagnosis with confidence scoring. Integrated hyper-local 7-day predictive weather forecasting, peer-to-peer producer marketplace, and interactive OpenAPI/Swagger 3.0 documentation.
+                        <b>Engineering Problem:</b> Traditional hackathon teammate matching suffered from disconnected communication channels, high pairing friction, and arbitrary recommendation heuristics.
+                        <br><br>
+                        <b>Architecture &amp; Implementation:</b> Architected a modular backend platform with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b> — transitioning from a Devlynix Buildathon 2.0 hackathon MVP to a high-availability production service. Engineered real-time bidirectional messaging via <b>WebSockets (STOMP)</b> with delta synchronization (<code style="color:var(--neon-green);">?after={id}</code>) and unread tracking over normalized schemas. Designed an <b>Algorithmic Skill Synergy Scoring engine</b> calculating dynamic developer compatibility (50–99%) and hardened public APIs with stateless <b>Spring Security</b>, <b>JWT &amp; Refresh Token Rotation</b>, sliding-window rate limiting, and queue rewind.
+                        <br><br>
+                        <b>Impact &amp; Results:</b> Containerized with <b>Docker</b> and deployed to <b>Render Cloud</b>, sustaining <b>99.9% uptime</b>, sub-50ms WebSocket message delivery, and sub-80ms API response latency for Next.js web clients.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
                         <span class="skill-pill">PostgreSQL</span>
-                        <span class="skill-pill">Spring Data JPA</span>
-                        <span class="skill-pill">JWT &amp; RBAC</span>
-                        <span class="skill-pill">Computer Vision Pipeline</span>
-                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
-                        <span class="skill-pill">Cloudinary</span>
-                    </div>
-
-                    <div class="project-actions">
-                        <a href="https://agri-sathi-ai-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-demo">
-                            <i class="fas fa-arrow-up-right-from-square"></i> LIVE_DEMO
-                        </a>
-                        <button class="btn-preview" onclick="openProjectModal('agrisathi')">
-                            <i class="fas fa-layer-group"></i> Architecture &amp; APIs
-                        </button>
-                        <a href="https://github.com/gargnikunj991-ux/AgriSathi_AI" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <i class="fab fa-github"></i> VIEW_CODE →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2: DevTinder -->
-                <div class="glass-card java-card" data-category="hackathon springboot">
-                    <div class="badge badge-java">⭐ REAL-TIME · WEBSOCKETS · DEVLYNIX BUILDATHON 2.0</div>
-                    <h3 class="card-title">DevTinder</h3>
-                    <p class="card-body-text">
-                        Engineered and deployed the backend for a developer teammate matchmaking platform in 72 hours during Devlynix Buildathon 2.0. Designed a PostgreSQL-backed relational API layer for developer profiles, tech stack tags, and mutual collaboration matching requests. Implemented real-time bidirectional group &amp; direct messaging using WebSockets (STOMP protocol) with persistent chat history. Deployed to production on Railway with containerized environment variables.
-                    </p>
-                    <div class="skill-list">
-                        <span class="skill-pill">Java</span>
-                        <span class="skill-pill">Spring Boot</span>
-                        <span class="skill-pill">PostgreSQL</span>
                         <span class="skill-pill">WebSockets (STOMP)</span>
-                        <span class="skill-pill">Spring Security</span>
+                        <span class="skill-pill">Spring Security (JWT)</span>
                         <span class="skill-pill">REST APIs</span>
-                        <span class="skill-pill">Railway</span>
+                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">Render</span>
                     </div>
 
                     <div class="project-actions">
@@ -510,20 +479,24 @@
                     </div>
                 </div>
 
-                <!-- Project 3: LibroSphere -->
+                <!-- Project 2: LibroSphere (Concurrency & Engineering Depth) -->
                 <div class="glass-card java-card" data-category="jpa springboot">
-                    <div class="badge badge-java">CONCURRENCY ENGINE · PESSIMISTIC LOCKING · FIFO QUEUE · POSTGRESQL</div>
-                    <h3 class="card-title">LibroSphere (Asset Lending Engine)</h3>
+                    <div class="badge badge-java">🔥 DISTRIBUTED CONCURRENCY ENGINE · PESSIMISTIC ROW LOCKING · ACID TRANSACTIONS · JUNIT 5 (64 TESTS)</div>
+                    <h3 class="card-title">LibroSphere (High-Concurrency Asset Engine)</h3>
                     <p class="card-body-text">
-                        Engineered a high-concurrency asset lending and reservation backend in Java 21 and Spring Boot 3. Prevented double-booking race conditions on limited inventory copies by enforcing pessimistic database row locks (<code style="color:var(--neon-green);">SELECT ... FOR UPDATE</code>) inside atomic transactions. Built an automated FIFO waitlist queue with 48-hour pickup reservations, a nightly overdue fine reconciliation cron worker (<code style="color:var(--neon-green);">@Scheduled</code>), composite B-Tree indexes, and a 64-test automated JUnit suite with multi-threaded stress testing.
+                        <b>Engineering Problem:</b> High-concurrency checkouts of limited, single-copy inventory created severe race conditions, duplicate allocations, and inventory underflow (TOCTOU anomalies).
+                        <br><br>
+                        <b>Architecture &amp; Implementation:</b> Engineered a high-concurrency asset lending and reservation backend in <b>Java 21</b> and <b>Spring Boot 3</b>. Enforced <b>JPA/Hibernate</b> pessimistic row locks (<code style="color:var(--neon-green);">@Lock(PESSIMISTIC_WRITE)</code> / <code style="color:var(--neon-green);">SELECT ... FOR UPDATE</code>) within atomic <code style="color:var(--neon-green);">@Transactional</code> boundaries. Architected a state-driven FIFO waitlist queue (<code style="color:var(--neon-blue);">WAITING</code> &rarr; <code style="color:var(--neon-blue);">NOTIFIED_READY</code>) with auto-expiring 48-hour pickup windows, an idempotent midnight cron worker (<code style="color:var(--neon-green);">@Scheduled</code>) for tiered overdue fine calculations, and composite B-Tree indexing.
+                        <br><br>
+                        <b>Impact &amp; Results:</b> Verified thread safety and ACID resilience through an automated <b>64-test JUnit 5 suite</b> running 50 concurrent checkout worker threads (<code style="color:var(--neon-green);">CountDownLatch</code>), achieving <b>0 oversells</b> and slashing database query latency from <b>120ms to under 15ms</b>.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
                         <span class="skill-pill">PostgreSQL 16</span>
+                        <span class="skill-pill">Spring Data JPA</span>
                         <span class="skill-pill">Pessimistic Locking</span>
-                        <span class="skill-pill">FIFO Waitlist</span>
-                        <span class="skill-pill">Cron Worker</span>
+                        <span class="skill-pill">ACID Transactions</span>
                         <span class="skill-pill">B-Tree Indexes</span>
                         <span class="skill-pill">JUnit 5 (64 Tests)</span>
                     </div>
@@ -537,62 +510,73 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Project 3: AgriSathi AI -->
+                <div class="glass-card java-card" data-category="springboot jpa ai">
+                    <div class="badge badge-java">🌱 30-DAY HACKATHON · REST APIS &amp; COMPUTER VISION · POSTGRESQL · SWAGGER 3.0</div>
+                    <h3 class="card-title">AgriSathi AI</h3>
+                    <p class="card-body-text">
+                        <b>Engineering Problem:</b> Fragmented advisory channels and lack of real-time diagnostic tools for rural agricultural producers facing crop disease outbreaks.
+                        <br><br>
+                        <b>Architecture &amp; Implementation:</b> Spearheaded the backend architecture during an intensive 30-day hackathon using <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Engineered 25+ modular <b>REST APIs</b> powering crop health analytics, peer-to-peer producer trade, and agronomic advisory. Orchestrated a multipart image streaming pipeline to Cloudinary CDN coupled with computer vision inference for real-time disease diagnosis, secured with stateless <b>JWT authentication</b> and strict <b>Role-Based Access Control (RBAC)</b>.
+                        <br><br>
+                        <b>Impact &amp; Results:</b> Standardized all contracts with interactive <b>OpenAPI/Swagger 3.0</b>, delivering instant disease classification with statistical confidence metrics and sub-90ms API responses.
+                    </p>
+                    <div class="skill-list">
+                        <span class="skill-pill">Java 21</span>
+                        <span class="skill-pill">Spring Boot 3</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">Spring Data JPA</span>
+                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">JWT &amp; RBAC</span>
+                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
+                        <span class="skill-pill">Cloudinary CDN</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://agri-sathi-ai-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+                            <i class="fas fa-arrow-up-right-from-square"></i> LIVE_DEMO
+                        </a>
+                        <button class="btn-preview" onclick="openProjectModal('agrisathi')">
+                            <i class="fas fa-layer-group"></i> Architecture &amp; APIs
+                        </button>
+                        <a href="https://github.com/gargnikunj991-ux/AgriSathi_AI" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i> VIEW_CODE →
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- CREDENTIALS & COMPETENCIES SECTION -->
-        <section class="section-container" id="competencies">
-            <h2 class="section-title">// CREDENTIALS_&_COMPETENCIES</h2>
-            <p class="section-subtitle">Formal certifications, verified coursework, and core enterprise engineering specializations.</p>
+        <!-- CREDENTIALS & ACHIEVEMENTS SECTION -->
+        <section class="section-container" id="credentials">
+            <h2 class="section-title">// CREDENTIALS_&_ACHIEVEMENTS</h2>
+            <p class="section-subtitle">Verified certifications, innovation recognition, hackathon leadership, and algorithmic milestones.</p>
             <div class="grid">
                 <div class="glass-card java-card">
                     <div class="badge badge-java">VERIFIED CREDENTIAL</div>
                     <i class="fab fa-java card-header-icon" style="color:var(--neon-green);"></i>
                     <h3 class="card-title">Java Programming Certification</h3>
                     <p class="card-body-text">
-                        Completed Java Programming certification through the <b style="color:#ddd;">IIT Bombay Spoken Tutorial</b> project, validating core OOP principles, multi-threading, collections framework, and clean coding best practices.
+                        Completed Java Programming certification through the <b style="color:#ddd;">IIT Bombay Spoken Tutorial</b> project, validating core OOP design, multi-threading, concurrency, and clean coding best practices.
                     </p>
                 </div>
 
-                <div class="glass-card blue-card">
-                    <div class="badge badge-blue">SPECIALIZED ARCHITECTURE</div>
-                    <i class="fas fa-server card-header-icon" style="color:var(--neon-blue);"></i>
-                    <h3 class="card-title">Spring Boot &amp; Security Architecture</h3>
-                    <p class="card-body-text">
-                        Specialized competency in designing layered REST architectures (Controller &rarr; Service &rarr; Repository), stateless <b style="color:#ddd;">JWT Authentication with Refresh Token Rotation</b>, and automated unit testing with <b style="color:#ddd;">JUnit 5</b>.
-                    </p>
-                </div>
-
-                <div class="glass-card gold-card">
-                    <div class="badge badge-gold">RELATIONAL SYSTEMS</div>
-                    <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">PostgreSQL &amp; Database Design</h3>
-                    <p class="card-body-text">
-                        Deep focus on relational schema design, 3NF normalization, foreign key constraints, <b style="color:#ddd;">ACID transactional integrity</b> (<code style="color:var(--neon-green);">@Transactional</code>), and optimized relational querying across multi-table backends.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- RECOGNITION SECTION -->
-        <section class="section-container" id="recognition">
-            <h2 class="section-title">// RECOGNITION_LOG</h2>
-            <div class="grid">
                 <div class="glass-card gold-card">
                     <div class="badge badge-gold">STARTUP INNOVATION</div>
                     <i class="fas fa-lightbulb card-header-icon" style="color:var(--gold);"></i>
                     <h3 class="card-title">Startup Innovation Recognition</h3>
                     <p class="card-body-text">
-                        Received <b style="color:#ddd;">Certificate of Recognition</b> for presenting an innovative agritech startup idea at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b>.
+                        Awarded <b style="color:#ddd;">Certificate of Recognition</b> for pitching an innovative agritech startup architecture at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b> (Uttarakhand State Council for Science and Technology).
                     </p>
                 </div>
 
                 <div class="glass-card java-card">
-                    <div class="badge badge-java">LEADERSHIP &amp; COMMUNITY</div>
-                    <i class="fas fa-users-gear card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Secretary — TechMantra Coding Club</h3>
+                    <div class="badge badge-java">HACKATHON LEADERSHIP</div>
+                    <i class="fas fa-laptop-code card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">Smart India Hackathon (SIH 2024) Co-Lead</h3>
                     <p class="card-body-text">
-                        Serving as <b style="color:#ddd;">Secretary of TechMantra Coding Club</b> at SGRRU, spearheading technical workshops, coding bootcamps, and actively co-leading the organization of the college-wide internal evaluation rounds for the <b style="color:#ddd;">Smart India Hackathon (SIH)</b>.
+                        Co-organized and evaluated the university internal qualification round for the <b style="color:#ddd;">Smart India Hackathon (SIH 2024)</b>, facilitating technical reviews and project scoring for all 7 competing software teams.
                     </p>
                 </div>
 
@@ -668,35 +652,6 @@
             // GET_IN_TOUCH
         </h2>
 
-        <!-- QUICK CONTACT CARD -->
-        <div class="quick-contact-container">
-            <h3 class="quick-contact-title">
-                <i class="fas fa-paper-plane" style="color:var(--neon-green);"></i>
-                Send a Direct Message
-            </h3>
-            <p class="quick-contact-subtitle">
-                Have a backend role, collaborative project, or question? Send a note directly or copy my email below.
-            </p>
-            <form class="quick-contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleQuickMessageSubmit(event)">
-                <input type="hidden" name="form-name" value="contact">
-                <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
-                <div class="form-row">
-                    <input type="text" id="msgName" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name">
-                    <input type="email" id="msgEmail" name="email" class="form-control" placeholder="Your Work Email" required aria-label="Your Work Email">
-                </div>
-                <textarea id="msgText" name="message" class="form-control form-textarea" placeholder="Your Message or Project Overview..." required aria-label="Your Message or Project Overview"></textarea>
-                <div class="form-actions">
-                    <button type="submit" class="btn-send-msg">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                    <button type="button" id="copyEmailBtn" class="btn-copy-email" onclick="copyEmailAddress()">
-                        <i class="fas fa-copy"></i> Copy: gargnikunj991@gmail.com
-                    </button>
-                </div>
-                <div id="msgStatus" style="font-size:0.8rem; margin-top:4px;"></div>
-            </form>
-        </div>
-
         <div class="contact-group">
             <a href="tel:+919456500319" class="contact-link">
                 <i class="fas fa-phone"></i>
@@ -706,16 +661,6 @@
             <a href="mailto:gargnikunj991@gmail.com" class="contact-link">
                 <i class="fas fa-envelope"></i>
                 gargnikunj991@gmail.com
-            </a>
-
-            <a href="https://nikunjgarg.xyz" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fas fa-globe"></i>
-                nikunjgarg.xyz
-            </a>
-
-            <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fas fa-code"></i>
-                leetcode.com/u/Nikunjgarg12
             </a>
 
             <a href="https://github.com/gargnikunj991-ux" target="_blank" rel="noopener noreferrer" class="contact-link">
