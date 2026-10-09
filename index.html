@@ -278,11 +278,11 @@
             <div class="glass-card">
                 <h3 style="font-size:1.6rem; color:#fff;">Nikunj Garg</h3>
                 <p class="card-body-text" style="margin-top:14px;">
-                    Results-driven <b>Java Backend Developer</b> engineering scalable backend architectures, high-concurrency systems, and real-time distributed services with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>.
+                    BCA student and <b>Java Backend Developer</b> building reliable, maintainable backend applications using <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>.
                     <br><br>
-                    Specializes in eliminating data race conditions and inventory overselling via <b>JPA/Hibernate</b> pessimistic row locking and <b>ACID transactions</b>, architecting low-latency <b>REST APIs</b>, and deploying bidirectional <b>WebSockets (STOMP)</b> with stateless <b>JWT Authentication &amp; Refresh Token Rotation</b> across competitive hackathons and production environments.
+                    Experienced in eliminating concurrency race conditions and inventory overselling via <b>JPA/Hibernate</b> pessimistic row locking and <b>ACID transactions</b>, building RESTful APIs, and implementing bidirectional <b>WebSockets (STOMP)</b> with stateless <b>JWT Authentication &amp; Refresh Token Rotation</b>.
                     <br><br>
-                    Proficient in the end-to-end backend lifecycle — from 3NF relational schema modeling and B-Tree indexing to <b>Docker</b> containerization, automated multithreaded stress <b>testing (JUnit 5)</b>, and zero-downtime cloud deployments on <b>Render Cloud</b>.
+                    Proficient in relational database design (3NF), B-Tree indexing, <b>Docker</b> containerization, automated testing with <b>JUnit 5</b>, and cloud deployments on <b>Render Cloud</b>.
                 </p>
             </div>
 
@@ -446,14 +446,14 @@
             <div class="grid" id="projectGrid">
                 <!-- Project 1: DevTinder (Flagship Lead Project) -->
                 <div class="glass-card java-card" data-category="hackathon springboot">
-                    <div class="badge badge-java">⭐ FLAGSHIP BACKEND · REAL-TIME WEBSOCKETS (STOMP) · AI SYNERGY MATCHING · SPRING BOOT 3</div>
+                    <div class="badge badge-java">⭐ DEVELOPER MATCHING &amp; MESSAGING · WEBSOCKETS (STOMP) · SPRING BOOT 3</div>
                     <h3 class="card-title">DevTinder</h3>
                     <p class="card-body-text">
-                        <b>Engineering Problem:</b> Traditional hackathon teammate matching suffered from disconnected communication channels, high pairing friction, and arbitrary recommendation heuristics.
+                        <b>Engineering Problem:</b> Hackathon teammate discovery and collaboration suffered from disconnected channels, pairing friction, and arbitrary recommendation heuristics.
                         <br><br>
-                        <b>Architecture &amp; Implementation:</b> Architected a modular backend platform with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b> — transitioning from a Devlynix Buildathon 2.0 hackathon MVP to a high-availability production service. Engineered real-time bidirectional messaging via <b>WebSockets (STOMP)</b> with delta synchronization (<code style="color:var(--neon-green);">?after={id}</code>) and unread tracking over normalized schemas. Designed an <b>Algorithmic Skill Synergy Scoring engine</b> calculating dynamic developer compatibility (50–99%) and hardened public APIs with stateless <b>Spring Security</b>, <b>JWT &amp; Refresh Token Rotation</b>, sliding-window rate limiting, and queue rewind.
+                        <b>Architecture &amp; Implementation:</b> Architected the backend platform with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Engineered real-time bidirectional messaging via <b>WebSockets (STOMP)</b> with delta synchronization (<code style="color:var(--neon-green);">?after={id}</code>) and unread tracking over normalized schemas. Designed a dynamic candidate discovery service ranking profiles by shared skill counts in descending order, and hardened public APIs with stateless <b>Spring Security</b>, <b>JWT &amp; Refresh Token Rotation</b> (token family replay defense), sliding-window IP rate limiting, and queue rewind.
                         <br><br>
-                        <b>Impact &amp; Results:</b> Containerized with <b>Docker</b> and deployed to <b>Render Cloud</b>, sustaining <b>99.9% uptime</b>, sub-50ms WebSocket message delivery, and sub-80ms API response latency for Next.js web clients.
+                        <b>Impact &amp; Results:</b> Containerized with a multi-stage <b>Dockerfile</b> and deployed to <b>Render Cloud</b> with automated health checks (<code style="color:var(--neon-green);">/api/health</code>), powering real-time chat, profile matching, and delta synchronization for a Next.js web client.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
@@ -481,14 +481,14 @@
 
                 <!-- Project 2: LibroSphere (Concurrency & Engineering Depth) -->
                 <div class="glass-card java-card" data-category="jpa springboot">
-                    <div class="badge badge-java">🔥 DISTRIBUTED CONCURRENCY ENGINE · PESSIMISTIC ROW LOCKING · ACID TRANSACTIONS · JUNIT 5 (64 TESTS)</div>
-                    <h3 class="card-title">LibroSphere (High-Concurrency Asset Engine)</h3>
+                    <div class="badge badge-java">🔥 CONCURRENCY CONTROL · PESSIMISTIC ROW LOCKING · FIFO WAITLIST · JUNIT 5 (66 TESTS)</div>
+                    <h3 class="card-title">LibroSphere &mdash; Library Management &amp; Reservation System</h3>
                     <p class="card-body-text">
                         <b>Engineering Problem:</b> High-concurrency checkouts of limited, single-copy inventory created severe race conditions, duplicate allocations, and inventory underflow (TOCTOU anomalies).
                         <br><br>
-                        <b>Architecture &amp; Implementation:</b> Engineered a high-concurrency asset lending and reservation backend in <b>Java 21</b> and <b>Spring Boot 3</b>. Enforced <b>JPA/Hibernate</b> pessimistic row locks (<code style="color:var(--neon-green);">@Lock(PESSIMISTIC_WRITE)</code> / <code style="color:var(--neon-green);">SELECT ... FOR UPDATE</code>) within atomic <code style="color:var(--neon-green);">@Transactional</code> boundaries. Architected a state-driven FIFO waitlist queue (<code style="color:var(--neon-blue);">WAITING</code> &rarr; <code style="color:var(--neon-blue);">NOTIFIED_READY</code>) with auto-expiring 48-hour pickup windows, an idempotent midnight cron worker (<code style="color:var(--neon-green);">@Scheduled</code>) for tiered overdue fine calculations, and composite B-Tree indexing.
+                        <b>Architecture &amp; Implementation:</b> Engineered a concurrency-safe asset lending and reservation backend in <b>Java 21</b> and <b>Spring Boot 3</b>. Enforced <b>Spring Data JPA</b> pessimistic row locks (<code style="color:var(--neon-green);">@Lock(PESSIMISTIC_WRITE)</code> / <code style="color:var(--neon-green);">SELECT ... FOR UPDATE</code>) within atomic <code style="color:var(--neon-green);">@Transactional</code> boundaries. Architected a state-driven FIFO waitlist queue with 48-hour pickup expiration holds on returned assets, an idempotent midnight cron worker (<code style="color:var(--neon-green);">@Scheduled</code>) for tiered overdue fine calculations, and composite B-Tree indexing.
                         <br><br>
-                        <b>Impact &amp; Results:</b> Verified thread safety and ACID resilience through an automated <b>64-test JUnit 5 suite</b> running 50 concurrent checkout worker threads (<code style="color:var(--neon-green);">CountDownLatch</code>), achieving <b>0 oversells</b> and slashing database query latency from <b>120ms to under 15ms</b>.
+                        <b>Impact &amp; Results:</b> Verified thread safety and ACID resilience through an automated <b>66-test JUnit 5 suite</b> (100% pass rate), including multithreaded stress testing with 10 concurrent threads (<code style="color:var(--neon-green);">CountDownLatch</code>) confirming exactly 1 loan, 9 expected rejections, and zero underflow.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
@@ -498,7 +498,7 @@
                         <span class="skill-pill">Pessimistic Locking</span>
                         <span class="skill-pill">ACID Transactions</span>
                         <span class="skill-pill">B-Tree Indexes</span>
-                        <span class="skill-pill">JUnit 5 (64 Tests)</span>
+                        <span class="skill-pill">JUnit 5 (66 Tests)</span>
                     </div>
 
                     <div class="project-actions">
@@ -514,13 +514,13 @@
                 <!-- Project 3: AgriSathi AI -->
                 <div class="glass-card java-card" data-category="springboot jpa ai">
                     <div class="badge badge-java">🌱 30-DAY HACKATHON · REST APIS &amp; COMPUTER VISION · POSTGRESQL · SWAGGER 3.0</div>
-                    <h3 class="card-title">AgriSathi AI</h3>
+                    <h3 class="card-title">AgriSathi AI &mdash; Agricultural Assistance Platform</h3>
                     <p class="card-body-text">
                         <b>Engineering Problem:</b> Fragmented advisory channels and lack of real-time diagnostic tools for rural agricultural producers facing crop disease outbreaks.
                         <br><br>
-                        <b>Architecture &amp; Implementation:</b> Spearheaded the backend architecture during an intensive 30-day hackathon using <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Engineered 25+ modular <b>REST APIs</b> powering crop health analytics, peer-to-peer producer trade, and agronomic advisory. Orchestrated a multipart image streaming pipeline to Cloudinary CDN coupled with computer vision inference for real-time disease diagnosis, secured with stateless <b>JWT authentication</b> and strict <b>Role-Based Access Control (RBAC)</b>.
+                        <b>Architecture &amp; Implementation:</b> Spearheaded the backend architecture during an intensive 30-day hackathon using <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Engineered 20+ modular <b>RESTful endpoints</b> powering crop health analytics, peer-to-peer producer trade, and agronomic advisory. Orchestrated a multipart image upload pipeline to Cloudinary CDN coupled with diagnostic classification returning disease identification, confidence scores, and recommended treatments. Secured with stateless <b>JWT authentication</b> and strict <b>Role-Based Access Control (RBAC)</b>.
                         <br><br>
-                        <b>Impact &amp; Results:</b> Standardized all contracts with interactive <b>OpenAPI/Swagger 3.0</b>, delivering instant disease classification with statistical confidence metrics and sub-90ms API responses.
+                        <b>Impact &amp; Results:</b> Standardized and validated all API contracts with interactive <b>OpenAPI / Swagger 3.0</b> documentation and automated response validation.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
@@ -572,11 +572,11 @@
                 </div>
 
                 <div class="glass-card java-card">
-                    <div class="badge badge-java">HACKATHON LEADERSHIP</div>
-                    <i class="fas fa-laptop-code card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Smart India Hackathon (SIH 2024) Co-Lead</h3>
+                    <div class="badge badge-java">COMMUNITY LEADERSHIP</div>
+                    <i class="fas fa-users card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">Secretary &mdash; TechMantra Coding Club</h3>
                     <p class="card-body-text">
-                        Co-organized and evaluated the university internal qualification round for the <b style="color:#ddd;">Smart India Hackathon (SIH 2024)</b>, facilitating technical reviews and project scoring for all 7 competing software teams.
+                        Promoted from Core Member to <b style="color:#ddd;">Secretary</b> within 10 months; organized 5+ hands-on coding bootcamps and technical workshops on Java, backend systems, and DSA for <b style="color:#ddd;">120+ student developers</b>.
                     </p>
                 </div>
 

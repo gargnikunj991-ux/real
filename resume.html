@@ -236,7 +236,7 @@
     <section class="section">
         <h2 class="section-title">Summary</h2>
         <p class="summary-text">
-            Results-driven <b>Java Backend Developer</b> engineering high-throughput backend architectures, high-concurrency systems, and real-time distributed services with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Specializes in eliminating data race conditions via <b>JPA/Hibernate</b> pessimistic row locking and <b>ACID transactions</b>, architecting low-latency <b>REST APIs</b>, and deploying bidirectional <b>WebSockets (STOMP)</b> with stateless <b>JWT</b> security pipelines. Proven track record containerizing microservices with <b>Docker</b> and guaranteeing fault tolerance through automated multithreaded stress <b>testing (JUnit 5)</b>.
+            BCA student with hands-on experience developing backend applications using <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Built projects involving <b>RESTful APIs</b>, database transactions, concurrency control, stateless <b>JWT</b> authentication, and real-time <b>WebSocket (STOMP)</b> communication. Interested in writing reliable, maintainable backend services with automated <b>JUnit 5</b> test coverage.
         </p>
     </section>
 
@@ -244,11 +244,11 @@
     <section class="section">
         <h2 class="section-title">Technical Skills</h2>
         <ul class="skills-list">
-            <li><span class="skills-label">Languages &amp; Backend:</span> Java 21 (OOP, Multithreading), Spring Boot 3, Spring Data JPA, Hibernate ORM, REST APIs, WebSockets (STOMP)</li>
-            <li><span class="skills-label">Databases &amp; Concurrency:</span> PostgreSQL, ACID Transactions, Pessimistic / Optimistic Locking, Composite B-Tree Indexing, Schema Design (3NF)</li>
-            <li><span class="skills-label">Security &amp; Architecture:</span> Spring Security, JWT (Refresh Token Rotation), BCrypt Hashing, Role-Based Access Control (RBAC), Clean Architecture</li>
-            <li><span class="skills-label">Testing &amp; Quality Assurance:</span> JUnit 5, Concurrency Stress Testing (CountDownLatch, ExecutorService), Integration Testing, Mockito</li>
-            <li><span class="skills-label">DevOps, Cloud &amp; Tools:</span> Docker, Docker Compose, Render Cloud, Git, GitHub, Maven, OpenAPI / Swagger 3.0, Postman</li>
+            <li><span class="skills-label">Languages:</span> Java 21, SQL</li>
+            <li><span class="skills-label">Backend:</span> Spring Boot 3, Spring Data JPA, Hibernate ORM, RESTful APIs, WebSockets (STOMP)</li>
+            <li><span class="skills-label">Database:</span> PostgreSQL, Relational Schema Design (3NF), Composite B-Tree Indexing, ACID Transactions, Pessimistic Locking</li>
+            <li><span class="skills-label">Security &amp; Testing:</span> Spring Security, JWT (Refresh Token Rotation), Role-Based Access Control (RBAC), JUnit 5, Mockito</li>
+            <li><span class="skills-label">Tools &amp; DevOps:</span> Docker, Docker Compose, Git, GitHub, Maven, Postman, Render</li>
         </ul>
     </section>
 
@@ -256,40 +256,39 @@
     <section class="section">
         <h2 class="section-title">Projects</h2>
 
-        <!-- Project 1: DevTinder (Lead Project) -->
+        <!-- Project 1: DevTinder -->
         <div class="project-item">
             <div class="project-header">
                 <div class="project-title-tech">
-                    <span class="project-title">DevTinder</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, WebSockets (STOMP), Spring Security, Docker, Render</span>
+                    <span class="project-title">DevTinder &mdash; Developer Matching &amp; Messaging Platform</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, WebSockets (STOMP), Spring Security, Docker</span>
                 </div>
                 <div class="project-links">
                     [<a href="https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git">GitHub Repo</a>] &bull; [<a href="https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/">Live Demo</a>]
                 </div>
             </div>
             <ul class="bullets">
-                <li>Architected the complete backend platform with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>; evolved a Devlynix Buildathon 2.0 hackathon MVP into an autonomous production-grade service powering a Next.js client.</li>
-                <li>Engineered real-time bidirectional chat via <b>WebSockets (STOMP)</b> paired with delta synchronization (`?after={id}`) and unread tracking over normalized schemas, driving message delivery latency under 50ms.</li>
-                <li>Designed an <b>Algorithmic Skill Synergy Scoring engine</b> calculating dynamic developer compatibility (50–99%) by evaluating intersection matrices of shared stacks, complementary skill sets, and project pitches.</li>
-                <li>Hardened endpoints using stateless <b>Spring Security</b> filters, <b>JWT &amp; Refresh Token Rotation</b>, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radars, and swipe queue rewind.</li>
-                <li>Containerized and deployed backend on <b>Render Cloud</b> with automated health-check probes (`/api/health`), achieving 99.9% uptime and sub-80ms average API response times.</li>
+                <li>Built bidirectional real-time messaging using <b>Spring WebSocket (STOMP)</b> paired with REST delta synchronization (<span class="code-pill">?after={id}</span>) and PostgreSQL persistence so users can retrieve missed messages upon reconnecting.</li>
+                <li>Implemented a developer discovery and matching service that ranks candidate profiles dynamically by shared skill counts in descending order and tracks mutual interest using unique composite constraints on swipe records.</li>
+                <li>Hardened authentication using stateless <b>Spring Security</b> filters, short-lived <b>JWT</b> access tokens, sliding-window IP rate limiting, and <b>Refresh Token Rotation (RTR)</b> with token family tracking to detect and revoke compromised sessions.</li>
+                <li>Containerized the backend using a multi-stage <b>Dockerfile</b> and configured environment variables and health-check endpoints (<span class="code-pill">/api/health</span>) for cloud deployment integrating with a Next.js frontend.</li>
             </ul>
         </div>
 
-        <!-- Project 2: LibroSphere (Concurrency & Engineering Depth) -->
+        <!-- Project 2: LibroSphere -->
         <div class="project-item">
             <div class="project-header">
                 <div class="project-title-tech">
-                    <span class="project-title">LibroSphere (High-Concurrency Asset Engine)</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Hibernate, JUnit 5</span>
+                    <span class="project-title">LibroSphere &mdash; Library Management &amp; Reservation System</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security, Docker, JUnit 5</span>
                 </div>
                 <div class="project-links">
                     [<a href="https://github.com/gargnikunj991-ux/library_spring.git">GitHub Repo</a>]
                 </div>
             </div>
             <ul class="bullets">
-                <li>Eliminated race conditions and inventory overselling under high contention by enforcing <b>JPA/Hibernate</b> row-level locking (<span class="code-pill">SELECT ... FOR UPDATE</span>) inside atomic <span class="code-pill">@Transactional</span> boundaries.</li>
-                <li>Architected an automated FIFO reservation waitlist state machine prioritizing queued patrons with 48-hour pickup windows before restoring unclaimed inventory to circulation.</li>
-                <li>Engineered an automated nightly cron worker (<span class="code-pill">@Scheduled</span>) calculating tiered overdue fines and applied composite B-Tree indexes, slashing query latency from 120ms to under 15ms.</li>
-                <li>Verified thread safety and ACID resilience with a <b>64-test automated JUnit 5 suite</b>, stress-testing 50 concurrent checkout threads via <span class="code-pill">CountDownLatch</span> with a 100% pass rate.</li>
+                <li>Implemented pessimistic row-level locking (<span class="code-pill">SELECT ... FOR UPDATE</span>) in <b>Spring Data JPA</b> within atomic <span class="code-pill">@Transactional</span> boundaries to prevent race conditions and inventory overselling during concurrent checkouts.</li>
+                <li>Verified thread safety and ACID resilience with an automated <b>JUnit 5</b> integration test using <span class="code-pill">CountDownLatch</span> and <span class="code-pill">ExecutorService</span>, proving 10 concurrent threads competing for 1 copy produced exactly 1 loan and 9 rejections with zero underflow.</li>
+                <li>Architected an automated FIFO reservation waitlist that intercepts returned books, holding them exclusively for queued patrons with a 48-hour pickup window before restoring unclaimed inventory to general circulation.</li>
+                <li>Built an automated nightly cron worker (<span class="code-pill">@Scheduled</span>) calculating tiered overdue penalties and added composite B-Tree indexes on <span class="code-pill">(returned, due_date)</span> and <span class="code-pill">(book_id, status, reserved_at)</span> to avoid full table scans.</li>
             </ul>
         </div>
 
@@ -297,16 +296,16 @@
         <div class="project-item">
             <div class="project-header">
                 <div class="project-title-tech">
-                    <span class="project-title">AgriSathi AI</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Security, Swagger 3.0, Cloudinary</span>
+                    <span class="project-title">AgriSathi AI &mdash; Agricultural Assistance Platform</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Security, Swagger 3.0, Cloudinary</span>
                 </div>
                 <div class="project-links">
                     [<a href="https://github.com/gargnikunj991-ux/AgriSathi_AI.git">GitHub Repo</a>] &bull; [<a href="https://agri-sathi-ai-three.vercel.app/">Live Demo</a>]
                 </div>
             </div>
             <ul class="bullets">
-                <li>Spearheaded the backend for an agricultural intelligence platform during a 30-day hackathon, engineering 25+ <b>REST APIs</b> serving crop health analytics, peer-to-peer trade, and agronomic advisory.</li>
-                <li>Orchestrated a multipart image pipeline streaming crop scans to an AI classification model with Cloudinary CDN storage, delivering real-time disease diagnosis with statistical confidence scores.</li>
-                <li>Secured role-segregated operations (farmers vs. buyers) via stateless <b>JWT authentication</b> and <b>Role-Based Access Control (RBAC)</b>; standardized contracts using interactive <b>OpenAPI/Swagger 3.0</b>.</li>
+                <li>Developed 20+ <b>RESTful endpoints</b> in Spring Boot with Jakarta Validation and centralized <span class="code-pill">@ControllerAdvice</span> error handling for crop tracking, agronomic advisory, and marketplace operations.</li>
+                <li>Built a multipart image upload pipeline with file size (&lt;5MB) and MIME-type validation, streaming crop photos to Cloudinary CDN and returning automated disease diagnoses, confidence scores, and treatment plans.</li>
+                <li>Configured stateless <b>JWT authentication</b> with <b>Role-Based Access Control (RBAC)</b> to separate farmer and merchant workflows, documenting all API contracts with interactive <b>OpenAPI / Swagger 3.0</b>.</li>
             </ul>
         </div>
     </section>
@@ -323,18 +322,18 @@
             </div>
         </div>
         <div class="education-cgpa">
-            <b>Cumulative CGPA:</b> 7.48 / 10.0 &nbsp;&bull;&nbsp; <b>Semester 2:</b> 7.96 / 10.0
+            <b>Cumulative CGPA:</b> 7.48 / 10.0 &nbsp;&bull;&nbsp; <b>Semester 2 SGPA:</b> 7.96 / 10.0
         </div>
     </section>
 
-    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+    <!-- LEADERSHIP & ACHIEVEMENTS -->
     <section class="section" style="margin-bottom: 0;">
-        <h2 class="section-title">Certifications &amp; Achievements</h2>
+        <h2 class="section-title">Leadership &amp; Achievements</h2>
         <ul class="achievements-list">
+            <li><b>Secretary &mdash; TechMantra Coding Club:</b> Promoted from Core Member to Secretary within 10 months; organized 5+ hands-on coding bootcamps and technical workshops for 120+ student developers.</li>
+            <li><b>Startup Innovation Recognition:</b> Awarded Certificate of Recognition from <b>UCOST &amp; SGRR University IIC</b> for architecting and pitching AgriSathi AI in university innovation competitions.</li>
             <li><b>Java Programming Certification:</b> Completed Java Programming certification through <b>IIT Bombay Spoken Tutorial</b>, validating OOP design, multithreaded concurrency, and standard collections.</li>
-            <li><b>Startup Innovation Recognition:</b> Awarded Certificate of Recognition from <b>UCOST &amp; SGRR University IIC</b> for architecting and pitching an innovative agritech startup solution.</li>
-            <li><b>Smart India Hackathon (SIH 2024) Collegiate Co-Lead:</b> Co-organized and evaluated the university internal qualification round for SIH 2024, facilitating technical reviews and project scoring for all 7 competing software teams.</li>
-            <li><b>Algorithmic Problem Solving:</b> Active Java problem solver on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointers, and linked list algorithms.</li>
+            <li><b>Algorithmic Problem Solving:</b> Solved data structures and algorithms problems in Java on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointers, and linked lists.</li>
         </ul>
     </section>
 

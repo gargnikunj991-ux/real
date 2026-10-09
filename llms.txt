@@ -49,5 +49,5 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 ## Certifications & Achievements
 - **Java Programming Certification**: Completed with distinction through IIT Bombay Spoken Tutorial Project, validating OOP design, multithreaded concurrency, and standard collection frameworks.
 - **Startup Innovation Recognition**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST) for pitching an agritech startup architecture.
-- **Smart India Hackathon (SIH 2024) Collegiate Co-Lead**: Co-organized and evaluated the collegiate internal qualification round for Smart India Hackathon (SIH 2024), facilitating technical reviews and project scoring for all 7 competing software teams.
+- **Secretary — TechMantra Coding Club**: Promoted from Core Member to Secretary within 10 months; organized 5+ hands-on coding bootcamps and technical workshops for 120+ student developers.
 - **Algorithmic Problem Solving**: Active Java problem solver on LeetCode (@Nikunjgarg12) focusing on arrays, strings, two pointers, sliding window, and linked lists.

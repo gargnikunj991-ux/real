@@ -57,13 +57,13 @@ const projectDetails = {
         github: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git",
         demo: "https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/",
         architecture: [
-            "Engineering Role: Prototyped backend during Devlynix Buildathon 2.0 with frontend teammates; independently evolved into production-grade microservice integrated with Next.js client",
-            "Real-Time Messaging Broker: Bidirectional chat over WebSockets (STOMP) with delta sync fallback (GET /api/chat/{id}/messages?after={id}) and unread tracking, sub-50ms latency",
+            "Engineering Role: Architected backend for developer collaboration platform with Java 21 & Spring Boot 3, evolving hackathon MVP into full Next.js client integration",
+            "Real-Time Messaging Broker: Bidirectional chat over WebSockets (STOMP) with delta sync fallback (GET /api/chat/{id}/messages?after={id}) and unread tracking over normalized PostgreSQL schemas",
             "Algorithmic Skill Synergy Engine: Heuristic scoring engine (50–99%) weighting shared technologies, complementary engineering disciplines, and project pitches",
             "Stateless Security & Rate Limiting: Spring Security 6 JWT filter chain with Refresh Token Rotation, BCrypt hashing, and sliding-window IP rate limiting (RateLimitFilter)",
             "Discovery State Machine: Reciprocal match radar (GET /api/matches/requests) and queue rewind (DELETE /api/discover/reset-passes) preventing candidate starvation",
             "Relational Data Persistence: Spring Data JPA Repositories ➔ PostgreSQL 16 normalized relational schema (users, skills, user_skills, swipes, matches, messages)",
-            "Production Cloud Deployment: Containerized with Docker and deployed to Render Cloud with health check probes (/api/health), achieving 99.9% uptime"
+            "Cloud Deployment: Containerized with multi-stage Dockerfile and deployed to Render Cloud with automated health check probes (/api/health)"
         ],
         schemas: [
             { table: "users", pkey: "id (BIGINT)", fkeys: "None", fields: "name, email (UQ), password_hash, github_url, bio, looking_for, location, project_pitch, active, created_at, updated_at" },
@@ -100,15 +100,15 @@ const projectDetails = {
     },
     library: {
         title: "LibroSphere — High-Concurrency Asset Lending & Reservation Engine",
-        subtitle: "Java 21 · Spring Boot 3 · Spring Data JPA · PostgreSQL 16 · JUnit 5 (64 Tests)",
+        subtitle: "Java 21 · Spring Boot 3 · Spring Data JPA · PostgreSQL 16 · JUnit 5 (66 Tests)",
         github: "https://github.com/gargnikunj991-ux/library_spring.git",
         architecture: [
             "Concurrency Control: Database row-level pessimistic locking (@Lock(LockModeType.PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) inside atomic @Transactional boundaries eliminating inventory race conditions",
             "FIFO Waitlist Queue: State-driven reservation lifecycle (WAITING ➔ NOTIFIED_READY ➔ CLAIMED/EXPIRED) with automated 48-hour pickup window allocation on asset return",
             "Nightly Reconciliation Worker: Scheduled cron (@Scheduled) running midnight audits for overdue loans and calculating tiered member fine liabilities",
-            "Database Index Optimization: Composite B-Tree indexes on books(title, author) and borrow_records(returned, due_date) slashing query latency from 120ms to under 15ms",
+            "Database Index Optimization: Composite B-Tree indexes on books(title, author) and borrow_records(returned, due_date) eliminating sequential table scans",
             "Stateless Security: JWT Authentication with database-persisted Refresh Token Rotation (/auth/refresh) and RBAC (ADMIN, LIBRARIAN, ASSISTANT)",
-            "Automated Concurrency Testing: Comprehensive 64-test JUnit 5 test suite verifying thread safety and 0 oversells under 50-thread concurrent stress (CountDownLatch)"
+            "Automated Concurrency Testing: Comprehensive 66-test JUnit 5 test suite verifying thread safety and 0 oversells under 10-thread concurrent stress (CountDownLatch & ExecutorService)"
         ],
         schemas: [
             { table: "books", pkey: "id (BIGINT)", fkeys: "None", fields: "title, author, total_copies, available_copies, indexes: (title, author)" },
