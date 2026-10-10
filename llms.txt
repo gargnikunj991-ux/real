@@ -25,13 +25,13 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL 16, WebSockets (STOMP), Spring Security 6 (JWT & Refresh Token Rotation), Docker, Render Cloud.
 - **Live Demo**: https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git
-- **Key Capabilities**: Bidirectional STOMP WebSocket broker with delta query synchronization (`?after={id}`) and unread tracking driving message delivery latency under 50ms; Algorithmic Skill Synergy Scoring engine (50–99% compatibility weighting shared stacks, complementary engineering disciplines, and project pitches); stateless Spring Security filters with Refresh Token Rotation, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radar, and queue rewind; Docker containerization with Render Cloud deployment sustaining 99.9% uptime and sub-80ms API response latency.
+- **Key Capabilities**: Bidirectional STOMP WebSocket broker with delta query synchronization (`?after={id}`) and unread tracking over normalized schemas; candidate discovery service ranking profiles dynamically by shared skill counts and mutual swipe constraints; stateless Spring Security filters with Refresh Token Rotation, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radar, and queue rewind; multi-stage Docker containerization with `/api/health` monitoring for cloud deployment.
 
 ### 2. LibroSphere — High-Concurrency Asset Lending & Reservation Engine
 - **Overview**: High-concurrency asset lending and reservation backend engineered to eliminate race conditions, duplicate allocations, and inventory underflow under peak multi-threaded contention.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL 16, Spring Data JPA, Hibernate ORM, JUnit 5.
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/library_spring.git
-- **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) inside atomic `@Transactional` boundaries completely preventing double-checkout TOCTOU anomalies; automated FIFO reservation waitlist queue (`WAITING` -> `NOTIFIED_READY`) with 48-hour pickup reservations; nightly overdue fine reconciliation cron worker (`@Scheduled`) with composite B-Tree indexes slashing query latency from 120ms to under 15ms; comprehensive 64-test automated JUnit 5 suite simulating 50 concurrent checkout worker threads (`CountDownLatch`) validating 100% thread safety and zero oversells.
+- **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) inside atomic `@Transactional` boundaries completely preventing double-checkout TOCTOU anomalies; automated FIFO reservation waitlist queue (`WAITING` -> `NOTIFIED_READY`) with 48-hour pickup reservations; nightly overdue fine reconciliation cron worker (`@Scheduled`) with composite B-Tree indexes on `(returned, due_date)` to avoid full table scans; automated JUnit 5 integration test suite simulating concurrent checkout worker threads (`CountDownLatch`) validating 100% thread safety, expected rejections, and zero underflow.
 
 ### 3. AgriSathi AI — Agricultural Intelligence & Decision Platform
 - **Overview**: 30-day hackathon agritech backend providing crop health diagnostics, agronomic advisory, and peer-to-peer producer trade.
@@ -47,7 +47,9 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 - **Core Coursework**: Object-Oriented Programming (Java), Data Structures & Algorithms, Relational DBMS (SQL/PostgreSQL), Operating Systems, Software Engineering, Clean Architecture.
 
 ## Certifications & Achievements
-- **Java Programming Certification**: Completed with distinction through IIT Bombay Spoken Tutorial Project, validating OOP design, multithreaded concurrency, and standard collection frameworks.
-- **Startup Innovation Recognition**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST) for pitching an agritech startup architecture.
+- **Smart India Hackathon (SIH'26 Internal Round)**: Awarded Certificate of Participation, collaborating in a collegiate software team to architect solutions for national-level problem statements.
+- **Startup Innovation Recognition**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST) for pitching the startup concept "College Clash".
+- **Algothon'26 Hackathon**: Awarded Certificate of Participation in Algothon'26 organized by Algoxilla for prototyping innovative software solutions under competitive hackathon timelines.
+- **Devlynix Buildathon 2.0**: Engineered and deployed DevTinder backend in 72 hours under competitive hackathon constraints.
 - **Secretary — TechMantra Coding Club**: Promoted from Core Member to Secretary within 10 months; organized 5+ hands-on coding bootcamps and technical workshops for 120+ student developers.
 - **Algorithmic Problem Solving**: Active Java problem solver on LeetCode (@Nikunjgarg12) focusing on arrays, strings, two pointers, sliding window, and linked lists.

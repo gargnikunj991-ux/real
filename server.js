@@ -56,6 +56,8 @@ const server = http.createServer((req, res) => {
 
         const ext = path.extname(filePath).toLowerCase();
         const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+        const isStaticAsset = ['.png', '.jpg', '.jpeg', '.pdf', '.woff2', '.woff', '.ttf', '.svg'].includes(ext);
+        const cacheControl = isStaticAsset ? 'public, max-age=86400' : 'no-cache';
 
         fs.readFile(filePath, (readErr, content) => {
             if (readErr) {
@@ -65,7 +67,7 @@ const server = http.createServer((req, res) => {
             }
             res.writeHead(200, {
                 'Content-Type': contentType,
-                'Cache-Control': 'no-cache'
+                'Cache-Control': cacheControl
             });
             res.end(content);
         });

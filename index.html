@@ -37,6 +37,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Preload Authentic Certificate Media for Instant 0ms Modal Preview -->
+    <link rel="preload" as="image" href="sih-certificate.jpeg">
+    <link rel="preload" as="image" href="ucost-certificate.jpeg">
+    <link rel="preload" as="image" href="algothon-26-certificate.jpg">
+    <link rel="preload" as="image" href="devlynix-certificate.jpg">
+
     <!-- Modular CSS Stylesheet -->
     <link rel="stylesheet" href="css/style.css?v=1.1">
 
@@ -553,13 +559,18 @@
             <h2 class="section-title">// CREDENTIALS_&_ACHIEVEMENTS</h2>
             <p class="section-subtitle">Verified certifications, innovation recognition, hackathon leadership, and algorithmic milestones.</p>
             <div class="grid">
-                <div class="glass-card java-card">
-                    <div class="badge badge-java">VERIFIED CREDENTIAL</div>
-                    <i class="fab fa-java card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">Java Programming Certification</h3>
+                <div class="glass-card blue-card">
+                    <div class="badge badge-blue">COLLEGIATE HACKATHON</div>
+                    <i class="fas fa-flag-checkered card-header-icon" style="color:var(--neon-blue);"></i>
+                    <h3 class="card-title">Smart India Hackathon (SIH'26 Internal Round)</h3>
                     <p class="card-body-text">
-                        Completed Java Programming certification through the <b style="color:#ddd;">IIT Bombay Spoken Tutorial</b> project, validating core OOP design, multi-threading, concurrency, and clean coding best practices.
+                        Awarded <b style="color:#ddd;">Certificate of Participation</b> in <b style="color:#ddd;">Smart India Hackathon 2026 (Internal Round)</b>, collaborating in a collegiate software development team to architect solutions for national-level problem statements.
                     </p>
+                    <div style="margin-top: 14px;">
+                        <button class="btn-preview" onclick="openCertModal('sih-certificate.jpeg', 'Smart India Hackathon 2026 (Internal Round) — Certificate of Participation', 'SGRR University · School of Engineering & Technology', 'sih-certificate.pdf')">
+                            <i class="fas fa-award"></i> View Certificate →
+                        </button>
+                    </div>
                 </div>
 
                 <div class="glass-card gold-card">
@@ -567,8 +578,41 @@
                     <i class="fas fa-lightbulb card-header-icon" style="color:var(--gold);"></i>
                     <h3 class="card-title">Startup Innovation Recognition</h3>
                     <p class="card-body-text">
-                        Awarded <b style="color:#ddd;">Certificate of Recognition</b> for pitching an innovative agritech startup architecture at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b> (Uttarakhand State Council for Science and Technology).
+                        Awarded <b style="color:#ddd;">Certificate of Recognition</b> for pitching the multiplayer game startup concept <b style="color:#ddd;">"College Clash"</b> at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b> (Uttarakhand State Council for Science and Technology).
                     </p>
+                    <div style="margin-top: 14px;">
+                        <button class="btn-preview" onclick="openCertModal('ucost-certificate.jpeg', 'Startup Innovation Recognition — Certificate of Recognition', 'UCOST & Innovation & Incubation Centre (IIC), SGRRU', 'ucost-certificate.pdf')">
+                            <i class="fas fa-award"></i> View Certificate →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-card purple-card">
+                    <div class="badge badge-purple">HACKATHON</div>
+                    <i class="fas fa-trophy card-header-icon" style="color:#c084fc;"></i>
+                    <h3 class="card-title">Algothon'26 Hackathon</h3>
+                    <p class="card-body-text">
+                        Awarded <b style="color:#ddd;">Certificate of Participation</b> in <b style="color:#ddd;">Algothon'26</b> organized by <b style="color:#ddd;">Algoxilla</b>, actively demonstrating creativity, enthusiasm, and competitive problem-solving in building innovative software solutions.
+                    </p>
+                    <div style="margin-top: 14px;">
+                        <button class="btn-preview" onclick="openCertModal('algothon-26-certificate.jpg', 'Certificate of Participation — Algothon\'26', 'Algoxilla · Algothon\'26 Hackathon', 'algothon-26-certificate.pdf')">
+                            <i class="fas fa-award"></i> View Certificate →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-card java-card">
+                    <div class="badge badge-java">HACKATHON FINALIST</div>
+                    <i class="fas fa-laptop-code card-header-icon" style="color:var(--neon-green);"></i>
+                    <h3 class="card-title">Devlynix Buildathon 2.0</h3>
+                    <p class="card-body-text">
+                        Engineered and deployed the backend for <b style="color:#ddd;">DevTinder</b> in 72 hours under competitive hackathon pressure, implementing WebSockets (STOMP), relational PostgreSQL schemas, and cloud deployment.
+                    </p>
+                    <div style="margin-top: 14px;">
+                        <button class="btn-preview" onclick="openCertModal('devlynix-certificate.jpg', 'Devlynix Buildathon 2.0 — Certificate of Achievement', 'Devlynix · Ministry of MSME, Govt. of India', 'devlynix-certificate.pdf')">
+                            <i class="fas fa-award"></i> View Certificate →
+                        </button>
+                    </div>
                 </div>
 
                 <div class="glass-card java-card">
@@ -576,7 +620,7 @@
                     <i class="fas fa-users card-header-icon" style="color:var(--neon-green);"></i>
                     <h3 class="card-title">Secretary &mdash; TechMantra Coding Club</h3>
                     <p class="card-body-text">
-                        Promoted from Core Member to <b style="color:#ddd;">Secretary</b> within 10 months; organized 5+ hands-on coding bootcamps and technical workshops on Java, backend systems, and DSA for <b style="color:#ddd;">120+ student developers</b>.
+                        Promoted from Core Member to <b style="color:#ddd;">Secretary</b> within 10 months; organized 5+ hands-on coding bootcamps and technical workshops on Java, backend systems, and DSA for <b style="color:#ddd;">120+ student developers</b>, and co-coordinated collegiate tech events.
                     </p>
                 </div>
 
@@ -642,6 +686,34 @@
                     <i class="fas fa-graduation-cap" style="color:var(--neon-green);"></i> SGRRU BCA (2025–2028) · Dehradun
                 </span>
                 <button class="btn-preview" onclick="closeResumeModal()">Close Preview</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE QUICK-VIEW MODAL -->
+    <div class="modal-overlay" id="certModal" onclick="handleCertModalBackdropClick(event)">
+        <div class="modal-card resume-modal-card" id="certModalCard" style="max-width: 900px; height: 85vh;">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <h3 id="certModalTitle">Certificate of Participation</h3>
+                    <p id="certModalSubtitle">Verified Credential</p>
+                </div>
+                <button class="modal-close-btn" onclick="closeCertModal()" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="resume-modal-body" style="background: #0b1120; display: flex; align-items: center; justify-content: center; overflow: auto; min-height: 480px; padding: 14px;">
+                <iframe id="certModalFrame" src="" title="Certificate Preview" class="resume-frame" style="display:none;" loading="lazy"></iframe>
+                <img id="certModalImg" src="" alt="Certificate Preview" style="display:none; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);" />
+            </div>
+            <div class="modal-footer" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <span style="font-size:0.8rem; color:#94a3b8; font-family:monospace;">
+                        <i class="fas fa-shield-halved" style="color:var(--neon-green);"></i> Verified Credential · Nikunj Garg
+                    </span>
+                    <a id="certModalPdfLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-cv" style="display:none; font-size:0.75rem; padding: 4px 10px; text-decoration: none;">
+                        <i class="fas fa-file-pdf"></i> View Raw PDF ↗
+                    </a>
+                </div>
+                <button class="btn-preview" onclick="closeCertModal()">Close Preview</button>
             </div>
         </div>
     </div>

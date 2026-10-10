@@ -273,10 +273,77 @@ function handleResumeModalBackdropClick(e) {
     }
 }
 
+function openCertModal(filePath, title, subtitle, pdfPath) {
+    const modal = document.getElementById("certModal");
+    const frame = document.getElementById("certModalFrame");
+    const img = document.getElementById("certModalImg");
+    const titleEl = document.getElementById("certModalTitle");
+    const subEl = document.getElementById("certModalSubtitle");
+    const pdfLink = document.getElementById("certModalPdfLink");
+    if (modal) {
+        if (title && titleEl) titleEl.textContent = title;
+        if (subtitle && subEl) subEl.textContent = subtitle;
+
+        const actualPdf = pdfPath || (filePath && filePath.toLowerCase().endsWith(".pdf") ? filePath : null);
+        if (pdfLink) {
+            if (actualPdf) {
+                pdfLink.href = actualPdf;
+                pdfLink.style.display = "inline-flex";
+            } else {
+                pdfLink.style.display = "none";
+            }
+        }
+
+        const isPdf = filePath && filePath.toLowerCase().endsWith(".pdf");
+        if (isPdf) {
+            if (frame) {
+                frame.src = filePath;
+                frame.style.display = "block";
+            }
+            if (img) {
+                img.src = "";
+                img.style.display = "none";
+            }
+        } else {
+            if (img) {
+                img.src = filePath;
+                img.style.display = "block";
+            }
+            if (frame) {
+                frame.src = "";
+                frame.style.display = "none";
+            }
+        }
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeCertModal() {
+    const modal = document.getElementById("certModal");
+    const frame = document.getElementById("certModalFrame");
+    const img = document.getElementById("certModalImg");
+    const pdfLink = document.getElementById("certModalPdfLink");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+        if (frame) frame.src = "";
+        if (img) img.src = "";
+        if (pdfLink) pdfLink.href = "#";
+    }
+}
+
+function handleCertModalBackdropClick(e) {
+    if (e.target.id === "certModal") {
+        closeCertModal();
+    }
+}
+
 document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
         closeProjectModal();
         closeResumeModal();
+        closeCertModal();
     }
 });
 
