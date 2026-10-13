@@ -6,7 +6,6 @@ const projectDetails = {
         title: "AgriSathi AI — Agricultural Intelligence & Decision Support",
         subtitle: "Java 21 · Spring Boot 3.x · Spring Data JPA · PostgreSQL · JWT Auth · Computer Vision Pipeline",
         github: "https://github.com/gargnikunj991-ux/AgriSathi_AI",
-        demo: "https://agri-sathi-ai-three.vercel.app/",
         architecture: [
             "Client Tier (Web / Mobile App / Swagger UI) ➔ Spring Boot 3 REST Controllers (/api/v1)",
             "Stateless Security Filter Chain: Spring Security 6, JWT Bearer validation, BCrypt hashing & RBAC (FARMER, BUYER, ADMIN)",
@@ -55,7 +54,6 @@ const projectDetails = {
         title: "DevTinder — Developer Teammate Matching Platform (Backend)",
         subtitle: "Java 21 · Spring Boot 3 · PostgreSQL 16 · WebSockets (STOMP) · Spring Security · Render Cloud",
         github: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git",
-        demo: "https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/",
         architecture: [
             "Engineering Role: Architected backend for developer collaboration platform with Java 21 & Spring Boot 3, evolving hackathon MVP into full Next.js client integration",
             "Real-Time Messaging Broker: Bidirectional chat over WebSockets (STOMP) with delta sync fallback (GET /api/chat/{id}/messages?after={id}) and unread tracking over normalized PostgreSQL schemas",
@@ -78,7 +76,7 @@ const projectDetails = {
             { name: "ChatController.java", desc: "Delta synchronization (?after={id}), read receipts (/read), and WebSocket STOMP broadcast integration", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" },
             { name: "MatchService.java", desc: "Swipe evaluation state machine, incoming like queries, mutual match creation, and unmatching cascade", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" },
             { name: "RateLimitFilter.java", desc: "In-memory sliding-window IP rate limiter safeguarding authentication and discovery endpoints", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" },
-            { name: "CassetteCard.tsx", desc: "Retro cassette-styled candidate card with mechanical audio feedback, Framer Motion gestures, and dossier modal", url: "https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/" }
+            { name: "CassetteCard.tsx", desc: "Retro cassette-styled candidate card with mechanical audio feedback, Framer Motion gestures, and dossier modal", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" }
         ],
         endpoints: [
             { method: "POST", route: "/api/auth/register", desc: "Registers developer profile with skill tags, email, and BCrypt-hashed password" },

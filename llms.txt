@@ -23,7 +23,6 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 ### 1. DevTinder — Developer Teammate Matching Platform (Backend Flagship)
 - **Overview**: Teammate matchmaking platform originally prototyped during Devlynix Buildathon 2.0 with frontend teammates, then independently evolved and elevated into a production-grade backend service powering a Next.js client.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL 16, WebSockets (STOMP), Spring Security 6 (JWT & Refresh Token Rotation), Docker, Render Cloud.
-- **Live Demo**: https://devlynix-frontend12-git-main-hxmblevishus-projects.vercel.app/
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git
 - **Key Capabilities**: Bidirectional STOMP WebSocket broker with delta query synchronization (`?after={id}`) and unread tracking over normalized schemas; candidate discovery service ranking profiles dynamically by shared skill counts and mutual swipe constraints; stateless Spring Security filters with Refresh Token Rotation, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radar, and queue rewind; multi-stage Docker containerization with `/api/health` monitoring for cloud deployment.
 
@@ -36,7 +35,6 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 ### 3. AgriSathi AI — Agricultural Intelligence & Decision Platform
 - **Overview**: 30-day hackathon agritech backend providing crop health diagnostics, agronomic advisory, and peer-to-peer producer trade.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security, JWT & RBAC, Cloudinary CDN, OpenAPI / Swagger 3.0.
-- **Live Demo**: https://agri-sathi-ai-three.vercel.app/
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/AgriSathi_AI
 - **Key Capabilities**: 25+ modular REST APIs; multipart crop scan ingestion pipeline streaming to Cloudinary CDN and computer vision classification models for real-time disease diagnosis with statistical confidence scores; hyper-local agronomic weather engine, peer-to-peer marketplace, and interactive Swagger 3.0 documentation.
 
