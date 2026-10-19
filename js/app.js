@@ -2,57 +2,49 @@
 // PROJECT PREVIEW MODAL DATA & HANDLERS
 // -------------------------------------------------------------
 const projectDetails = {
-    agrisathi: {
-        title: "AgriSathi AI — Agricultural Intelligence & Decision Support",
-        subtitle: "Java 21 · Spring Boot 3.x · Spring Data JPA · PostgreSQL · JWT Auth · Computer Vision Pipeline",
-        github: "https://github.com/gargnikunj991-ux/AgriSathi_AI",
+    ticketwave: {
+        title: "TicketWave — Ultra-Scale Distributed Seat Hold & Checkout Engine",
+        subtitle: "Java 21 · Spring Boot 3.3.4 · Redis 7 · Redisson MultiLock · PostgreSQL · JUnit 5 (70 Tests) · Micrometer",
+        github: "https://github.com/gargnikunj991-ux/TicketWave.git",
         architecture: [
-            "Client Tier (Web / Mobile App / Swagger UI) ➔ Spring Boot 3 REST Controllers (/api/v1)",
-            "Stateless Security Filter Chain: Spring Security 6, JWT Bearer validation, BCrypt hashing & RBAC (FARMER, BUYER, ADMIN)",
-            "Service & Business Logic: Transactional workflows (@Transactional), DTO input validation (@Valid), and Global Exception Handling",
-            "AI Computer Vision & Media: Multipart file ingestion interfacing with Cloudinary CDN & computer vision disease classification inference",
-            "Hyper-Local Weather Engine: Real-time multi-day forecast, spraying condition evaluation, and irrigation scheduling",
-            "Peer-to-Peer Agritech Marketplace: Direct buy orders and equipment rental/borrow requests with state-machine order flow",
-            "Government Schemes Recommendation Engine: Multi-factor algorithm matching farmer profile (state, crop, farm size)",
-            "Data Layer: Spring Data JPA Repositories ➔ Relational PostgreSQL 15+ Schema (7+ tables, normalized & indexed)"
+            "Client Tier (Web / Mobile Apps / OpenAPI Console) ➔ Spring Boot 3 REST Controllers (/api/v1/shows/{id}/hold & /checkout)",
+            "Distributed Deadlock-Free Hold Engine: Deterministic natural sorting of seat IDs prior to acquiring Redisson MultiLock across Redis clusters (<1ms)",
+            "In-Memory State Management: Atomic Redis hold keys (hold:show:{id}:seat:{id}) with 600s TTL leases and user hold sets (user_hold:{userId}:{ref})",
+            "Idempotency Gate: Redis SETNX gate with 120s IN_PROGRESS lease lock and 24-hour COMPLETED serialized response replay cache",
+            "Decoupled Payment Execution: Payment gateway execution isolated outside database transaction boundaries, eliminating HikariCP pool starvation",
+            "Atomic PostgreSQL Commit: Low-latency (<10ms) isolated @Transactional commit writing confirmed Booking, serial Tickets, and ShowSeat transitions",
+            "Dual-Tier Inventory Reclamation: Tier 1 reactive Redis keyspace expiration pub/sub (__keyevent@*__:expired) + Tier 2 proactive 60s scheduled sweeper",
+            "Observability & Telemetry: Custom Micrometer metrics tracking hold latency, checkout throughput, cache sweeps, and composite Actuator health checks",
+            "Architectural Flaw Suite: 70 automated JUnit 5 tests, including 100-thread single-seat stress tests and failure-mode simulations verifying zero overselling"
         ],
         schemas: [
-            { table: "users", pkey: "id (UUID)", fkeys: "None", fields: "email (UQ), password_hash, role (FARMER/BUYER/ADMIN), created_at" },
-            { table: "farmer_profiles", pkey: "id (BIGINT)", fkeys: "user_id -> users(id)", fields: "full_name, state, district, farm_size_acres, soil_type, phone" },
-            { table: "crops", pkey: "id (BIGINT)", fkeys: "farmer_id -> farmer_profiles(id)", fields: "crop_name, variety, sowing_date, expected_harvest, status" },
-            { table: "disease_scans", pkey: "id (BIGINT)", fkeys: "crop_id -> crops(id)", fields: "image_url, diagnosed_disease, confidence_score, treatment, scan_timestamp" },
-            { table: "marketplace_listings", pkey: "id (BIGINT)", fkeys: "seller_id -> users(id)", fields: "title, category, quantity, unit_price, status (AVAILABLE/RENTED)" }
+            { table: "shows", pkey: "id (BIGINT)", fkeys: "event_id -> events(id), screen_id -> screens(id)", fields: "start_time, end_time, status (ACTIVE/CANCELLED/COMPLETED)" },
+            { table: "seats", pkey: "id (BIGINT)", fkeys: "screen_id -> screens(id)", fields: "row_label, seat_number, tier (VIP/PREMIUM/GENERAL), uq: (screen_id, row_label, seat_number)" },
+            { table: "show_seats", pkey: "id (BIGINT)", fkeys: "show_id -> shows(id), seat_id -> seats(id)", fields: "status (AVAILABLE/HELD/BOOKED), price, hold_reference, hold_expires_at, version, uq: (show_id, seat_id)" },
+            { table: "bookings", pkey: "id (BIGINT)", fkeys: "show_id -> shows(id)", fields: "booking_reference (UQ), user_id, total_amount, status (CONFIRMED), payment_txn_id, idempotency_key" },
+            { table: "tickets", pkey: "id (BIGINT)", fkeys: "booking_id -> bookings(id), seat_id -> seats(id)", fields: "ticket_serial (UQ), price, issued_at" }
         ],
         spotlights: [
-            { name: "CropDiseaseController.java", desc: "Multipart file upload handler and computer vision inference controller", url: "https://github.com/gargnikunj991-ux/AgriSathi_AI" },
-            { name: "SecurityConfig.java", desc: "Spring Security 6 stateless JWT filter chain and role-based authorization rules", url: "https://github.com/gargnikunj991-ux/AgriSathi_AI" },
-            { name: "MarketplaceListing.java", desc: "JPA entity with relational audit listeners and optimistic version locking", url: "https://github.com/gargnikunj991-ux/AgriSathi_AI" }
+            { name: "SeatHoldService.java", desc: "Distributed seat reservation engine with deterministic natural sorting and Redisson MultiLock", url: "https://github.com/gargnikunj991-ux/TicketWave.git" },
+            { name: "BookingCheckoutService.java", desc: "Idempotent checkout pipeline decoupling simulated payments from atomic PostgreSQL transaction commit", url: "https://github.com/gargnikunj991-ux/TicketWave.git" },
+            { name: "SeatHoldConcurrencyStressTest.java", desc: "Multi-threaded stress suite testing 100 concurrent threads competing for single seats with zero overselling", url: "https://github.com/gargnikunj991-ux/TicketWave.git" },
+            { name: "TicketWaveArchitecturalFlawsTest.java", desc: "Failure-mode suite exposing dual-write persistence crashes, ghost holds, and cluster sweeper collisions", url: "https://github.com/gargnikunj991-ux/TicketWave.git" },
+            { name: "RedisKeyExpirationListener.java", desc: "Reactive keyspace notification listener executing real-time inventory recovery on hold TTL expiration", url: "https://github.com/gargnikunj991-ux/TicketWave.git" }
         ],
         endpoints: [
-            { method: "POST", route: "/api/v1/auth/register", desc: "Registers user profile with role (FARMER / BUYER) & BCrypt hashing" },
-            { method: "POST", route: "/api/v1/auth/login", desc: "Authenticates credentials and returns JWT bearer access token" },
-            { method: "GET", route: "/api/v1/auth/me", desc: "Retrieves currently authenticated user profile and roles" },
-            { method: "PUT", route: "/api/v1/farmer/profile", desc: "Updates farm acreage, soil classification, district, and main crop" },
-            { method: "POST", route: "/api/v1/crops", desc: "Registers active crop lifecycle with sowing and projected harvest dates" },
-            { method: "GET", route: "/api/v1/crops", desc: "Retrieves active farmer crop records with growth tracking" },
-            { method: "POST", route: "/api/v1/disease/scan", desc: "Multipart scan upload for AI crop disease diagnosis & treatment advice" },
-            { method: "GET", route: "/api/v1/disease/history", desc: "Fetches historical crop scan records with confidence scores" },
-            { method: "GET", route: "/api/v1/weather/farming-summary", desc: "Hyper-local weather summary with spraying, irrigation & risk alerts" },
-            { method: "GET", route: "/api/v1/weather/forecast", desc: "Multi-day agronomic weather forecast with precipitation probability" },
-            { method: "POST", route: "/api/v1/recommendations/fertilizer", desc: "Generates optimal fertilizer recommendations based on crop and disease" },
-            { method: "POST", route: "/api/v1/chat", desc: "Multilingual conversational AI advisory assistant for agricultural queries" },
-            { method: "POST", route: "/api/v1/marketplace/listings", desc: "Creates produce listing with quantity, pricing, and Cloudinary media" },
-            { method: "GET", route: "/api/v1/marketplace/listings", desc: "Filters produce listings by cropName, location, minPrice & maxPrice" },
-            { method: "POST", route: "/api/v1/marketplace/listings/{id}/buy", desc: "Submits direct purchase order between buyer and producer" },
-            { method: "POST", route: "/api/v1/marketplace/listings/{id}/borrow", desc: "Equipment rental and borrow request submission with timeline" },
-            { method: "GET", route: "/api/v1/government-schemes/recommendations", desc: "Intelligent subsidy recommendation engine matching state, crop & farm size" },
-            { method: "GET", route: "/api/v1/government-schemes", desc: "Lists and filters government welfare schemes by state and target crop" },
-            { method: "POST", route: "/api/v1/files/upload", desc: "Multipart file upload handler interfacing with Cloudinary media CDN" }
+            { method: "GET", route: "/api/v1/shows/{showId}/seats", desc: "Retrieves real-time seat matrix with seat tiers, pricing, and availability states" },
+            { method: "POST", route: "/api/v1/shows/{showId}/hold", desc: "Acquires 10-minute temporary seat hold via Redisson distributed MultiLock" },
+            { method: "POST", route: "/api/v1/shows/{showId}/release", desc: "Voluntary release of active seat holds back to available inventory pool" },
+            { method: "POST", route: "/api/v1/checkout", desc: "Executes idempotent checkout with Redis SETNX gate, simulated payment, and ticket creation" },
+            { method: "GET", route: "/api/v1/bookings/{bookingReference}", desc: "Retrieves confirmed booking details with seat assignments and serialized tickets" },
+            { method: "GET", route: "/actuator/health", desc: "Composite health probe verifying PostgreSQL and Redis connection pool liveness" },
+            { method: "GET", route: "/actuator/metrics", desc: "Micrometer metrics reporting hold latency, checkout throughput, and sweeper sweeps" },
+            { method: "GET", route: "/swagger-ui/index.html", desc: "Interactive OpenAPI 3.0 API documentation contract with executable test console" }
         ]
     },
     devtinder: {
         title: "DevTinder — Developer Teammate Matching Platform (Backend)",
-        subtitle: "Java 21 · Spring Boot 3 · PostgreSQL 16 · WebSockets (STOMP) · Spring Security · Render Cloud",
+        subtitle: "Java 21 · Spring Boot 3 · PostgreSQL · WebSockets (STOMP) · Spring Security · Render Cloud",
         github: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git",
         architecture: [
             "Engineering Role: Architected backend for developer collaboration platform with Java 21 & Spring Boot 3, evolving hackathon MVP into full Next.js client integration",
@@ -60,7 +52,7 @@ const projectDetails = {
             "Algorithmic Skill Synergy Engine: Heuristic scoring engine (50–99%) weighting shared technologies, complementary engineering disciplines, and project pitches",
             "Stateless Security & Rate Limiting: Spring Security 6 JWT filter chain with Refresh Token Rotation, BCrypt hashing, and sliding-window IP rate limiting (RateLimitFilter)",
             "Discovery State Machine: Reciprocal match radar (GET /api/matches/requests) and queue rewind (DELETE /api/discover/reset-passes) preventing candidate starvation",
-            "Relational Data Persistence: Spring Data JPA Repositories ➔ PostgreSQL 16 normalized relational schema (users, skills, user_skills, swipes, matches, messages)",
+            "Relational Data Persistence: Spring Data JPA Repositories ➔ PostgreSQL normalized relational schema (users, skills, user_skills, swipes, matches, messages)",
             "Cloud Deployment: Containerized with multi-stage Dockerfile and deployed to Render Cloud with automated health check probes (/api/health)"
         ],
         schemas: [
@@ -98,7 +90,7 @@ const projectDetails = {
     },
     library: {
         title: "LibroSphere — High-Concurrency Asset Lending & Reservation Engine",
-        subtitle: "Java 21 · Spring Boot 3 · Spring Data JPA · PostgreSQL 16 · JUnit 5 (66 Tests)",
+        subtitle: "Java 21 · Spring Boot 3 · Spring Data JPA · PostgreSQL · JUnit 5 (66 Tests)",
         github: "https://github.com/gargnikunj991-ux/library_spring.git",
         architecture: [
             "Concurrency Control: Database row-level pessimistic locking (@Lock(LockModeType.PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) inside atomic @Transactional boundaries eliminating inventory race conditions",
@@ -724,7 +716,7 @@ function executeCli(cmd) {
         out.textContent = JSON.stringify({
             status: "200 OK",
             service: "Spring Boot Microservice",
-            database: "PostgreSQL 16 Connection: ACTIVE",
+            database: "PostgreSQL Connection: ACTIVE",
             concurrency_lock: "Pessimistic Row Lock (SELECT ... FOR UPDATE)",
             active_threads: 4,
             uptime: "99.98%",
@@ -736,7 +728,7 @@ function executeCli(cmd) {
             project: "LibroSphere",
             architecture: "High-Concurrency Asset Lending & Reservation Engine",
             concurrency_control: "Row-Level Pessimistic Write Lock (@Lock(LockModeType.PESSIMISTIC_WRITE))",
-            database: "PostgreSQL 16",
+            database: "PostgreSQL",
             test_coverage: "64 JUnit 5 Tests (100% Pass Rate)",
             catalog_summary: {
                 total_titles: 1420,
@@ -753,7 +745,7 @@ function executeCli(cmd) {
         out.textContent = JSON.stringify({
             project: "DevTinder",
             event: "Devlynix Buildathon 2.0 (Prototyped & Post-Hackathon Polished)",
-            architecture: "Backend Sole Architecture (Spring Boot 3 + PostgreSQL 16 + WebSockets STOMP)",
+            architecture: "Backend Sole Architecture (Spring Boot 3 + PostgreSQL + WebSockets STOMP)",
             collaboration: "Frontend developed by hackathon teammates",
             deployment: "Render Cloud (Backend) + Vercel (Frontend)",
             matching_engine: "Algorithmic Skill Synergy Scoring (50-99%)",
@@ -771,8 +763,8 @@ function executeCli(cmd) {
         }, null, 2);
     } else if (normalized === "projects") {
         out.innerHTML = `[PROJECT 1] <span style="color:#00ff9d;">DevTinder</span>: Developer Teammate Matching Platform (Spring Boot 3 + PostgreSQL + WebSockets STOMP + AI Synergy Engine + Render)
-[PROJECT 2] <span style="color:#00ff9d;">LibroSphere</span>: High-Concurrency Asset Lending Engine (Spring Boot 3 + PostgreSQL + Pessimistic Locking + 64 JUnit 5 Tests)
-[PROJECT 3] <span style="color:#00ff9d;">AgriSathi AI</span>: Agricultural Intelligence Platform (Spring Boot 3 + REST APIs + Cloudinary CDN + OpenAPI 3.0)`;
+[PROJECT 2] <span style="color:#00ff9d;">LibroSphere</span>: High-Concurrency Asset Lending Engine (Spring Boot 3 + PostgreSQL + Pessimistic Locking + 66 JUnit 5 Tests)
+[PROJECT 3] <span style="color:#00ff9d;">TicketWave</span>: Ultra-Scale Distributed Reservation Engine (Spring Boot 3 + Redis 7 + Redisson MultiLock + PostgreSQL + 70 JUnit 5 Tests)`;
     } else if (normalized === "leetcode" || normalized === "dsa") {
         out.className += " json";
         out.textContent = JSON.stringify({
@@ -786,10 +778,10 @@ function executeCli(cmd) {
     } else if (normalized === "cat resume" || normalized === "resume") {
         out.innerHTML = `Nikunj Garg | BCA @ SGRRU Dehradun (2025–2028) | CGPA: 7.48 / 10.0 | Java Backend Developer
 Portfolio: <a href="https://nikunjgarg.xyz" target="_blank" style="color:#00e5ff; text-decoration:underline;">nikunjgarg.xyz</a> | LeetCode: <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" style="color:#00e5ff; text-decoration:underline;">@Nikunjgarg12</a>
-Specialization: Spring Boot 3, PostgreSQL, Spring Security, WebSockets (STOMP), JPA/Hibernate, Docker, JUnit 5
+Specialization: Spring Boot 3, PostgreSQL, Redis (Redisson), Spring Security, WebSockets (STOMP), JPA/Hibernate, Docker, JUnit 5
 Download CV: <a href="resume.pdf" download="Nikunj_Garg_Resume" style="color:#00e5ff; text-decoration:underline;">Click to download resume.pdf</a>`;
     } else if (normalized === "stack" || normalized === "skills") {
-        out.textContent = "Languages & Backend: Java 21, Spring Boot 3, Spring Data JPA, Hibernate ORM, REST APIs, WebSockets (STOMP) | Databases & Concurrency: PostgreSQL, ACID Transactions, Pessimistic Locking, Composite B-Tree Indexes | Security & Architecture: Spring Security, JWT (Refresh Token Rotation), BCrypt, RBAC | DevOps & Tools: Docker, Docker Compose, Render Cloud, Git, Maven, Postman | Testing & QA: JUnit 5 (64 Automated Tests - Concurrency Stress & Unit Suites, 100% Pass Rate)";
+        out.textContent = "Languages & Backend: Java 21, Spring Boot 3, Spring Data JPA, Hibernate ORM, REST APIs, WebSockets (STOMP), Distributed MultiLocks (Redisson) | Databases & Caching: PostgreSQL, Redis 7 (TTL Leases, Keyspace Pub/Sub), ACID Transactions, Pessimistic & Optimistic Locking | Security & Architecture: Spring Security, JWT (Refresh Token Rotation), BCrypt, RBAC | DevOps & Tools: Docker, Docker Compose, Render Cloud, Git, Maven, Postman, Micrometer, Swagger 3.0 | Testing & QA: JUnit 5 (70 Automated Tests - Concurrency Stress, Failure Modes & Distributed Idempotency Suites, 100% Pass Rate)";
     } else if (normalized === "contact") {
         out.innerHTML = `Phone: +91 94565 00319
 Email: gargnikunj991@gmail.com

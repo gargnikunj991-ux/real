@@ -1045,6 +1045,7 @@ footer {
         scrollbar-width: none;
         gap: 4px;
         padding: 4px 0 2px;
+        justify-content: flex-start;
     }
 
     .nav-menu::-webkit-scrollbar {
@@ -1055,7 +1056,8 @@ footer {
         white-space: nowrap;
         flex-shrink: 0;
         font-size: 0.72rem;
-        padding: 5px 10px;
+        padding: 5px 9px;
+        letter-spacing: 0.5px;
     }
 
     .hero {
@@ -1070,9 +1072,11 @@ footer {
 
 @media (max-width: 600px) {
     .glitch-name {
-        font-size: clamp(1.9rem, 8.5vw, 2.7rem);
+        font-size: clamp(1.5rem, 7.2vw, 2.3rem);
         letter-spacing: 0.5px;
         word-break: break-word;
+        max-width: 100%;
+        text-align: center;
     }
 
     .subtitle {
@@ -1098,6 +1102,18 @@ footer {
     }
 
     /* Terminal on mobile */
+    .terminal-workbench {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .terminal {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
     .terminal-bar {
         padding: 8px 10px;
         gap: 6px;
@@ -1116,6 +1132,7 @@ footer {
         scrollbar-width: none;
         gap: 4px;
         padding-bottom: 2px;
+        justify-content: flex-start;
     }
 
     .terminal-tabs::-webkit-scrollbar {
@@ -1149,21 +1166,38 @@ footer {
         font-size: 0.75rem;
     }
 
+    .cli-output {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
     .cli-input-form {
         padding: 6px 10px;
+        gap: 6px;
+    }
+
+    .cli-input-prompt {
+        font-size: 0.78rem;
     }
 
     .cli-input-field {
         font-size: 16px !important; /* CRITICAL: Prevents iOS Safari auto-zoom */
     }
 
+    .cli-input-field::placeholder {
+        font-size: 0.74rem;
+    }
+
     .cli-chips {
         gap: 4px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .cli-chip {
         font-size: 0.68rem;
         padding: 3px 6px;
+        white-space: nowrap;
     }
 
     /* Concurrency Simulator on mobile */
@@ -1214,6 +1248,23 @@ footer {
         font-size: 0.92rem;
     }
 
+    .sim-workers-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .sim-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        font-size: 0.68rem;
+    }
+
+    .legend-item {
+        white-space: nowrap;
+    }
+
     .sim-console {
         height: 120px;
         font-size: 0.7rem;
@@ -1243,6 +1294,7 @@ footer {
     .filter-container {
         gap: 6px;
         margin-bottom: 20px;
+        flex-wrap: wrap;
     }
 
     .filter-btn {
@@ -1262,6 +1314,7 @@ footer {
         justify-content: center;
         padding: 12px 20px;
         font-size: 0.88rem;
+        box-sizing: border-box;
     }
 
     .project-actions {
@@ -1381,6 +1434,44 @@ footer {
 
     footer {
         padding: 45px 5% 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .glitch-name {
+        font-size: clamp(1.35rem, 6.8vw, 1.85rem);
+    }
+
+    .subtitle {
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        padding: 95px 3% 25px;
+    }
+
+    .section-container {
+        padding: 24px 3%;
+    }
+
+    .nav-menu a {
+        font-size: 0.68rem;
+        padding: 4px 7px;
+    }
+
+    .terminal-code {
+        padding: 10px 10px;
+        font-size: 0.68rem;
+    }
+
+    .terminal-cli {
+        padding: 10px 8px;
+    }
+
+    .cli-chip {
+        font-size: 0.64rem;
+        padding: 2px 5px;
     }
 }
 

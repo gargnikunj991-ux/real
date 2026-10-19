@@ -78,6 +78,11 @@
             "Spring Boot",
             "Spring Boot 3",
             "PostgreSQL",
+            "Redis",
+            "Redis 7",
+            "Redisson",
+            "Distributed Locking",
+            "Idempotency Gates",
             "Spring Security",
             "JWT Authentication",
             "Refresh Token Rotation",
@@ -171,14 +176,12 @@
                             <div class="cli-entry">
                                 <span class="cli-prompt-line">nikunj@backend-core:~$</span> welcome
                             </div>
-                            <div class="cli-output success">
-                                [SYSTEM READY] Nikunj OS Backend CLI initialized. Type 'help' for commands.
-                            </div>
+                            <div class="cli-output success">[SYSTEM READY] Nikunj OS Backend CLI initialized. Type 'help' for commands.</div>
                         </div>
 
                         <form class="cli-input-form" onsubmit="handleCliSubmit(event)">
                             <span class="cli-input-prompt">nikunj@backend:~$</span>
-                            <input type="text" id="cliInput" class="cli-input-field" placeholder="type 'help', 'simulate concurrency', 'curl /api/books'..." autocomplete="off" />
+                            <input type="text" id="cliInput" class="cli-input-field" placeholder="type 'help' or tap a chip below..." autocomplete="off" />
                         </form>
 
                         <div class="cli-chips">
@@ -348,19 +351,19 @@
 
                 <!-- 2. Databases & Concurrency -->
                 <div class="glass-card java-card" data-category="database core">
-                    <div class="badge badge-java">DATABASES &amp; CONCURRENCY</div>
+                    <div class="badge badge-java">DATABASES, CACHING &amp; CONCURRENCY</div>
                     <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">PostgreSQL &amp; Concurrency Control</h3>
+                    <h3 class="card-title">PostgreSQL, Redis &amp; Distributed Locking</h3>
                     <p class="card-body-text">
-                        Relational schema design (3NF), ACID transaction guarantees, pessimistic row locking (SELECT ... FOR UPDATE), and composite B-Tree query index optimization.
+                        Relational schema design (3NF), ACID transactions, distributed multi-locking via Redisson, Redis TTL lease management, and composite B-Tree query indexing.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">Redis 7</span>
+                        <span class="skill-pill">Redisson MultiLock</span>
                         <span class="skill-pill">ACID Transactions</span>
-                        <span class="skill-pill">Pessimistic Locking</span>
+                        <span class="skill-pill">Pessimistic &amp; Optimistic Locking</span>
                         <span class="skill-pill">B-Tree Indexing</span>
-                        <span class="skill-pill">Schema Design (3NF)</span>
-                        <span class="skill-pill">Data Integrity</span>
                     </div>
                 </div>
 
@@ -386,15 +389,15 @@
                 <div class="glass-card java-card" data-category="testing core">
                     <div class="badge badge-java">TESTING &amp; QA</div>
                     <i class="fas fa-vial-circle-check card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">JUnit 5 &amp; Concurrency Testing</h3>
+                    <h3 class="card-title">JUnit 5 &amp; Concurrency Stress Testing</h3>
                     <p class="card-body-text">
-                        Comprehensive unit and integration test suites with JUnit 5, multithreaded concurrency stress testing (CountDownLatch, ExecutorService), and Mockito isolation.
+                        Extensive 70-test automated suite with JUnit 5, multithreaded concurrency stress testing (CountDownLatch, ExecutorService), distributed failure-mode suites, and Mockito isolation.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">JUnit 5</span>
-                        <span class="skill-pill">Concurrency Stress Tests</span>
+                        <span class="skill-pill">JUnit 5 (70 Tests)</span>
+                        <span class="skill-pill">100-Thread Stress Testing</span>
+                        <span class="skill-pill">Failure-Mode Suites</span>
                         <span class="skill-pill">Mockito</span>
-                        <span class="skill-pill">Integration Testing</span>
                         <span class="skill-pill">Thread Safety QA</span>
                     </div>
                 </div>
@@ -446,7 +449,7 @@
                 <button class="filter-btn" onclick="filterProjects('hackathon', this)">Hackathons</button>
                 <button class="filter-btn" onclick="filterProjects('jpa', this)">JPA &amp; Databases</button>
                 <button class="filter-btn" onclick="filterProjects('springboot', this)">Spring Boot</button>
-                <button class="filter-btn" onclick="filterProjects('ai', this)">AI &amp; Enterprise</button>
+                <button class="filter-btn" onclick="filterProjects('distributed', this)">Distributed &amp; Redis</button>
             </div>
 
             <div class="grid" id="projectGrid">
@@ -496,7 +499,7 @@
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
-                        <span class="skill-pill">PostgreSQL 16</span>
+                        <span class="skill-pill">PostgreSQL</span>
                         <span class="skill-pill">Spring Data JPA</span>
                         <span class="skill-pill">Pessimistic Locking</span>
                         <span class="skill-pill">ACID Transactions</span>
@@ -514,33 +517,35 @@
                     </div>
                 </div>
 
-                <!-- Project 3: AgriSathi AI -->
-                <div class="glass-card java-card" data-category="springboot jpa ai">
-                    <div class="badge badge-java">🌱 30-DAY HACKATHON · REST APIS &amp; COMPUTER VISION · POSTGRESQL · SWAGGER 3.0</div>
-                    <h3 class="card-title">AgriSathi AI &mdash; Agricultural Assistance Platform</h3>
+                <!-- Project 3: TicketWave -->
+                <div class="glass-card java-card" data-category="distributed springboot jpa">
+                    <div class="badge badge-java">⚡ DISTRIBUTED SYSTEMS · REDIS 7 &amp; REDISSON · POSTGRESQL · 70 JUNIT 5 TESTS</div>
+                    <h3 class="card-title">TicketWave &mdash; Distributed Seat Hold &amp; Checkout Engine</h3>
                     <p class="card-body-text">
-                        <b>Engineering Problem:</b> Fragmented advisory channels and lack of real-time diagnostic tools for rural agricultural producers facing crop disease outbreaks.
+                        <b>Engineering Problem:</b> Flash-crowd seat contention during stadium ticket spikes (e.g. Coldplay at Madison Square Garden) creates distributed deadlocks, double-booking race conditions, and database connection pool exhaustion.
                         <br><br>
-                        <b>Architecture &amp; Implementation:</b> Spearheaded the backend architecture during an intensive 30-day hackathon using <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Engineered 20+ modular <b>RESTful endpoints</b> powering crop health analytics, peer-to-peer producer trade, and agronomic advisory. Orchestrated a multipart image upload pipeline to Cloudinary CDN coupled with diagnostic classification returning disease identification, confidence scores, and recommended treatments. Secured with stateless <b>JWT authentication</b> and strict <b>Role-Based Access Control (RBAC)</b>.
+                        <b>Architecture &amp; Implementation:</b> Engineered a high-throughput distributed ticketing backend using <b>Java 21</b>, <b>Spring Boot 3</b>, <b>Redis 7</b>, and <b>PostgreSQL</b>. Implemented sub-millisecond distributed MultiLock seat allocation via <b>Redisson</b> with natural seat-ID sorting to eliminate deadlocks. Architected an in-memory <b>Redis SETNX idempotency gate</b> (<code style="color:var(--neon-green);">IN_PROGRESS</code> 120s / <code style="color:var(--neon-green);">COMPLETED</code> 24h replay) and decoupled simulated payment execution outside DB boundaries to protect HikariCP connection pools. Built a <b>dual-tier inventory reclamation</b> pipeline uniting real-time <b>Redis keyspace expiration pub/sub</b> with a 60-second scheduled PostgreSQL sweeper.
                         <br><br>
-                        <b>Impact &amp; Results:</b> Standardized and validated all API contracts with interactive <b>OpenAPI / Swagger 3.0</b> documentation and automated response validation.
+                        <b>Impact &amp; Results:</b> Verified thread safety with <b>70 automated JUnit 5 tests</b>, including 100-thread concurrent seat contention stress suites, idempotency storms, and architectural failure-mode simulations proving zero overselling under peak load.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
+                        <span class="skill-pill">Redis 7</span>
+                        <span class="skill-pill">Redisson MultiLock</span>
                         <span class="skill-pill">PostgreSQL</span>
-                        <span class="skill-pill">Spring Data JPA</span>
-                        <span class="skill-pill">REST APIs</span>
-                        <span class="skill-pill">JWT &amp; RBAC</span>
-                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
-                        <span class="skill-pill">Cloudinary CDN</span>
+                        <span class="skill-pill">Idempotency Gates</span>
+                        <span class="skill-pill">Keyspace Notifications</span>
+                        <span class="skill-pill">JUnit 5 (70 Tests)</span>
+                        <span class="skill-pill">Micrometer Telemetry</span>
+                        <span class="skill-pill">Swagger / OpenAPI 3.0</span>
                     </div>
 
                     <div class="project-actions">
-                        <button class="btn-preview" onclick="openProjectModal('agrisathi')">
+                        <button class="btn-preview" onclick="openProjectModal('ticketwave')">
                             <i class="fas fa-layer-group"></i> Architecture &amp; APIs
                         </button>
-                        <a href="https://github.com/gargnikunj991-ux/AgriSathi_AI" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/gargnikunj991-ux/TicketWave.git" target="_blank" rel="noopener noreferrer" class="project-link">
                             <i class="fab fa-github"></i> VIEW_CODE →
                         </a>
                     </div>
