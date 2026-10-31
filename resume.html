@@ -259,7 +259,7 @@
             <li><span class="skills-label">Languages:</span> Java 21, SQL</li>
             <li><span class="skills-label">Backend &amp; Distributed:</span> Spring Boot 3, Spring Data JPA, Hibernate ORM, RESTful APIs, WebSockets (STOMP), Distributed Locks (Redisson)</li>
             <li><span class="skills-label">Databases &amp; Caching:</span> PostgreSQL, Redis 7 (TTL Leases, Keyspace Events), Schema Design (3NF), ACID Transactions, Locking (Pessimistic/Optimistic)</li>
-            <li><span class="skills-label">Security &amp; Testing:</span> Spring Security, JWT (Refresh Token Rotation), Role-Based Access Control (RBAC), JUnit 5 (70 Tests), Mockito</li>
+            <li><span class="skills-label">Security &amp; Testing:</span> Spring Security, JWT (Refresh Token Rotation), Role-Based Access Control (RBAC), JUnit 5 (250+ Tests, Concurrency Suites), Mockito</li>
             <li><span class="skills-label">Tools &amp; DevOps:</span> Docker, Docker Compose, Git, GitHub, Maven, Postman, Micrometer, OpenAPI 3.0, Render</li>
         </ul>
     </section>
@@ -286,21 +286,21 @@
             </ul>
         </div>
 
-        <!-- Project 2: LibroSphere -->
+        <!-- Project 2: OpenBounty -->
         <div class="project-item">
             <div class="project-header">
                 <div class="project-title-tech">
-                    <span class="project-title">LibroSphere &mdash; Library Management &amp; Reservation System</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security, Docker, JUnit 5</span>
+                    <span class="project-title">OpenBounty &mdash; High-Concurrency Challenge &amp; Milestone Engine</span> | <span class="project-tech">Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security, JUnit 5</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/gargnikunj991-ux/library_spring.git">GitHub Repo ↗</a>
+                    <a href="https://github.com/gargnikunj991-ux/OpenBounty.git">GitHub Repo ↗</a>
                 </div>
             </div>
             <ul class="bullets">
-                <li>Implemented pessimistic row-level locking (<span class="code-pill">SELECT ... FOR UPDATE</span>) in <b>Spring Data JPA</b> within atomic <span class="code-pill">@Transactional</span> boundaries to prevent race conditions and inventory overselling during concurrent checkouts.</li>
-                <li>Verified thread safety and ACID resilience with an automated <b>JUnit 5</b> integration test using <span class="code-pill">CountDownLatch</span> and <span class="code-pill">ExecutorService</span>, proving 10 concurrent threads competing for 1 copy produced exactly 1 loan and 9 rejections with zero underflow.</li>
-                <li>Architected an automated FIFO reservation waitlist that intercepts returned books, holding them exclusively for queued patrons with a 48-hour pickup window before restoring unclaimed inventory to general circulation.</li>
-                <li>Built an automated nightly cron worker (<span class="code-pill">@Scheduled</span>) calculating tiered overdue penalties and added composite B-Tree indexes on <span class="code-pill">(returned, due_date)</span> and <span class="code-pill">(book_id, status, reserved_at)</span> to avoid full table scans.</li>
+                <li>Engineered an enterprise bounty marketplace with atomic proposal acceptance using pessimistic row-level locking (<span class="code-pill">SELECT ... FOR UPDATE</span>), serializing competing bids with zero lost updates.</li>
+                <li>Designed a multi-stage deliverable verification state machine with sequential order guards, IDOR client protection, and auto-completion algorithmic reputation triggers (<span class="code-pill">+20 pts</span>).</li>
+                <li>Hardened data integrity against double-submission race conditions using pessimistic write locks on user rows and case-insensitive active-bounty uniqueness guards.</li>
+                <li>Built a <b>250+ automated test suite</b> in <b>JUnit 5</b>, including multithreaded concurrency tests (<span class="code-pill">CountDownLatch</span> / <span class="code-pill">ExecutorService</span>) and adversarial penetration suites verifying zero bypass under load.</li>
             </ul>
         </div>
 
