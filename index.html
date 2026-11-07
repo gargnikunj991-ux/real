@@ -28,8 +28,11 @@
     <link rel="canonical" href="https://nikunjgarg.xyz/">
     <link rel="alternate" type="text/plain" href="https://nikunjgarg.xyz/llms.txt" title="LLM Context">
 
-    <!-- Preconnect to external CDNs -->
+    <!-- Preconnect to external CDNs & Fonts -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23050505'/><text x='50%' y='68%' font-size='60' font-weight='900' font-family='monospace' fill='%2300ff9d' text-anchor='middle'>N</text></svg>">
@@ -43,8 +46,8 @@
     <link rel="preload" as="image" href="algothon-26-certificate.jpg">
     <link rel="preload" as="image" href="devlynix-certificate.jpg">
 
-    <!-- Modular CSS Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <!-- Modular CSS Stylesheet with Cache Busting -->
+    <link rel="stylesheet" href="css/style.css?v=2.1">
 
     <!-- Comprehensive Structured Data for Search Engines & LLM / AI Search (ChatGPT, Perplexity, Claude, Gemini) -->
     <script type="application/ld+json">
@@ -148,6 +151,10 @@
     <main>
         <!-- HERO SECTION -->
         <section class="hero" id="home">
+            <div class="hero-status-pill">
+                <span class="status-pulse-dot"></span>
+                <span class="status-pill-text">AVAILABLE FOR ROLES &bull; JAVA 21 &bull; SPRING BOOT 3 &bull; DEHRADUN, IN</span>
+            </div>
             <h1 class="glitch-name">Nikunj Garg</h1>
             <p class="subtitle">JAVA BACKEND DEVELOPER | <span id="typing"></span><span class="typing-cursor">_</span></p>
 
@@ -188,6 +195,7 @@
                             <span class="cli-chip" onclick="runCliCommand('simulate concurrency')">simulate concurrency</span>
                             <span class="cli-chip" onclick="runCliCommand('help')">help</span>
                             <span class="cli-chip" onclick="runCliCommand('leetcode')">leetcode</span>
+                            <span class="cli-chip" onclick="runCliCommand('curl /api/bounties')">curl /api/bounties</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/books')">curl /api/books</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/developers/feed')">curl /api/developers/feed</span>
                             <span class="cli-chip" onclick="runCliCommand('curl /api/health')">curl /api/health</span>
@@ -453,24 +461,170 @@
             </div>
 
             <div class="grid" id="projectGrid">
-                <!-- Project 1: DevTinder (Flagship Lead Project) -->
-                <div class="glass-card java-card" data-category="hackathon springboot">
-                    <div class="badge badge-java">⭐ DEVELOPER MATCHING &amp; MESSAGING · WEBSOCKETS (STOMP) · SPRING BOOT 3</div>
-                    <h3 class="card-title">DevTinder</h3>
-                    <p class="card-body-text">
-                        <b>Engineering Problem:</b> Hackathon teammate discovery and collaboration suffered from disconnected channels, pairing friction, and arbitrary recommendation heuristics.
-                        <br><br>
-                        <b>Architecture &amp; Implementation:</b> Architected the backend platform with <b>Java 21</b>, <b>Spring Boot 3</b>, and <b>PostgreSQL</b>. Engineered real-time bidirectional messaging via <b>WebSockets (STOMP)</b> with delta synchronization (<code style="color:var(--neon-green);">?after={id}</code>) and unread tracking over normalized schemas. Designed a dynamic candidate discovery service ranking profiles by shared skill counts in descending order, and hardened public APIs with stateless <b>Spring Security</b>, <b>JWT &amp; Refresh Token Rotation</b> (token family replay defense), sliding-window IP rate limiting, and queue rewind.
-                        <br><br>
-                        <b>Impact &amp; Results:</b> Containerized with a multi-stage <b>Dockerfile</b> and deployed to <b>Render Cloud</b> with automated health checks (<code style="color:var(--neon-green);">/api/health</code>), powering real-time chat, profile matching, and delta synchronization for a Next.js web client.
-                    </p>
+                <!-- Project 1: TicketWave (Distributed Systems Flagship) -->
+                <div class="glass-card java-card project-card" data-category="distributed springboot jpa">
+                    <div class="project-card-header">
+                        <div class="badge badge-java"><i class="fas fa-bolt"></i> DISTRIBUTED SYSTEMS · REDIS 7 &amp; REDISSON</div>
+                        <div class="project-stats-pills">
+                            <span class="mini-stat-pill"><i class="fas fa-vial"></i> 70 Tests</span>
+                            <span class="mini-stat-pill"><i class="fas fa-gauge-high"></i> &lt;1ms Lock</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">TicketWave &mdash; Distributed Seat Hold &amp; Checkout Engine</h3>
+                    
+                    <div class="project-content">
+                        <div class="project-problem-callout">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <div><strong>Core Engineering Challenge:</strong> Flash-crowd seat contention during stadium ticket spikes creates distributed deadlocks, double-booking race conditions, and HikariCP connection pool exhaustion.</div>
+                        </div>
+
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Distributed Deadlock-Free MultiLock:</strong> Sub-millisecond seat allocation via <strong>Redisson MultiLock</strong> across Redis with deterministic natural seat-ID sorting to eliminate lock contention deadlocks.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Redis SETNX Idempotency Gate:</strong> 120s <code class="code-tag">IN_PROGRESS</code> lease lock &amp; 24h <code class="code-tag">COMPLETED</code> replay cache, isolating payment gateway latency outside DB boundaries.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Dual-Tier Inventory Reclamation:</strong> Real-time Redis keyspace pub/sub (<code class="code-tag">__keyevent@*__:expired</code>) combined with a 60-second scheduled PostgreSQL sweeper ensuring zero oversells.</div>
+                            </div>
+                        </div>
+
+                        <div class="project-metric-row">
+                            <span class="metric-tag"><i class="fas fa-shield-halved"></i> 100% ACID Commits</span>
+                            <span class="metric-tag"><i class="fas fa-users-slash"></i> Zero Overselling</span>
+                            <span class="metric-tag"><i class="fas fa-chart-line"></i> Micrometer Telemetry</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-list">
+                        <span class="skill-pill">Java 21</span>
+                        <span class="skill-pill">Spring Boot 3</span>
+                        <span class="skill-pill">Redis 7</span>
+                        <span class="skill-pill">Redisson MultiLock</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">Idempotency Gates</span>
+                        <span class="skill-pill">Keyspace Notifications</span>
+                        <span class="skill-pill">JUnit 5 (70 Tests)</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-preview" onclick="openProjectModal('ticketwave')">
+                            <i class="fas fa-layer-group"></i> Architecture &amp; APIs
+                        </button>
+                        <a href="https://github.com/gargnikunj991-ux/TicketWave.git" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i> VIEW_CODE →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: OpenBounty (High-Concurrency Engine & 250+ Tests) -->
+                <div class="glass-card java-card project-card" data-category="jpa springboot">
+                    <div class="project-card-header">
+                        <div class="badge badge-java"><i class="fas fa-trophy"></i> ESCROW STATE MACHINE · HIGH CONCURRENCY</div>
+                        <div class="project-stats-pills">
+                            <span class="mini-stat-pill"><i class="fas fa-vial"></i> 250+ Tests</span>
+                            <span class="mini-stat-pill"><i class="fas fa-lock"></i> Row Locks</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">OpenBounty &mdash; High-Concurrency Challenge &amp; Milestone Engine</h3>
+                    
+                    <div class="project-content">
+                        <div class="project-problem-callout">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <div><strong>Core Engineering Challenge:</strong> Multi-stakeholder bounty marketplaces suffer from double-submission race conditions, competing proposal acceptance conflicts, and out-of-order milestone bypass.</div>
+                        </div>
+
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Atomic Proposal Acceptance:</strong> Enforced database <strong>pessimistic row-level write locking</strong> (<code class="code-tag">SELECT ... FOR UPDATE</code>), serializing competing bids with zero lost updates.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Multi-Stage Milestone State Machine:</strong> Sequential deliverable verification guards, IDOR client protection validating ownership, and automated <code class="code-tag">+20 pts</code> reputation triggers.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Double-Submission Concurrency Guard:</strong> Hardened data integrity using pessimistic write locks on user rows and case-insensitive active-bounty uniqueness guards.</div>
+                            </div>
+                        </div>
+
+                        <div class="project-metric-row">
+                            <span class="metric-tag"><i class="fas fa-shield-check"></i> 250+ JUnit 5 Tests</span>
+                            <span class="metric-tag"><i class="fas fa-bug-slash"></i> Zero Lost Updates</span>
+                            <span class="metric-tag"><i class="fas fa-user-shield"></i> IDOR Protected</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-list">
+                        <span class="skill-pill">Java 21</span>
+                        <span class="skill-pill">Spring Boot 3</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">Spring Data JPA</span>
+                        <span class="skill-pill">Pessimistic Locking</span>
+                        <span class="skill-pill">Spring Security (JWT)</span>
+                        <span class="skill-pill">JUnit 5 (250+ Tests)</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-preview" onclick="openProjectModal('openbounty')">
+                            <i class="fas fa-layer-group"></i> Architecture &amp; APIs
+                        </button>
+                        <a href="https://github.com/gargnikunj991-ux/OpenBounty.git" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i> VIEW_CODE →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: DevTinder (Flagship Lead Project) -->
+                <div class="glass-card java-card project-card" data-category="hackathon springboot">
+                    <div class="project-card-header">
+                        <div class="badge badge-java"><i class="fas fa-comments"></i> REAL-TIME WEBSOCKETS (STOMP) · HACKATHON</div>
+                        <div class="project-stats-pills">
+                            <span class="mini-stat-pill"><i class="fas fa-bolt"></i> Delta Sync</span>
+                            <span class="mini-stat-pill"><i class="fas fa-cloud"></i> Render</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">DevTinder &mdash; Developer Matching &amp; Messaging Platform</h3>
+                    
+                    <div class="project-content">
+                        <div class="project-problem-callout">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <div><strong>Core Engineering Challenge:</strong> Hackathon teammate discovery and collaboration suffered from disconnected channels, pairing friction, and arbitrary recommendation heuristics.</div>
+                        </div>
+
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Bidirectional STOMP WebSockets:</strong> Full-duplex messaging paired with REST delta sync (<code class="code-tag">?after={id}</code>) and PostgreSQL unread tracking over normalized schemas.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Dynamic Skill Synergy Engine:</strong> Profiles ranked dynamically by shared skill count in descending order, with mutual swipe constraints and queue rewind capability.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Stateless JWT Security &amp; Rate Limiting:</strong> Spring Security filter chain with <strong>Refresh Token Rotation (RTR)</strong>, token family replay defense, and sliding-window IP rate limiting.</div>
+                            </div>
+                        </div>
+
+                        <div class="project-metric-row">
+                            <span class="metric-tag"><i class="fas fa-clock"></i> 72h Hackathon Deploy</span>
+                            <span class="metric-tag"><i class="fas fa-key"></i> Token Family Rotation</span>
+                            <span class="metric-tag"><i class="fas fa-network-wired"></i> Full Duplex Chat</span>
+                        </div>
+                    </div>
+
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
                         <span class="skill-pill">PostgreSQL</span>
                         <span class="skill-pill">WebSockets (STOMP)</span>
                         <span class="skill-pill">Spring Security (JWT)</span>
-                        <span class="skill-pill">REST APIs</span>
                         <span class="skill-pill">Docker</span>
                         <span class="skill-pill">Render</span>
                     </div>
@@ -485,17 +639,45 @@
                     </div>
                 </div>
 
-                <!-- Project 2: LibroSphere (Concurrency & Engineering Depth) -->
-                <div class="glass-card java-card" data-category="jpa springboot">
-                    <div class="badge badge-java">🔥 CONCURRENCY CONTROL · PESSIMISTIC ROW LOCKING · FIFO WAITLIST · JUNIT 5 (66 TESTS)</div>
+                <!-- Project 4: LibroSphere (Concurrency & Engineering Depth) -->
+                <div class="glass-card java-card project-card" data-category="jpa springboot">
+                    <div class="project-card-header">
+                        <div class="badge badge-java"><i class="fas fa-book-bookmark"></i> PESSIMISTIC LOCKING · FIFO QUEUE</div>
+                        <div class="project-stats-pills">
+                            <span class="mini-stat-pill"><i class="fas fa-vial"></i> 66 Tests</span>
+                            <span class="mini-stat-pill"><i class="fas fa-shield"></i> ACID</span>
+                        </div>
+                    </div>
                     <h3 class="card-title">LibroSphere &mdash; Library Management &amp; Reservation System</h3>
-                    <p class="card-body-text">
-                        <b>Engineering Problem:</b> High-concurrency checkouts of limited, single-copy inventory created severe race conditions, duplicate allocations, and inventory underflow (TOCTOU anomalies).
-                        <br><br>
-                        <b>Architecture &amp; Implementation:</b> Engineered a concurrency-safe asset lending and reservation backend in <b>Java 21</b> and <b>Spring Boot 3</b>. Enforced <b>Spring Data JPA</b> pessimistic row locks (<code style="color:var(--neon-green);">@Lock(PESSIMISTIC_WRITE)</code> / <code style="color:var(--neon-green);">SELECT ... FOR UPDATE</code>) within atomic <code style="color:var(--neon-green);">@Transactional</code> boundaries. Architected a state-driven FIFO waitlist queue with 48-hour pickup expiration holds on returned assets, an idempotent midnight cron worker (<code style="color:var(--neon-green);">@Scheduled</code>) for tiered overdue fine calculations, and composite B-Tree indexing.
-                        <br><br>
-                        <b>Impact &amp; Results:</b> Verified thread safety and ACID resilience through an automated <b>66-test JUnit 5 suite</b> (100% pass rate), including multithreaded stress testing with 10 concurrent threads (<code style="color:var(--neon-green);">CountDownLatch</code>) confirming exactly 1 loan, 9 expected rejections, and zero underflow.
-                    </p>
+                    
+                    <div class="project-content">
+                        <div class="project-problem-callout">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <div><strong>Core Engineering Challenge:</strong> High-concurrency checkouts of limited, single-copy inventory created severe race conditions, duplicate allocations, and inventory underflow (TOCTOU anomalies).</div>
+                        </div>
+
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Row-Level Pessimistic Locking:</strong> Enforced Spring Data JPA <code class="code-tag">@Lock(PESSIMISTIC_WRITE)</code> within atomic <code class="code-tag">@Transactional</code> boundaries to serialize checkouts.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>FIFO Waitlist Lifecycle:</strong> State-driven reservation queue with automated 48-hour pickup window holds upon returned assets, eliminating inventory race conditions.</div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <div><strong>Automated Reconciliation Cron:</strong> Idempotent midnight worker (<code class="code-tag">@Scheduled</code>) calculating tiered overdue fines with composite B-Tree query indexes.</div>
+                            </div>
+                        </div>
+
+                        <div class="project-metric-row">
+                            <span class="metric-tag"><i class="fas fa-vials"></i> 66 JUnit 5 Tests</span>
+                            <span class="metric-tag"><i class="fas fa-check-double"></i> 0 Underflow</span>
+                            <span class="metric-tag"><i class="fas fa-clock"></i> Midnight Cron Audit</span>
+                        </div>
+                    </div>
+
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
@@ -503,7 +685,6 @@
                         <span class="skill-pill">Spring Data JPA</span>
                         <span class="skill-pill">Pessimistic Locking</span>
                         <span class="skill-pill">ACID Transactions</span>
-                        <span class="skill-pill">B-Tree Indexes</span>
                         <span class="skill-pill">JUnit 5 (66 Tests)</span>
                     </div>
 
@@ -513,40 +694,6 @@
                         </button>
                         <a href="https://github.com/gargnikunj991-ux/library_spring.git" target="_blank" rel="noopener noreferrer" class="project-link">
                             <i class="fab fa-github"></i> VIEW_CODE &rarr;
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3: TicketWave -->
-                <div class="glass-card java-card" data-category="distributed springboot jpa">
-                    <div class="badge badge-java">⚡ DISTRIBUTED SYSTEMS · REDIS 7 &amp; REDISSON · POSTGRESQL · 70 JUNIT 5 TESTS</div>
-                    <h3 class="card-title">TicketWave &mdash; Distributed Seat Hold &amp; Checkout Engine</h3>
-                    <p class="card-body-text">
-                        <b>Engineering Problem:</b> Flash-crowd seat contention during stadium ticket spikes (e.g. Coldplay at Madison Square Garden) creates distributed deadlocks, double-booking race conditions, and database connection pool exhaustion.
-                        <br><br>
-                        <b>Architecture &amp; Implementation:</b> Engineered a high-throughput distributed ticketing backend using <b>Java 21</b>, <b>Spring Boot 3</b>, <b>Redis 7</b>, and <b>PostgreSQL</b>. Implemented sub-millisecond distributed MultiLock seat allocation via <b>Redisson</b> with natural seat-ID sorting to eliminate deadlocks. Architected an in-memory <b>Redis SETNX idempotency gate</b> (<code style="color:var(--neon-green);">IN_PROGRESS</code> 120s / <code style="color:var(--neon-green);">COMPLETED</code> 24h replay) and decoupled simulated payment execution outside DB boundaries to protect HikariCP connection pools. Built a <b>dual-tier inventory reclamation</b> pipeline uniting real-time <b>Redis keyspace expiration pub/sub</b> with a 60-second scheduled PostgreSQL sweeper.
-                        <br><br>
-                        <b>Impact &amp; Results:</b> Verified thread safety with <b>70 automated JUnit 5 tests</b>, including 100-thread concurrent seat contention stress suites, idempotency storms, and architectural failure-mode simulations proving zero overselling under peak load.
-                    </p>
-                    <div class="skill-list">
-                        <span class="skill-pill">Java 21</span>
-                        <span class="skill-pill">Spring Boot 3</span>
-                        <span class="skill-pill">Redis 7</span>
-                        <span class="skill-pill">Redisson MultiLock</span>
-                        <span class="skill-pill">PostgreSQL</span>
-                        <span class="skill-pill">Idempotency Gates</span>
-                        <span class="skill-pill">Keyspace Notifications</span>
-                        <span class="skill-pill">JUnit 5 (70 Tests)</span>
-                        <span class="skill-pill">Micrometer Telemetry</span>
-                        <span class="skill-pill">Swagger / OpenAPI 3.0</span>
-                    </div>
-
-                    <div class="project-actions">
-                        <button class="btn-preview" onclick="openProjectModal('ticketwave')">
-                            <i class="fas fa-layer-group"></i> Architecture &amp; APIs
-                        </button>
-                        <a href="https://github.com/gargnikunj991-ux/TicketWave.git" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <i class="fab fa-github"></i> VIEW_CODE →
                         </a>
                     </div>
                 </div>
@@ -750,8 +897,8 @@
         </p>
     </footer>
 
-    <!-- Modular Application Script -->
-    <script src="js/app.js?v=1.1" defer></script>
+    <!-- Modular Application Script with Cache Busting -->
+    <script src="js/app.js?v=2.1" defer></script>
 </body>
 
 </html>

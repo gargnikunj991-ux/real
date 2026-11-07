@@ -42,6 +42,44 @@ const projectDetails = {
             { method: "GET", route: "/swagger-ui/index.html", desc: "Interactive OpenAPI 3.0 API documentation contract with executable test console" }
         ]
     },
+    openbounty: {
+        title: "OpenBounty — High-Concurrency Challenge & Milestone Engine",
+        subtitle: "Java 21 · Spring Boot 3 · PostgreSQL · Spring Data JPA · Spring Security · JUnit 5 (250+ Tests)",
+        github: "https://github.com/gargnikunj991-ux/OpenBounty.git",
+        architecture: [
+            "Client & Security Layer: RESTful HTTP/JSON APIs secured by Spring Security 6 with stateless JWT access tokens and role segregation (CREATOR vs. CONTRIBUTOR)",
+            "Atomic Proposal & Bid Selection: Database pessimistic row-level locking (@Lock(PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) on bounty and proposal rows serializing competing bids with zero lost updates",
+            "Double-Submission Protection: Pessimistic write locks on user rows coupled with case-insensitive active-bounty uniqueness guards to eliminate race-condition spamming",
+            "Multi-Stage Milestone Verification State Machine: Strict sequential deliverable progression guards (SUBMITTED ➔ UNDER_REVIEW ➔ APPROVED) preventing stage skipping",
+            "IDOR Authorization Defense: Contextual ownership checks ensuring only assigned contributors submit deliverables and only creators trigger approvals",
+            "Algorithmic Reputation Engine: Automated +20 point reputation score rewards credited upon verified milestone approval and escrow settlement",
+            "Adversarial QA Suite: 250+ automated JUnit 5 tests, including multithreaded CountDownLatch stress simulations and adversarial penetration suites verifying zero bypass under load"
+        ],
+        schemas: [
+            { table: "bounties", pkey: "id (BIGINT)", fkeys: "creator_id -> users(id)", fields: "title, description, reward_amount, status (OPEN/IN_REVIEW/AWARDED/CLOSED), version, created_at, uq: (lower(title), active)" },
+            { table: "proposals", pkey: "id (BIGINT)", fkeys: "bounty_id -> bounties(id), contributor_id -> users(id)", fields: "bid_amount, pitch_proposal, status (PENDING/ACCEPTED/REJECTED), submitted_at" },
+            { table: "milestones", pkey: "id (BIGINT)", fkeys: "bounty_id -> bounties(id)", fields: "sequence_order, title, reward_portion, status (LOCKED/IN_PROGRESS/IN_REVIEW/APPROVED), deadline" },
+            { table: "deliverables", pkey: "id (BIGINT)", fkeys: "milestone_id -> milestones(id), contributor_id -> users(id)", fields: "submission_url, proof_notes, status (SUBMITTED/ACCEPTED/REVISION_REQUESTED), submitted_at, reviewed_at" },
+            { table: "reputation_logs", pkey: "id (BIGINT)", fkeys: "user_id -> users(id), bounty_id -> bounties(id)", fields: "points_delta (+20), reason, awarded_at" }
+        ],
+        spotlights: [
+            { name: "BountyAcceptanceService.java", desc: "Atomic proposal acceptance using database pessimistic write locks (@Lock(PESSIMISTIC_WRITE))", url: "https://github.com/gargnikunj991-ux/OpenBounty.git" },
+            { name: "MilestoneStateMachine.java", desc: "Multi-stage sequential deliverable verification engine with IDOR protection", url: "https://github.com/gargnikunj991-ux/OpenBounty.git" },
+            { name: "SubmissionConcurrencyGuard.java", desc: "Pessimistic user-row write locking eliminating double-submission race conditions", url: "https://github.com/gargnikunj991-ux/OpenBounty.git" },
+            { name: "BountyConcurrencyStressTest.java", desc: "250+ JUnit 5 suite executing multithreaded CountDownLatch / ExecutorService concurrency tests", url: "https://github.com/gargnikunj991-ux/OpenBounty.git" },
+            { name: "SecurityPenetrationTest.java", desc: "Adversarial penetration tests ensuring zero milestone sequence or IDOR bypass under stress", url: "https://github.com/gargnikunj991-ux/OpenBounty.git" }
+        ],
+        endpoints: [
+            { method: "GET", route: "/api/v1/bounties", desc: "Lists all active bounties with search filters, status, and reward amounts" },
+            { method: "POST", route: "/api/v1/bounties", desc: "Creates a new bounty challenge with milestone deliverables and escrow reward pool" },
+            { method: "POST", route: "/api/v1/bounties/{id}/proposals", desc: "Submits contributor proposal with duplicate submission concurrency guards" },
+            { method: "POST", route: "/api/v1/bounties/{id}/proposals/{propId}/accept", desc: "Atomically accepts winning proposal with pessimistic row lock (SELECT ... FOR UPDATE)" },
+            { method: "POST", route: "/api/v1/milestones/{id}/deliverables", desc: "Submits deliverable proof with sequential order check and IDOR security" },
+            { method: "POST", route: "/api/v1/milestones/{id}/approve", desc: "Approves deliverable, disburses milestone reward, and awards +20 reputation score" },
+            { method: "GET", route: "/api/v1/users/{id}/reputation", desc: "Queries developer reputation score, verified completed bounties, and awards history" },
+            { method: "GET", route: "/swagger-ui/index.html", desc: "Interactive OpenAPI 3.0 contract documentation and executable API testing console" }
+        ]
+    },
     devtinder: {
         title: "DevTinder — Developer Teammate Matching Platform (Backend)",
         subtitle: "Java 21 · Spring Boot 3 · PostgreSQL · WebSockets (STOMP) · Spring Security · Render Cloud",
@@ -617,6 +655,7 @@ const supportedCliCommands = [
     "simulate concurrency",
     "help",
     "leetcode",
+    "curl /api/bounties",
     "curl /api/health",
     "curl /api/books",
     "curl /api/developers/feed",
@@ -698,9 +737,10 @@ function executeCli(cmd) {
         out.innerHTML = `Available Commands:
   - <span style="color:#00ff9d;">simulate concurrency</span>                : Run 50-thread high-contention locking stress test
   - <span style="color:#00ff9d;">leetcode</span>                             : View LeetCode problem solving profile & stats
-  - <span style="color:#00ff9d;">curl /api/health</span>                     : Query Spring Boot backend health status
+  - <span style="color:#00ff9d;">curl /api/bounties</span>                   : Query OpenBounty high-concurrency challenge specifications
   - <span style="color:#00ff9d;">curl /api/books</span>                      : Query LibroSphere library inventory with row-locking stats
   - <span style="color:#00ff9d;">curl /api/developers/feed</span>            : Query DevTinder real-time teammate matching feed
+  - <span style="color:#00ff9d;">curl /api/health</span>                     : Query Spring Boot backend health status
   - <span style="color:#00ff9d;">projects</span>                             : List backend project specifications
   - <span style="color:#00ff9d;">cat resume</span>                           : View summary qualifications & CV download
   - <span style="color:#00ff9d;">stack</span>                                : View Java backend technology stack
@@ -721,6 +761,25 @@ function executeCli(cmd) {
             active_threads: 4,
             uptime: "99.98%",
             engineer: "Nikunj Garg"
+        }, null, 2);
+    } else if (normalized.includes("curl") && (normalized.includes("bounty") || normalized.includes("bounties") || normalized.includes("openbounty"))) {
+        out.className += " json";
+        out.textContent = JSON.stringify({
+            project: "OpenBounty",
+            architecture: "High-Concurrency Challenge & Milestone Engine",
+            concurrency_control: "Pessimistic Row-Level Write Locking (@Lock(LockModeType.PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE)",
+            database: "PostgreSQL",
+            test_coverage: "250+ Automated JUnit 5 Tests (Concurrency Stress & Adversarial Penetration)",
+            active_bounty: {
+                id: 104,
+                title: "Distributed Task Scheduler with Zero Clock Drift",
+                creator: "CloudScale Systems",
+                reward: "$750 USD",
+                status: "OPEN",
+                proposals_count: 8,
+                verification_state_machine: "SUBMITTED -> UNDER_REVIEW -> APPROVED (+20 pts reputation)",
+                concurrency_protection: "Pessimistic write locks on bounty & user rows serializing competing bids with 0 lost updates"
+            }
         }, null, 2);
     } else if (normalized.includes("curl") && (normalized.includes("book") || normalized.includes("librosphere"))) {
         out.className += " json";
@@ -762,9 +821,10 @@ function executeCli(cmd) {
             }
         }, null, 2);
     } else if (normalized === "projects") {
-        out.innerHTML = `[PROJECT 1] <span style="color:#00ff9d;">DevTinder</span>: Developer Teammate Matching Platform (Spring Boot 3 + PostgreSQL + WebSockets STOMP + AI Synergy Engine + Render)
-[PROJECT 2] <span style="color:#00ff9d;">LibroSphere</span>: High-Concurrency Asset Lending Engine (Spring Boot 3 + PostgreSQL + Pessimistic Locking + 66 JUnit 5 Tests)
-[PROJECT 3] <span style="color:#00ff9d;">TicketWave</span>: Ultra-Scale Distributed Reservation Engine (Spring Boot 3 + Redis 7 + Redisson MultiLock + PostgreSQL + 70 JUnit 5 Tests)`;
+        out.innerHTML = `[PROJECT 1] <span style="color:#00ff9d;">TicketWave</span>: Ultra-Scale Distributed Reservation Engine (Spring Boot 3 + Redis 7 + Redisson MultiLock + PostgreSQL + 70 JUnit 5 Tests)
+[PROJECT 2] <span style="color:#00ff9d;">OpenBounty</span>: High-Concurrency Challenge & Milestone Engine (Spring Boot 3 + PostgreSQL + Pessimistic Row Locking + 250+ JUnit 5 Tests)
+[PROJECT 3] <span style="color:#00ff9d;">DevTinder</span>: Developer Teammate Matching Platform (Spring Boot 3 + PostgreSQL + WebSockets STOMP + AI Synergy Engine + Render)
+[PROJECT 4] <span style="color:#00ff9d;">LibroSphere</span>: High-Concurrency Asset Lending Engine (Spring Boot 3 + PostgreSQL + Pessimistic Locking + 66 JUnit 5 Tests)`;
     } else if (normalized === "leetcode" || normalized === "dsa") {
         out.className += " json";
         out.textContent = JSON.stringify({
@@ -805,29 +865,68 @@ LinkedIn: https://linkedin.com/in/nikunj-garg-36045b37a`;
 // ACTIVE NAVIGATION SCROLL SPY
 // -------------------------------------------------------------
 const navLinks = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll("section");
+const spySections = Array.from(document.querySelectorAll("section[id]"));
+let isProgrammaticScroll = false;
+let scrollTimer = null;
 
-function updateActiveNav() {
-    const scrollPosition = window.scrollY + 200;
-    let current = "home";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute("id");
-
-        if (sectionId && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            current = sectionId;
-        }
-    });
-
+function setActiveNavLink(targetId) {
+    if (!targetId) return;
     navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
+        const href = link.getAttribute("href");
+        if (href === "#" + targetId) {
             link.classList.add("active");
         }
     });
 }
+
+function updateActiveNav() {
+    if (isProgrammaticScroll) return;
+
+    // Contact section check (footer#contact)
+    const contactEl = document.getElementById("contact");
+    if (contactEl) {
+        const cRect = contactEl.getBoundingClientRect();
+        const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 160);
+        
+        // If contact is visible in lower 65% of viewport or scrolled near bottom
+        if (cRect.top <= window.innerHeight * 0.65 || atBottom) {
+            setActiveNavLink("contact");
+            return;
+        }
+    }
+
+    // Threshold from top of viewport for content sections
+    const scrollThreshold = 180;
+    let current = "home";
+
+    for (let i = spySections.length - 1; i >= 0; i--) {
+        const sec = spySections[i];
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= scrollThreshold && rect.bottom > 60) {
+            current = sec.getAttribute("id");
+            break;
+        }
+    }
+
+    setActiveNavLink(current);
+}
+
+// Immediately update nav on click of any anchor pointing to a hash (e.g. #contact, #about)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function() {
+        const hash = this.getAttribute("href").slice(1);
+        if (hash) {
+            setActiveNavLink(hash);
+            isProgrammaticScroll = true;
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                isProgrammaticScroll = false;
+                updateActiveNav();
+            }, 600);
+        }
+    });
+});
 
 let isScrolling = false;
 window.addEventListener("scroll", () => {
@@ -838,7 +937,8 @@ window.addEventListener("scroll", () => {
         });
         isScrolling = true;
     }
-});
+}, { passive: true });
+
 updateActiveNav();
 
 // -------------------------------------------------------------

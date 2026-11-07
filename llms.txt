@@ -20,23 +20,29 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 
 ## Major Projects
 
-### 1. DevTinder — Developer Teammate Matching Platform (Backend Flagship)
+### 1. TicketWave — Ultra-Scale Distributed Seat Hold & Checkout Engine
+- **Overview**: High-throughput distributed event ticketing engine engineered to handle massive flash-crowd concurrency spikes with zero seat overselling, distributed deadlock elimination, and financial idempotency.
+- **Tech Stack**: Java 21, Spring Boot 3.3.4, Redis 7, Redisson MultiLock, PostgreSQL, Spring Data JPA, Micrometer, JUnit 5.
+- **GitHub Repository**: https://github.com/gargnikunj991-ux/TicketWave.git
+- **Key Capabilities**: Distributed seat hold allocation using Redisson MultiLock (<1ms) with deterministic natural seat-ID sorting to eliminate distributed deadlocks under peak arena traffic; in-memory Redis SETNX idempotency gate (`IN_PROGRESS` 120s / `COMPLETED` 24h replay) with decoupled payment execution outside DB boundaries preventing HikariCP pool exhaustion; dual-tier inventory reclamation combining reactive Redis keyspace expiration pub/sub (`__keyevent@*__:expired`) with a 60-second scheduled PostgreSQL sweeper; comprehensive 70-test JUnit 5 suite featuring 100-thread single-seat contention stress tests, duplicate checkout idempotency storms, and architectural failure-mode simulations verifying ACID resilience.
+
+### 2. OpenBounty — High-Concurrency Challenge & Milestone Engine
+- **Overview**: High-concurrency enterprise bounty marketplace and milestone escrow backend engineered to eliminate race conditions, double-submissions, and milestone bypass under heavy contributor traffic.
+- **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security 6, JUnit 5.
+- **GitHub Repository**: https://github.com/gargnikunj991-ux/OpenBounty.git
+- **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) serializing competing bids with zero lost updates; multi-stage deliverable verification state machine with sequential order guards, IDOR client protection, and algorithmic reputation triggers (`+20 pts`); hardened data integrity against double-submission race conditions using pessimistic write locks on user rows and case-insensitive active-bounty uniqueness constraints; comprehensive 250+ automated JUnit 5 test suite with multithreaded concurrency stress tests (`CountDownLatch` / `ExecutorService`) and adversarial penetration suites.
+
+### 3. DevTinder — Developer Teammate Matching Platform (Backend Flagship)
 - **Overview**: Teammate matchmaking platform originally prototyped during Devlynix Buildathon 2.0 with frontend teammates, then independently evolved and elevated into a production-grade backend service powering a Next.js client.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, WebSockets (STOMP), Spring Security 6 (JWT & Refresh Token Rotation), Docker, Render Cloud.
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git
 - **Key Capabilities**: Bidirectional STOMP WebSocket broker with delta query synchronization (`?after={id}`) and unread tracking over normalized schemas; candidate discovery service ranking profiles dynamically by shared skill counts and mutual swipe constraints; stateless Spring Security filters with Refresh Token Rotation, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radar, and queue rewind; multi-stage Docker containerization with `/api/health` monitoring for cloud deployment.
 
-### 2. LibroSphere — High-Concurrency Asset Lending & Reservation Engine
+### 4. LibroSphere — High-Concurrency Asset Lending & Reservation Engine
 - **Overview**: High-concurrency asset lending and reservation backend engineered to eliminate race conditions, duplicate allocations, and inventory underflow under peak multi-threaded contention.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Hibernate ORM, JUnit 5.
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/library_spring.git
 - **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) inside atomic `@Transactional` boundaries completely preventing double-checkout TOCTOU anomalies; automated FIFO reservation waitlist queue (`WAITING` -> `NOTIFIED_READY`) with 48-hour pickup reservations; nightly overdue fine reconciliation cron worker (`@Scheduled`) with composite B-Tree indexes on `(returned, due_date)` to avoid full table scans; automated JUnit 5 integration test suite simulating concurrent checkout worker threads (`CountDownLatch`) validating 100% thread safety, expected rejections, and zero underflow.
-
-### 3. TicketWave — Ultra-Scale Distributed Seat Hold & Checkout Engine
-- **Overview**: High-throughput distributed event ticketing engine engineered to handle massive flash-crowd concurrency spikes with zero seat overselling, distributed deadlock elimination, and financial idempotency.
-- **Tech Stack**: Java 21, Spring Boot 3.3.4, Redis 7, Redisson MultiLock, PostgreSQL, Spring Data JPA, Micrometer, JUnit 5.
-- **GitHub Repository**: https://github.com/gargnikunj991-ux/TicketWave.git
-- **Key Capabilities**: Distributed seat hold allocation using Redisson MultiLock (<1ms) with deterministic natural seat-ID sorting to eliminate distributed deadlocks under peak arena traffic; in-memory Redis SETNX idempotency gate (`IN_PROGRESS` 120s / `COMPLETED` 24h replay) with decoupled payment execution outside DB boundaries preventing HikariCP pool exhaustion; dual-tier inventory reclamation combining reactive Redis keyspace expiration pub/sub (`__keyevent@*__:expired`) with a 60-second scheduled PostgreSQL sweeper; comprehensive 70-test JUnit 5 suite featuring 100-thread single-seat contention stress tests, duplicate checkout idempotency storms, and architectural failure-mode simulations verifying ACID resilience.
 
 ## Formal Education
 - **Degree**: Bachelor of Computer Applications (BCA, 2025–2028)
