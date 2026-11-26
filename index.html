@@ -269,7 +269,7 @@
                         </div>
 
                         <div class="sim-console" id="simConsole">
-                            <div class="sim-console-line text-muted">[READY] Select locking strategy and click 'Run 50 Threads' to simulate high-contention checkout stress.</div>
+                            <div class="sim-console-line text-muted">[READY] Select a locking strategy and click 'Run 50 Threads' to simulate high-contention checkout stress.</div>
                         </div>
                     </div>
                 </div>
@@ -299,7 +299,7 @@
                     <br><br>
                     Experienced in eliminating concurrency race conditions and inventory overselling via <b>JPA/Hibernate</b> pessimistic row locking and <b>ACID transactions</b>, building RESTful APIs, and implementing bidirectional <b>WebSockets (STOMP)</b> with stateless <b>JWT Authentication &amp; Refresh Token Rotation</b>.
                     <br><br>
-                    Proficient in relational database design (3NF), B-Tree indexing, <b>Docker</b> containerization, automated testing with <b>JUnit 5</b>, and cloud deployments on <b>Render Cloud</b>.
+                    Proficient in relational database design (3NF), B-Tree indexing, <b>Docker</b> containerization, automated testing with <b>JUnit 5</b>, and cloud deployments on <b>Render</b>.
                 </p>
             </div>
 
@@ -325,140 +325,125 @@
             </div>
         </section>
 
-        <!-- TECHNICAL STACK SECTION WITH DYNAMIC FILTERS -->
+        <!-- TECHNICAL STACK SECTION -->
         <section class="section-container" id="stack">
             <h2 class="section-title">// TECHNICAL_STACK</h2>
             <p class="section-subtitle">Core backend technologies, architectural patterns, and development toolchains.</p>
 
-            <div class="filter-container">
-                <button class="filter-btn active" onclick="filterStack('all', this)">All Technologies</button>
-                <button class="filter-btn" onclick="filterStack('backend', this)">Backend &amp; Security</button>
-                <button class="filter-btn" onclick="filterStack('database', this)">Databases</button>
-                <button class="filter-btn" onclick="filterStack('devops', this)">DevOps &amp; Cloud</button>
-                <button class="filter-btn" onclick="filterStack('testing', this)">Testing &amp; Core</button>
-            </div>
-
             <div class="grid" id="stackGrid">
                 <!-- 1. Languages & Core Backend -->
-                <div class="glass-card java-card" data-category="backend languages core">
+                <div class="glass-card java-card">
                     <div class="badge badge-java">LANGUAGES &amp; BACKEND</div>
                     <i class="fab fa-java card-header-icon" style="color:var(--neon-green);"></i>
                     <h3 class="card-title">Java 21 &amp; Spring Boot 3</h3>
                     <p class="card-body-text">
-                        Core backend engineering in Java 21 LTS with strong OOP architecture, RESTful API design, Spring Boot 3.x microservices, Spring Data JPA, and Hibernate ORM.
+                        Backend engineering in Java 21 with object-oriented programming, RESTful API development, Spring Boot 3, Spring Data JPA, and Hibernate ORM.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Java 21</span>
                         <span class="skill-pill">Spring Boot 3</span>
                         <span class="skill-pill">Spring Data JPA</span>
                         <span class="skill-pill">Hibernate ORM</span>
-                        <span class="skill-pill">REST APIs</span>
-                        <span class="skill-pill">Clean Architecture</span>
+                        <span class="skill-pill">RESTful APIs</span>
+                        <span class="skill-pill">WebSockets (STOMP)</span>
                     </div>
                 </div>
 
-                <!-- 2. Databases & Concurrency -->
-                <div class="glass-card java-card" data-category="database core">
-                    <div class="badge badge-java">DATABASES, CACHING &amp; CONCURRENCY</div>
+                <!-- 2. Databases & Caching -->
+                <div class="glass-card java-card">
+                    <div class="badge badge-java">DATABASES &amp; CACHING</div>
                     <i class="fas fa-database card-header-icon" style="color:var(--gold);"></i>
-                    <h3 class="card-title">PostgreSQL, Redis &amp; Distributed Locking</h3>
+                    <h3 class="card-title">PostgreSQL &amp; Redis</h3>
                     <p class="card-body-text">
-                        Relational schema design (3NF), ACID transactions, distributed multi-locking via Redisson, Redis TTL lease management, and composite B-Tree query indexing.
+                        Relational database design in 3NF, SQL queries, ACID transactions, row-level pessimistic locking, and distributed caching with Redis and Redisson.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">PostgreSQL</span>
                         <span class="skill-pill">Redis 7</span>
-                        <span class="skill-pill">Redisson MultiLock</span>
+                        <span class="skill-pill">SQL</span>
+                        <span class="skill-pill">Redisson</span>
                         <span class="skill-pill">ACID Transactions</span>
-                        <span class="skill-pill">Pessimistic &amp; Optimistic Locking</span>
-                        <span class="skill-pill">B-Tree Indexing</span>
+                        <span class="skill-pill">Row-Level Locking</span>
                     </div>
                 </div>
 
-                <!-- 3. Security & Architecture -->
-                <div class="glass-card java-card" data-category="backend security">
-                    <div class="badge badge-java">SECURITY &amp; ARCHITECTURE</div>
+                <!-- 3. Security & Authentication -->
+                <div class="glass-card java-card">
+                    <div class="badge badge-java">SECURITY &amp; AUTHENTICATION</div>
                     <i class="fas fa-shield-halved card-header-icon" style="color:var(--accent-red);"></i>
                     <h3 class="card-title">Spring Security &amp; JWT</h3>
                     <p class="card-body-text">
-                        Stateless authentication filters, database-persisted Refresh Token Rotation, BCrypt hashing, Role-Based Access Control (RBAC), and Bean Validation.
+                        Stateless authentication filter chains, JWT access tokens, Refresh Token Rotation, BCrypt password hashing, and Role-Based Access Control (RBAC).
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Spring Security</span>
-                        <span class="skill-pill">JWT Auth</span>
+                        <span class="skill-pill">JWT</span>
                         <span class="skill-pill">Refresh Token Rotation</span>
                         <span class="skill-pill">BCrypt Hashing</span>
                         <span class="skill-pill">RBAC</span>
-                        <span class="skill-pill">Bean Validation</span>
+                        <span class="skill-pill">Security Filters</span>
                     </div>
                 </div>
 
-                <!-- 4. Testing & Quality Assurance -->
-                <div class="glass-card java-card" data-category="testing core">
-                    <div class="badge badge-java">TESTING &amp; QA</div>
+                <!-- 4. Testing & Automation -->
+                <div class="glass-card java-card">
+                    <div class="badge badge-java">TESTING &amp; AUTOMATION</div>
                     <i class="fas fa-vial-circle-check card-header-icon" style="color:var(--neon-green);"></i>
-                    <h3 class="card-title">JUnit 5 &amp; Concurrency Stress Testing</h3>
+                    <h3 class="card-title">JUnit 5 &amp; Mockito</h3>
                     <p class="card-body-text">
-                        Extensive 70-test automated suite with JUnit 5, multithreaded concurrency stress testing (CountDownLatch, ExecutorService), distributed failure-mode suites, and Mockito isolation.
+                        Automated backend testing in JUnit 5 (wrote 250+ unit tests), multithreaded concurrency tests with CountDownLatch, and unit test isolation with Mockito.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">JUnit 5 (70 Tests)</span>
-                        <span class="skill-pill">100-Thread Stress Testing</span>
-                        <span class="skill-pill">Failure-Mode Suites</span>
+                        <span class="skill-pill">JUnit 5</span>
+                        <span class="skill-pill">250+ Unit Tests</span>
                         <span class="skill-pill">Mockito</span>
-                        <span class="skill-pill">Thread Safety QA</span>
+                        <span class="skill-pill">Concurrency Testing</span>
+                        <span class="skill-pill">Integration Testing</span>
                     </div>
                 </div>
 
-                <!-- 5. DevOps & Cloud Infrastructure -->
-                <div class="glass-card java-card" data-category="devops tools">
-                    <div class="badge badge-java">DEVOPS &amp; CLOUD</div>
+                <!-- 5. DevOps & Developer Tools -->
+                <div class="glass-card java-card">
+                    <div class="badge badge-java">DEVOPS &amp; TOOLS</div>
                     <i class="fab fa-docker card-header-icon" style="color:var(--neon-blue);"></i>
-                    <h3 class="card-title">Docker &amp; Render Cloud</h3>
+                    <h3 class="card-title">Docker &amp; Developer Toolchain</h3>
                     <p class="card-body-text">
-                        Containerization with Docker and Docker Compose, zero-downtime cloud deployments on Render, automated health-check monitoring, Git version control, and Maven builds.
+                        Backend containerization with Docker and Docker Compose, cloud deployments on Render, API testing with Postman, Git version control, and Maven dependency management.
                     </p>
                     <div class="skill-list">
                         <span class="skill-pill">Docker</span>
                         <span class="skill-pill">Docker Compose</span>
-                        <span class="skill-pill">Render Cloud</span>
+                        <span class="skill-pill">Render</span>
                         <span class="skill-pill">Git &amp; GitHub</span>
                         <span class="skill-pill">Maven</span>
                         <span class="skill-pill">Postman</span>
                     </div>
                 </div>
 
-                <!-- 6. Real-Time Systems & API Standards -->
-                <div class="glass-card java-card" data-category="backend">
-                    <div class="badge badge-java">REAL-TIME &amp; API STANDARDS</div>
-                    <i class="fas fa-network-wired card-header-icon" style="color:var(--neon-blue);"></i>
-                    <h3 class="card-title">WebSockets (STOMP) &amp; OpenAPI</h3>
+                <!-- 6. Algorithms & CS Core -->
+                <div class="glass-card java-card">
+                    <div class="badge badge-java">ALGORITHMS &amp; CS CORE</div>
+                    <i class="fas fa-code card-header-icon" style="color:var(--neon-blue);"></i>
+                    <h3 class="card-title">Data Structures &amp; Algorithms</h3>
                     <p class="card-body-text">
-                        Bidirectional full-duplex communication over STOMP WebSockets, delta synchronization, interactive OpenAPI / Swagger 3.0 documentation, and Cloudinary media pipelines.
+                        Algorithmic problem solving in Java on LeetCode (@Nikunjgarg12), focusing on arrays, strings, two-pointer techniques, linked lists, and time/space complexity analysis.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-pill">WebSockets (STOMP)</span>
-                        <span class="skill-pill">RESTful APIs</span>
-                        <span class="skill-pill">OpenAPI / Swagger 3.0</span>
-                        <span class="skill-pill">Cloudinary CDN</span>
-                        <span class="skill-pill">Delta Sync</span>
+                        <span class="skill-pill">Data Structures</span>
+                        <span class="skill-pill">Algorithms</span>
+                        <span class="skill-pill">LeetCode</span>
+                        <span class="skill-pill">Two Pointers</span>
+                        <span class="skill-pill">Linked Lists</span>
+                        <span class="skill-pill">Complexity Analysis</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS SECTION WITH DYNAMIC FILTERS & PREVIEW MODALS -->
+        <!-- PROJECTS SECTION WITH PREVIEW MODALS -->
         <section class="section-container" id="projects">
             <h2 class="section-title">// PROJECT_ARCHIVE</h2>
             <p class="section-subtitle">Production-grade backend architectures, hackathon deployments, and relational database systems.</p>
-
-            <div class="filter-container">
-                <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
-                <button class="filter-btn" onclick="filterProjects('hackathon', this)">Hackathons</button>
-                <button class="filter-btn" onclick="filterProjects('jpa', this)">JPA &amp; Databases</button>
-                <button class="filter-btn" onclick="filterProjects('springboot', this)">Spring Boot</button>
-                <button class="filter-btn" onclick="filterProjects('distributed', this)">Distributed &amp; Redis</button>
-            </div>
 
             <div class="grid" id="projectGrid">
                 <!-- Project 1: TicketWave (Distributed Systems Flagship) -->
@@ -489,7 +474,7 @@
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-check"></i>
-                                <div><strong>Dual-Tier Inventory Reclamation:</strong> Real-time Redis keyspace pub/sub (<code class="code-tag">__keyevent@*__:expired</code>) combined with a 60-second scheduled PostgreSQL sweeper ensuring zero oversells.</div>
+                                <div><strong>Dual-Tier Inventory Reclamation:</strong> Real-time Redis keyspace pub/sub (<code class="code-tag">__keyevent@*__:expired</code>) combined with a 60-second scheduled PostgreSQL sweeper, ensuring zero overselling.</div>
                             </div>
                         </div>
 
@@ -526,7 +511,7 @@
                     <div class="project-card-header">
                         <div class="badge badge-java"><i class="fas fa-trophy"></i> ESCROW STATE MACHINE · HIGH CONCURRENCY</div>
                         <div class="project-stats-pills">
-                            <span class="mini-stat-pill"><i class="fas fa-vial"></i> 250+ Tests</span>
+                            <span class="mini-stat-pill"><i class="fas fa-vial"></i> 250+ Unit Tests</span>
                             <span class="mini-stat-pill"><i class="fas fa-lock"></i> Row Locks</span>
                         </div>
                     </div>
@@ -554,7 +539,7 @@
                         </div>
 
                         <div class="project-metric-row">
-                            <span class="metric-tag"><i class="fas fa-shield-check"></i> 250+ JUnit 5 Tests</span>
+                            <span class="metric-tag"><i class="fas fa-shield-check"></i> 250+ Unit Tests</span>
                             <span class="metric-tag"><i class="fas fa-bug-slash"></i> Zero Lost Updates</span>
                             <span class="metric-tag"><i class="fas fa-user-shield"></i> IDOR Protected</span>
                         </div>
@@ -594,7 +579,7 @@
                     <div class="project-content">
                         <div class="project-problem-callout">
                             <i class="fas fa-triangle-exclamation"></i>
-                            <div><strong>Core Engineering Challenge:</strong> Hackathon teammate discovery and collaboration suffered from disconnected channels, pairing friction, and arbitrary recommendation heuristics.</div>
+                            <div><strong>Core Engineering Challenge:</strong> Hackathon teammate discovery and collaboration often suffers from disconnected communication channels, pairing friction, and arbitrary recommendation heuristics.</div>
                         </div>
 
                         <div class="project-features">
@@ -653,7 +638,7 @@
                     <div class="project-content">
                         <div class="project-problem-callout">
                             <i class="fas fa-triangle-exclamation"></i>
-                            <div><strong>Core Engineering Challenge:</strong> High-concurrency checkouts of limited, single-copy inventory created severe race conditions, duplicate allocations, and inventory underflow (TOCTOU anomalies).</div>
+                            <div><strong>Core Engineering Challenge:</strong> High-concurrency checkouts of limited, single-copy inventory create severe race conditions, duplicate allocations, and inventory underflow (TOCTOU anomalies).</div>
                         </div>
 
                         <div class="project-features">
@@ -710,7 +695,7 @@
                     <i class="fas fa-flag-checkered card-header-icon" style="color:var(--neon-blue);"></i>
                     <h3 class="card-title">Smart India Hackathon (SIH'26 Internal Round)</h3>
                     <p class="card-body-text">
-                        Awarded <b style="color:#ddd;">Certificate of Participation</b> in <b style="color:#ddd;">Smart India Hackathon 2026 (Internal Round)</b>, collaborating in a collegiate software development team to architect solutions for national-level problem statements.
+                        Awarded a <b style="color:#ddd;">Certificate of Participation</b> in the <b style="color:#ddd;">Smart India Hackathon 2026 (Internal Round)</b>, collaborating within a collegiate software development team to architect solutions for national-level problem statements.
                     </p>
                     <div style="margin-top: 14px;">
                         <button class="btn-preview" onclick="openCertModal('sih-certificate.jpeg', 'Smart India Hackathon 2026 (Internal Round) — Certificate of Participation', 'SGRR University · School of Engineering & Technology', 'sih-certificate.pdf')">
@@ -724,7 +709,7 @@
                     <i class="fas fa-lightbulb card-header-icon" style="color:var(--gold);"></i>
                     <h3 class="card-title">Startup Innovation Recognition</h3>
                     <p class="card-body-text">
-                        Awarded <b style="color:#ddd;">Certificate of Recognition</b> for pitching the multiplayer game startup concept <b style="color:#ddd;">"College Clash"</b> at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b> (Uttarakhand State Council for Science and Technology).
+                        Awarded a <b style="color:#ddd;">Certificate of Recognition</b> for pitching the multiplayer gaming startup concept <b style="color:#ddd;">"College Clash"</b> at the Innovation &amp; Incubation Centre (IIC), Shri Guru Ram Rai University, in collaboration with <b style="color:#ddd;">UCOST</b> (Uttarakhand State Council for Science and Technology).
                     </p>
                     <div style="margin-top: 14px;">
                         <button class="btn-preview" onclick="openCertModal('ucost-certificate.jpeg', 'Startup Innovation Recognition — Certificate of Recognition', 'UCOST & Innovation & Incubation Centre (IIC), SGRRU', 'ucost-certificate.pdf')">
@@ -738,7 +723,7 @@
                     <i class="fas fa-trophy card-header-icon" style="color:#c084fc;"></i>
                     <h3 class="card-title">Algothon'26 Hackathon</h3>
                     <p class="card-body-text">
-                        Awarded <b style="color:#ddd;">Certificate of Participation</b> in <b style="color:#ddd;">Algothon'26</b> organized by <b style="color:#ddd;">Algoxilla</b>, actively demonstrating creativity, enthusiasm, and competitive problem-solving in building innovative software solutions.
+                        Awarded a <b style="color:#ddd;">Certificate of Participation</b> in <b style="color:#ddd;">Algothon'26</b>, organized by <b style="color:#ddd;">Algoxilla</b>, demonstrating creativity, enthusiasm, and competitive problem-solving while building innovative software solutions.
                     </p>
                     <div style="margin-top: 14px;">
                         <button class="btn-preview" onclick="openCertModal('algothon-26-certificate.jpg', 'Certificate of Participation — Algothon\'26', 'Algoxilla · Algothon\'26 Hackathon', 'algothon-26-certificate.pdf')">
@@ -752,7 +737,7 @@
                     <i class="fas fa-laptop-code card-header-icon" style="color:var(--neon-green);"></i>
                     <h3 class="card-title">Devlynix Buildathon 2.0</h3>
                     <p class="card-body-text">
-                        Engineered and deployed the backend for <b style="color:#ddd;">DevTinder</b> in 72 hours under competitive hackathon pressure, implementing WebSockets (STOMP), relational PostgreSQL schemas, and cloud deployment.
+                        Engineered and deployed the backend for <b style="color:#ddd;">DevTinder</b> in 72 hours under competitive hackathon pressure, implementing WebSockets (STOMP), relational PostgreSQL schemas, and cloud deployment on Render.
                     </p>
                     <div style="margin-top: 14px;">
                         <button class="btn-preview" onclick="openCertModal('devlynix-certificate.jpg', 'Devlynix Buildathon 2.0 — Certificate of Achievement', 'Devlynix · Ministry of MSME, Govt. of India', 'devlynix-certificate.pdf')">
@@ -766,7 +751,7 @@
                     <i class="fas fa-users card-header-icon" style="color:var(--neon-green);"></i>
                     <h3 class="card-title">Secretary &mdash; TechMantra Coding Club</h3>
                     <p class="card-body-text">
-                        Promoted from Core Member to <b style="color:#ddd;">Secretary</b> within 10 months; organized 5+ hands-on coding bootcamps and technical workshops on Java, backend systems, and DSA for <b style="color:#ddd;">120+ student developers</b>, and co-coordinated collegiate tech events.
+                        Promoted from Core Member to <b style="color:#ddd;">Secretary</b> within 10 months; organized 5+ hands-on coding bootcamps and technical workshops on Java, backend systems, and DSA for <b style="color:#ddd;">120+ student developers</b>, and co-organized collegiate tech events.
                     </p>
                 </div>
 
@@ -775,7 +760,7 @@
                     <i class="fas fa-code card-header-icon" style="color:var(--neon-blue);"></i>
                     <h3 class="card-title">LeetCode Problem Solving</h3>
                     <p class="card-body-text">
-                        Actively practicing core Data Structures &amp; Algorithms in <b style="color:#ddd;">Java</b> on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" style="color:var(--neon-blue); text-decoration:underline;">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointers, and linked list traversal algorithms.
+                        Actively practicing core Data Structures &amp; Algorithms in <b style="color:#ddd;">Java</b> on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" style="color:var(--neon-blue); text-decoration:underline;">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointer techniques, and linked list traversal algorithms.
                     </p>
                     <div style="margin-top: 14px;">
                         <a href="https://leetcode.com/u/Nikunjgarg12/" target="_blank" rel="noopener noreferrer" class="btn-preview" style="text-decoration:none;">

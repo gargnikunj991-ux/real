@@ -48,12 +48,12 @@ const projectDetails = {
         github: "https://github.com/gargnikunj991-ux/OpenBounty.git",
         architecture: [
             "Client & Security Layer: RESTful HTTP/JSON APIs secured by Spring Security 6 with stateless JWT access tokens and role segregation (CREATOR vs. CONTRIBUTOR)",
-            "Atomic Proposal & Bid Selection: Database pessimistic row-level locking (@Lock(PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) on bounty and proposal rows serializing competing bids with zero lost updates",
+            "Atomic Proposal & Bid Selection: Database pessimistic row-level locking (@Lock(PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) on bounty and proposal rows, serializing competing bids with zero lost updates",
             "Double-Submission Protection: Pessimistic write locks on user rows coupled with case-insensitive active-bounty uniqueness guards to eliminate race-condition spamming",
             "Multi-Stage Milestone Verification State Machine: Strict sequential deliverable progression guards (SUBMITTED ➔ UNDER_REVIEW ➔ APPROVED) preventing stage skipping",
             "IDOR Authorization Defense: Contextual ownership checks ensuring only assigned contributors submit deliverables and only creators trigger approvals",
-            "Algorithmic Reputation Engine: Automated +20 point reputation score rewards credited upon verified milestone approval and escrow settlement",
-            "Adversarial QA Suite: 250+ automated JUnit 5 tests, including multithreaded CountDownLatch stress simulations and adversarial penetration suites verifying zero bypass under load"
+            "Algorithmic Reputation Engine: Automated +20-point reputation rewards credited upon verified milestone approval and escrow settlement",
+            "Adversarial QA Suite: Wrote 250+ unit tests in JUnit 5, including multithreaded CountDownLatch stress simulations and adversarial penetration suites verifying zero bypass under load"
         ],
         schemas: [
             { table: "bounties", pkey: "id (BIGINT)", fkeys: "creator_id -> users(id)", fields: "title, description, reward_amount, status (OPEN/IN_REVIEW/AWARDED/CLOSED), version, created_at, uq: (lower(title), active)" },
@@ -72,10 +72,10 @@ const projectDetails = {
         endpoints: [
             { method: "GET", route: "/api/v1/bounties", desc: "Lists all active bounties with search filters, status, and reward amounts" },
             { method: "POST", route: "/api/v1/bounties", desc: "Creates a new bounty challenge with milestone deliverables and escrow reward pool" },
-            { method: "POST", route: "/api/v1/bounties/{id}/proposals", desc: "Submits contributor proposal with duplicate submission concurrency guards" },
-            { method: "POST", route: "/api/v1/bounties/{id}/proposals/{propId}/accept", desc: "Atomically accepts winning proposal with pessimistic row lock (SELECT ... FOR UPDATE)" },
-            { method: "POST", route: "/api/v1/milestones/{id}/deliverables", desc: "Submits deliverable proof with sequential order check and IDOR security" },
-            { method: "POST", route: "/api/v1/milestones/{id}/approve", desc: "Approves deliverable, disburses milestone reward, and awards +20 reputation score" },
+            { method: "POST", route: "/api/v1/bounties/{id}/proposals", desc: "Submits a contributor proposal with duplicate-submission concurrency guards" },
+            { method: "POST", route: "/api/v1/bounties/{id}/proposals/{propId}/accept", desc: "Atomically accepts a winning proposal with a pessimistic row lock (SELECT ... FOR UPDATE)" },
+            { method: "POST", route: "/api/v1/milestones/{id}/deliverables", desc: "Submits deliverable proof with sequential order checks and IDOR protection" },
+            { method: "POST", route: "/api/v1/milestones/{id}/approve", desc: "Approves deliverable, disburses milestone reward, and awards +20 reputation points" },
             { method: "GET", route: "/api/v1/users/{id}/reputation", desc: "Queries developer reputation score, verified completed bounties, and awards history" },
             { method: "GET", route: "/swagger-ui/index.html", desc: "Interactive OpenAPI 3.0 contract documentation and executable API testing console" }
         ]
@@ -85,7 +85,7 @@ const projectDetails = {
         subtitle: "Java 21 · Spring Boot 3 · PostgreSQL · WebSockets (STOMP) · Spring Security · Render Cloud",
         github: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git",
         architecture: [
-            "Engineering Role: Architected backend for developer collaboration platform with Java 21 & Spring Boot 3, evolving hackathon MVP into full Next.js client integration",
+            "Engineering Role: Architected the backend for a developer collaboration platform with Java 21 & Spring Boot 3, evolving the hackathon MVP into a production-grade RESTful & WebSocket service",
             "Real-Time Messaging Broker: Bidirectional chat over WebSockets (STOMP) with delta sync fallback (GET /api/chat/{id}/messages?after={id}) and unread tracking over normalized PostgreSQL schemas",
             "Algorithmic Skill Synergy Engine: Heuristic scoring engine (50–99%) weighting shared technologies, complementary engineering disciplines, and project pitches",
             "Stateless Security & Rate Limiting: Spring Security 6 JWT filter chain with Refresh Token Rotation, BCrypt hashing, and sliding-window IP rate limiting (RateLimitFilter)",
@@ -106,23 +106,23 @@ const projectDetails = {
             { name: "ChatController.java", desc: "Delta synchronization (?after={id}), read receipts (/read), and WebSocket STOMP broadcast integration", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" },
             { name: "MatchService.java", desc: "Swipe evaluation state machine, incoming like queries, mutual match creation, and unmatching cascade", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" },
             { name: "RateLimitFilter.java", desc: "In-memory sliding-window IP rate limiter safeguarding authentication and discovery endpoints", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" },
-            { name: "CassetteCard.tsx", desc: "Retro cassette-styled candidate card with mechanical audio feedback, Framer Motion gestures, and dossier modal", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" }
+            { name: "SecurityConfig.java", desc: "Stateless Spring Security filter chain with JWT authentication filter, token family validation, and CORS policies", url: "https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git" }
         ],
         endpoints: [
-            { method: "POST", route: "/api/auth/register", desc: "Registers developer profile with skill tags, email, and BCrypt-hashed password" },
+            { method: "POST", route: "/api/auth/register", desc: "Registers a developer profile with skill tags, email, and a BCrypt-hashed password" },
             { method: "POST", route: "/api/auth/login", desc: "Authenticates credentials and returns JWT access token" },
             { method: "POST", route: "/api/auth/refresh", desc: "Issues renewed JWT bearer token for seamless persistent developer sessions" },
             { method: "GET", route: "/api/profile/me", desc: "Retrieves logged-in developer profile, bio, skills, and hackathon project pitch" },
             { method: "PATCH", route: "/api/profile/me", desc: "Updates bio, lookingFor, location, githubUrl, skills, and project pitch" },
             { method: "GET", route: "/api/discover", desc: "Paginated candidate feed with filterBySkill and real-time AI Synergy scores (50–99%)" },
-            { method: "POST", route: "/api/discover/swipe", desc: "Submits swipe (LIKE / PASS); triggers mutual match creation on reciprocal like" },
-            { method: "DELETE", route: "/api/discover/reset-passes", desc: "Queue rewind; clears PASS swipes allowing re-evaluation of skipped developers" },
+            { method: "POST", route: "/api/discover/swipe", desc: "Submits a swipe (LIKE / PASS); triggers mutual match creation on a reciprocal like" },
+            { method: "DELETE", route: "/api/discover/reset-passes", desc: "Queue rewind; clears PASS swipes, allowing re-evaluation of skipped developers" },
             { method: "GET", route: "/api/matches", desc: "Lists all mutual matches with unread message counts and profile dossiers" },
             { method: "GET", route: "/api/matches/requests", desc: "Incoming radar; lists developers who liked the user awaiting reciprocal response" },
             { method: "DELETE", route: "/api/matches/{matchId}", desc: "Unmatches developer pair, purging conversation history and reciprocal swipes" },
             { method: "GET", route: "/api/chat/{matchId}/messages", desc: "Delta chat sync (?after={id}&limit={n}) and paginated message history" },
             { method: "PUT", route: "/api/chat/{matchId}/read", desc: "Marks unread messages as read with timestamp for active conversation" },
-            { method: "POST", route: "/api/chat/{matchId}/messages", desc: "Dispatches message and broadcasts to /topic/matches/{matchId} subscribers" },
+            { method: "POST", route: "/api/chat/{matchId}/messages", desc: "Dispatches a message and broadcasts to /topic/matches/{matchId} subscribers" },
             { method: "WS", route: "/ws/chat (STOMP)", desc: "Real-time bidirectional WebSocket connection with SockJS fallback" }
         ]
     },
@@ -131,12 +131,12 @@ const projectDetails = {
         subtitle: "Java 21 · Spring Boot 3 · Spring Data JPA · PostgreSQL · JUnit 5 (66 Tests)",
         github: "https://github.com/gargnikunj991-ux/library_spring.git",
         architecture: [
-            "Concurrency Control: Database row-level pessimistic locking (@Lock(LockModeType.PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) inside atomic @Transactional boundaries eliminating inventory race conditions",
+            "Concurrency Control: Database row-level pessimistic locking (@Lock(LockModeType.PESSIMISTIC_WRITE) / SELECT ... FOR UPDATE) inside atomic @Transactional boundaries, eliminating inventory race conditions",
             "FIFO Waitlist Queue: State-driven reservation lifecycle (WAITING ➔ NOTIFIED_READY ➔ CLAIMED/EXPIRED) with automated 48-hour pickup window allocation on asset return",
             "Nightly Reconciliation Worker: Scheduled cron (@Scheduled) running midnight audits for overdue loans and calculating tiered member fine liabilities",
             "Database Index Optimization: Composite B-Tree indexes on books(title, author) and borrow_records(returned, due_date) eliminating sequential table scans",
             "Stateless Security: JWT Authentication with database-persisted Refresh Token Rotation (/auth/refresh) and RBAC (ADMIN, LIBRARIAN, ASSISTANT)",
-            "Automated Concurrency Testing: Comprehensive 66-test JUnit 5 test suite verifying thread safety and 0 oversells under 10-thread concurrent stress (CountDownLatch & ExecutorService)"
+            "Automated Concurrency Testing: Comprehensive 66-test JUnit 5 suite verifying thread safety and zero overselling under 10-thread concurrent stress (CountDownLatch & ExecutorService)"
         ],
         schemas: [
             { table: "books", pkey: "id (BIGINT)", fkeys: "None", fields: "title, author, total_copies, available_copies, indexes: (title, author)" },
@@ -157,12 +157,12 @@ const projectDetails = {
             { method: "POST", route: "/auth/refresh", desc: "Rotates refresh token and issues fresh JWT access token" },
             { method: "GET", route: "/api/books", desc: "Lists all cataloged books with multi-copy inventory counts (total & available)" },
             { method: "GET", route: "/api/books/search", desc: "Optimized case-insensitive search by keyword matching title or author" },
-            { method: "POST", route: "/api/borrow", desc: "Executes concurrency-safe borrow with pessimistic write lock & atomic inventory decrement" },
-            { method: "POST", route: "/api/borrow/return/{borrowId}", desc: "Processes book return and auto-assigns copy to next FIFO waitlist reservation" },
+            { method: "POST", route: "/api/borrow", desc: "Executes a concurrency-safe borrow with a pessimistic write lock & atomic inventory decrement" },
+            { method: "POST", route: "/api/borrow/return/{borrowId}", desc: "Processes a book return and auto-assigns the copy to the next FIFO waitlist reservation" },
             { method: "POST", route: "/api/reservations", desc: "Places member onto FIFO waitlist queue when book copies are exhausted" },
             { method: "GET", route: "/api/reservations/queue/{bookId}", desc: "Queries active waitlist queue and member positions for an asset" },
             { method: "GET", route: "/api/fines", desc: "Audits all system fines across the library (Admin & Librarian only)" },
-            { method: "POST", route: "/api/fines/{id}/pay", desc: "Processes fine payment and marks record as settled" }
+            { method: "POST", route: "/api/fines/{id}/pay", desc: "Processes a fine payment and marks the record as settled" }
         ]
     }
 };
@@ -560,7 +560,7 @@ function runConcurrencySimulation() {
             if (consoleEl) {
                 const line = document.createElement("div");
                 line.className = "sim-console-line text-red";
-                line.textContent = `[Thread-Pool-${processed}] TOCTOU Race Condition: Thread read cached stock, executed blind decrement. Stock underflow: ${currentStock}`;
+                line.textContent = `[Thread-Pool-${processed}] TOCTOU Race Condition: Thread read cached stock and executed blind decrement. Stock underflow: ${currentStock}`;
                 consoleEl.appendChild(line);
                 consoleEl.scrollTop = consoleEl.scrollHeight;
             }
@@ -636,7 +636,7 @@ function runConcurrencySimulation() {
                 if (isPessimisticLock) {
                     summary.textContent = `[PASS] 50/50 threads completed safely. 2 items allocated, 48 members enqueued in FIFO waitlist. Zero oversells, zero inventory corruption.`;
                 } else {
-                    summary.textContent = `[CRITICAL FAIL] Double-checkouts occurred! Final stock is -48. Data integrity violated due to lack of row-level lock.`;
+                    summary.textContent = `[CRITICAL FAIL] Double-checkouts occurred! Final stock is -48. Data integrity violated due to lack of a row-level lock.`;
                 }
                 consoleEl.appendChild(summary);
                 consoleEl.scrollTop = consoleEl.scrollHeight;
@@ -788,7 +788,7 @@ function executeCli(cmd) {
             architecture: "High-Concurrency Asset Lending & Reservation Engine",
             concurrency_control: "Row-Level Pessimistic Write Lock (@Lock(LockModeType.PESSIMISTIC_WRITE))",
             database: "PostgreSQL",
-            test_coverage: "64 JUnit 5 Tests (100% Pass Rate)",
+            test_coverage: "66 JUnit 5 Tests (100% Pass Rate)",
             catalog_summary: {
                 total_titles: 1420,
                 active_borrows: 384,
@@ -803,19 +803,18 @@ function executeCli(cmd) {
         out.className += " json";
         out.textContent = JSON.stringify({
             project: "DevTinder",
-            event: "Devlynix Buildathon 2.0 (Prototyped & Post-Hackathon Polished)",
-            architecture: "Backend Sole Architecture (Spring Boot 3 + PostgreSQL + WebSockets STOMP)",
-            collaboration: "Frontend developed by hackathon teammates",
-            deployment: "Render Cloud (Backend) + Vercel (Frontend)",
+            event: "Devlynix Buildathon 2.0",
+            architecture: "Standalone Backend Architecture (Spring Boot 3 + PostgreSQL + WebSockets STOMP)",
+            deployment: "Render Cloud (Docker Containerized)",
             matching_engine: "Algorithmic Skill Synergy Scoring (50-99%)",
             active_connections: 42,
             sample_candidate: {
                 id: 12,
                 name: "Arjun Verma",
-                skills: ["React 19", "Next.js 16", "TypeScript", "Tailwind CSS"],
-                looking_for: "Backend Java / Spring Boot teammate for Devlynix Buildathon",
-                project_pitch: "Building real-time AI code review assistant with collaborative canvas",
-                synergy_score: "94% Match (Complementary Discipline + Shared Stacks)",
+                skills: ["Java 21", "Spring Boot", "PostgreSQL", "Docker"],
+                looking_for: "Backend developer teammate for Devlynix Buildathon",
+                project_pitch: "Building real-time distributed developer matching platform",
+                synergy_score: "94% Match (High Skill Overlap & Complementary Discipline)",
                 github_url: "https://github.com/arjun-dev",
                 match_status: "INCOMING_LIKE_RADAR"
             }
@@ -841,7 +840,7 @@ Portfolio: <a href="https://nikunjgarg.xyz" target="_blank" style="color:#00e5ff
 Specialization: Spring Boot 3, PostgreSQL, Redis (Redisson), Spring Security, WebSockets (STOMP), JPA/Hibernate, Docker, JUnit 5
 Download CV: <a href="resume.pdf" download="Nikunj_Garg_Resume" style="color:#00e5ff; text-decoration:underline;">Click to download resume.pdf</a>`;
     } else if (normalized === "stack" || normalized === "skills") {
-        out.textContent = "Languages & Backend: Java 21, Spring Boot 3, Spring Data JPA, Hibernate ORM, REST APIs, WebSockets (STOMP), Distributed MultiLocks (Redisson) | Databases & Caching: PostgreSQL, Redis 7 (TTL Leases, Keyspace Pub/Sub), ACID Transactions, Pessimistic & Optimistic Locking | Security & Architecture: Spring Security, JWT (Refresh Token Rotation), BCrypt, RBAC | DevOps & Tools: Docker, Docker Compose, Render Cloud, Git, Maven, Postman, Micrometer, Swagger 3.0 | Testing & QA: JUnit 5 (70 Automated Tests - Concurrency Stress, Failure Modes & Distributed Idempotency Suites, 100% Pass Rate)";
+        out.textContent = "Languages & Backend: Java 21, Spring Boot 3, Spring Data JPA, Hibernate ORM, RESTful APIs, WebSockets (STOMP) | Databases & Caching: PostgreSQL, Redis 7, Redisson, ACID Transactions, Row-Level Locking, SQL | Security & Authentication: Spring Security, JWT (Refresh Token Rotation), BCrypt, RBAC | DevOps & Tools: Docker, Docker Compose, Render, Git & GitHub, Maven, Postman, OpenAPI 3.0 | Testing & QA: JUnit 5 (Wrote 250+ Unit Tests), Concurrency Testing, Mockito | CS Core: Data Structures & Algorithms, LeetCode";
     } else if (normalized === "contact") {
         out.innerHTML = `Phone: +91 94565 00319
 Email: gargnikunj991@gmail.com

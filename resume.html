@@ -240,7 +240,7 @@
         <h1>Nikunj Garg</h1>
         <div class="subtitle">Java Backend Developer | BCA Student</div>
         <div class="contact-line">
-            Dehradun, India &bull; <a href="tel:+919456500319">+91 94565 00319</a> &bull; <a href="mailto:gargnikunj991@gmail.com">gargnikunj991@gmail.com</a> &bull; Portfolio: <a href="https://nikunjgarg.xyz/">nikunjgarg.xyz</a> &bull; LeetCode: <a href="https://leetcode.com/u/Nikunjgarg12/">@Nikunjgarg12</a> &bull; <a href="https://github.com/gargnikunj991-ux">GitHub</a> &bull; <a href="https://www.linkedin.com/in/nikunj-garg-36045b37a/">LinkedIn</a>
+            <a href="mailto:gargnikunj991@gmail.com">gargnikunj991@gmail.com</a> &bull; Portfolio: <a href="https://nikunjgarg.xyz/">nikunjgarg.xyz</a>
         </div>
     </header>
 
@@ -248,7 +248,7 @@
     <section class="section">
         <h2 class="section-title">Summary</h2>
         <p class="summary-text">
-            BCA student and backend engineer specializing in high-concurrency systems using <b>Java 21</b>, <b>Spring Boot 3</b>, <b>PostgreSQL</b>, and <b>Redis</b>. Experienced in architecting distributed locks (Redisson), ACID transaction boundaries, idempotency gates, and real-time WebSockets. Passionate about test-driven development (TDD) and open-source architecture, delivering clean, maintainable code backed by <b>250+ automated JUnit 5 tests</b>.
+            BCA student and backend engineer specializing in high-concurrency systems using <b>Java 21</b>, <b>Spring Boot 3</b>, <b>PostgreSQL</b>, and <b>Redis</b>. Experienced in architecting distributed locks (Redisson), ACID transaction boundaries, idempotency gates, and real-time WebSockets. Passionate about test-driven development (TDD) and open-source architecture, delivering clean, maintainable code backed by <b>250+ unit tests in JUnit 5</b>.
         </p>
     </section>
 
@@ -282,7 +282,7 @@
                 <li>Built bidirectional real-time messaging using <b>Spring WebSocket (STOMP)</b> paired with REST delta synchronization (<span class="code-pill">?after={id}</span>) and PostgreSQL persistence so users can retrieve missed messages upon reconnecting.</li>
                 <li>Implemented a developer discovery and matching service that ranks candidate profiles dynamically by shared skill counts in descending order and tracks mutual interest using unique composite constraints on swipe records.</li>
                 <li>Hardened authentication using stateless <b>Spring Security</b> filters, short-lived <b>JWT</b> access tokens, sliding-window IP rate limiting, and <b>Refresh Token Rotation (RTR)</b> with token family tracking to detect and revoke compromised sessions.</li>
-                <li>Containerized the backend using a multi-stage <b>Dockerfile</b> and configured environment variables and health-check endpoints (<span class="code-pill">/api/health</span>) for cloud deployment integrating with a Next.js frontend.</li>
+                <li>Containerized the backend using a multi-stage <b>Dockerfile</b> and configured environment variables and health-check endpoints (<span class="code-pill">/api/health</span>) for zero-downtime cloud deployment on Render.</li>
             </ul>
         </div>
 
@@ -298,9 +298,9 @@
             </div>
             <ul class="bullets">
                 <li>Engineered an enterprise bounty marketplace with atomic proposal acceptance using <b>pessimistic row-level locking</b> (<span class="code-pill">SELECT ... FOR UPDATE</span>), serializing competing bids with zero lost updates.</li>
-                <li>Designed a <b>multi-stage deliverable verification</b> state machine with sequential order guards, IDOR client protection, and auto-completion algorithmic reputation triggers (<span class="code-pill">+20 pts</span>).</li>
+                <li>Designed a <b>multi-stage deliverable verification</b> state machine with sequential order guards, IDOR client protection, and automated reputation triggers (<span class="code-pill">+20 pts</span>).</li>
                 <li>Hardened data integrity against <b>double-submission race conditions</b> using <b>pessimistic write locks</b> on user rows and case-insensitive active-bounty uniqueness guards.</li>
-                <li>Built a <b>250+ automated test suite</b> in <b>JUnit 5</b>, including multithreaded concurrency tests (<span class="code-pill">CountDownLatch</span> / <span class="code-pill">ExecutorService</span>) and adversarial penetration suites verifying zero bypass under load.</li>
+                <li>Wrote <b>250+ unit tests</b> in <b>JUnit 5</b>, including multithreaded concurrency tests (<span class="code-pill">CountDownLatch</span> / <span class="code-pill">ExecutorService</span>) and adversarial penetration suites verifying zero bypass under load.</li>
             </ul>
         </div>
 
@@ -317,7 +317,7 @@
             <ul class="bullets">
                 <li>Architected distributed seat hold allocation using <b>Redisson MultiLock</b> across Redis (<span class="code-pill">&lt;1ms</span>) with deterministic seat-ID sorting to eliminate deadlocks under high-concurrency arena ticket spikes.</li>
                 <li>Built a <b>Redis SETNX idempotency gate</b> (<span class="code-pill">IN_PROGRESS</span> 120s / <span class="code-pill">COMPLETED</span> 24h) and decoupled payment execution outside DB boundaries, preventing HikariCP pool exhaustion with atomic PostgreSQL commits.</li>
-                <li>Engineered a <b>dual-tier inventory reclamation</b> pipeline (Redis keyspace pub/sub + scheduled PostgreSQL sweeper) to auto-reclaim expired 10m holds; verified zero overselling with <b>70 automated JUnit 5 tests</b>.</li>
+                <li>Engineered a <b>dual-tier inventory reclamation</b> pipeline (Redis keyspace pub/sub + scheduled PostgreSQL sweeper) to auto-reclaim expired 10-minute holds; verified zero overselling with <b>70 automated JUnit 5 tests</b>.</li>
             </ul>
         </div>
     </section>
@@ -343,9 +343,9 @@
         <h2 class="section-title">Leadership &amp; Achievements</h2>
         <ul class="achievements-list">
             <li><b>Secretary &mdash; TechMantra Coding Club:</b> Promoted from Core Member to Secretary within 10 months; organized 5+ hands-on coding bootcamps and technical workshops for 120+ student developers.</li>
-            <li><b>Startup Innovation Recognition:</b> Awarded Certificate of Recognition from <b>UCOST &amp; SGRR University IIC</b> for pitching the startup concept <i>College Clash</i> in university innovation competitions.</li>
-            <li><b>Hackathons &amp; Competitions:</b> Engineered and deployed DevTinder backend in 72 hours during <b>Devlynix Buildathon 2.0</b>; awarded Certificates of Participation in <b>Algothon'26 (Algoxilla)</b> and <b>Smart India Hackathon (SIH'26 Internal Round)</b>.</li>
-            <li><b>Algorithmic Problem Solving:</b> Solved data structures and algorithms problems in Java on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointers, and linked lists.</li>
+            <li><b>Startup Innovation Recognition:</b> Awarded a Certificate of Recognition from <b>UCOST &amp; SGRR University IIC</b> for pitching the startup concept <i>College Clash</i> in university innovation competitions.</li>
+            <li><b>Hackathons &amp; Competitions:</b> Engineered and deployed the DevTinder backend in 72 hours during <b>Devlynix Buildathon 2.0</b>; awarded Certificates of Participation in <b>Algothon'26 (Algoxilla)</b> and the <b>Smart India Hackathon (SIH'26 Internal Round)</b>.</li>
+            <li><b>Algorithmic Problem Solving:</b> Solved data structures and algorithms problems in Java on LeetCode (<a href="https://leetcode.com/u/Nikunjgarg12/">@Nikunjgarg12</a>), focusing on arrays, strings, two-pointer techniques, and linked lists.</li>
         </ul>
     </section>
 

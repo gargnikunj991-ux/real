@@ -9,14 +9,15 @@
 > LeetCode: https://leetcode.com/u/Nikunjgarg12/
 
 ## Executive Summary
-Nikunj Garg is a results-driven Java Backend Developer engineering scalable backend architectures, high-concurrency systems, and real-time distributed services with Java 21, Spring Boot 3, PostgreSQL, and Redis. He specializes in eliminating data race conditions and inventory overselling via JPA/Hibernate pessimistic row locking, Redisson distributed MultiLocks, and ACID transactions, architecting low-latency REST APIs, and deploying bidirectional WebSockets (STOMP) with stateless JWT authentication pipelines. BCA student at Shri Guru Ram Rai University (SGRRU, Dehradun), and builder of production-grade systems including DevTinder, LibroSphere, and TicketWave.
+Nikunj Garg is a results-driven Java Backend Developer engineering scalable backend architectures, high-concurrency systems, and real-time distributed services with Java 21, Spring Boot 3, PostgreSQL, and Redis. He specializes in eliminating data race conditions and inventory overselling via JPA/Hibernate pessimistic row locking, Redisson distributed MultiLocks, and ACID transactions, architecting low-latency REST APIs, and deploying bidirectional WebSockets (STOMP) with stateless JWT authentication pipelines. He is a BCA student at Shri Guru Ram Rai University (SGRRU, Dehradun) and the builder of production-grade systems including TicketWave, OpenBounty, DevTinder, and LibroSphere.
 
 ## Primary Technical Specializations
-- **Languages & Backend**: Java 21 (OOP, Multithreading), Spring Boot 3.x, Spring Data JPA, Hibernate ORM, REST APIs, WebSockets (STOMP), Distributed Locks (Redisson)
-- **Databases & Caching**: PostgreSQL, Redis 7 (TTL Leases, Keyspace Pub/Sub), ACID Transactions, Pessimistic & Optimistic Locking, Composite B-Tree Indexing, Schema Design (3NF)
-- **Security & System Architecture**: Spring Security 6, Stateless JWT (Refresh Token Rotation), BCrypt Hashing, Role-Based Access Control (RBAC), Idempotency Gates, Clean Architecture
-- **Testing & Performance QA**: JUnit 5 (70-test automated suites), Multithreaded Concurrency Testing (CountDownLatch, ExecutorService), Failure-Mode Suites, Mockito, Integration Testing
-- **DevOps, Cloud & Infrastructure**: Docker, Docker Compose, Render Cloud, Git, GitHub, Maven, Postman, Micrometer, OpenAPI / Swagger 3.0
+- **Languages & Backend**: Java 21 (OOP), Spring Boot 3, Spring Data JPA, Hibernate ORM, RESTful APIs, WebSockets (STOMP)
+- **Databases & Caching**: PostgreSQL, Redis 7, Redisson, ACID Transactions, Row-Level Locking, Schema Design (3NF), SQL
+- **Security & Authentication**: Spring Security 6, Stateless JWT (Refresh Token Rotation), BCrypt Hashing, Role-Based Access Control (RBAC)
+- **Testing & Quality Assurance**: JUnit 5 (wrote 250+ unit tests across projects), Multithreaded Concurrency Testing (CountDownLatch), Mockito, Integration Testing
+- **DevOps & Developer Tools**: Docker, Docker Compose, Render, Git, GitHub, Maven, Postman, OpenAPI 3.0
+- **CS Core & Algorithms**: Data Structures & Algorithms, Java Problem Solving, LeetCode (@Nikunjgarg12)
 
 ## Major Projects
 
@@ -30,10 +31,10 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 - **Overview**: High-concurrency enterprise bounty marketplace and milestone escrow backend engineered to eliminate race conditions, double-submissions, and milestone bypass under heavy contributor traffic.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, Spring Data JPA, Spring Security 6, JUnit 5.
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/OpenBounty.git
-- **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) serializing competing bids with zero lost updates; multi-stage deliverable verification state machine with sequential order guards, IDOR client protection, and algorithmic reputation triggers (`+20 pts`); hardened data integrity against double-submission race conditions using pessimistic write locks on user rows and case-insensitive active-bounty uniqueness constraints; comprehensive 250+ automated JUnit 5 test suite with multithreaded concurrency stress tests (`CountDownLatch` / `ExecutorService`) and adversarial penetration suites.
+- **Key Capabilities**: Database row-level pessimistic write locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)` / `SELECT ... FOR UPDATE`) serializing competing bids with zero lost updates; multi-stage deliverable verification state machine with sequential order guards, IDOR client protection, and algorithmic reputation triggers (`+20 pts`); hardened data integrity against double-submission race conditions using pessimistic write locks on user rows and case-insensitive active-bounty uniqueness constraints; a comprehensive automated suite of 250+ unit tests in JUnit 5 with multithreaded concurrency stress tests (`CountDownLatch` / `ExecutorService`) and adversarial penetration suites.
 
 ### 3. DevTinder — Developer Teammate Matching Platform (Backend Flagship)
-- **Overview**: Teammate matchmaking platform originally prototyped during Devlynix Buildathon 2.0 with frontend teammates, then independently evolved and elevated into a production-grade backend service powering a Next.js client.
+- **Overview**: Developer matchmaking platform originally prototyped during Devlynix Buildathon 2.0, independently evolved and elevated into a production-grade backend service.
 - **Tech Stack**: Java 21, Spring Boot 3, PostgreSQL, WebSockets (STOMP), Spring Security 6 (JWT & Refresh Token Rotation), Docker, Render Cloud.
 - **GitHub Repository**: https://github.com/gargnikunj991-ux/Devlynix-Buildathon-2.0.git
 - **Key Capabilities**: Bidirectional STOMP WebSocket broker with delta query synchronization (`?after={id}`) and unread tracking over normalized schemas; candidate discovery service ranking profiles dynamically by shared skill counts and mutual swipe constraints; stateless Spring Security filters with Refresh Token Rotation, sliding-window IP rate limiting (`RateLimitFilter`), incoming match radar, and queue rewind; multi-stage Docker containerization with `/api/health` monitoring for cloud deployment.
@@ -51,9 +52,9 @@ Nikunj Garg is a results-driven Java Backend Developer engineering scalable back
 - **Core Coursework**: Object-Oriented Programming (Java), Data Structures & Algorithms, Relational DBMS (SQL/PostgreSQL), Operating Systems, Software Engineering, Clean Architecture.
 
 ## Certifications & Achievements
-- **Smart India Hackathon (SIH'26 Internal Round)**: Awarded Certificate of Participation, collaborating in a collegiate software team to architect solutions for national-level problem statements.
-- **Startup Innovation Recognition**: Awarded by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with Uttarakhand State Council for Science and Technology (UCOST) for pitching the startup concept "College Clash".
-- **Algothon'26 Hackathon**: Awarded Certificate of Participation in Algothon'26 organized by Algoxilla for prototyping innovative software solutions under competitive hackathon timelines.
-- **Devlynix Buildathon 2.0**: Engineered and deployed DevTinder backend in 72 hours under competitive hackathon constraints.
+- **Smart India Hackathon (SIH'26 Internal Round)**: Awarded a Certificate of Participation in the Smart India Hackathon 2026 (Internal Round), collaborating within a collegiate software development team to architect solutions for national-level problem statements.
+- **Startup Innovation Recognition**: Awarded a Certificate of Recognition by the Innovation & Incubation Centre (IIC), SGRRU in collaboration with the Uttarakhand State Council for Science and Technology (UCOST) for pitching the multiplayer gaming startup concept "College Clash".
+- **Algothon'26 Hackathon**: Awarded a Certificate of Participation in Algothon'26, organized by Algoxilla, for prototyping innovative software solutions under competitive hackathon timelines.
+- **Devlynix Buildathon 2.0**: Engineered and deployed the DevTinder backend in 72 hours under competitive hackathon constraints.
 - **Secretary — TechMantra Coding Club**: Promoted from Core Member to Secretary within 10 months; organized 5+ hands-on coding bootcamps and technical workshops for 120+ student developers.
-- **Algorithmic Problem Solving**: Active Java problem solver on LeetCode (@Nikunjgarg12) focusing on arrays, strings, two pointers, sliding window, and linked lists.
+- **Algorithmic Problem Solving**: Active Java problem solver on LeetCode (@Nikunjgarg12), focusing on arrays, strings, two-pointer techniques, sliding windows, and linked lists.
